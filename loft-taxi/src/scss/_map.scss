@@ -1,6 +1,8 @@
 .map {
   background: gray;
   height: calc(100vh - 75px);
+  background: url("../assets/map.jpg") no-repeat;
+  background-size: cover;
   &__content {
     max-width: 1200px;
     padding: 100px;
