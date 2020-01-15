@@ -11,10 +11,14 @@
   font-weight: 500;
   outline: none;
   align-items: center;
+  text-decoration: none !important;
    a {
      display: block;
      color: $black;
-     text-decoration: none;
+     text-decoration: none !important;
      outline: none;
+     &:hover {
+       text-decoration: none !important;
+     }
    }
 }

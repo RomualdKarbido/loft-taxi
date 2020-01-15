@@ -53,11 +53,9 @@ body {
 }
 a, .link {
 	color: $blue;
-	cursor: pointer !important;
+	cursor: pointer;
 	transition: all 0.3s;
-	&:hover {
-		border-bottom: 1px solid;
-	}
+
 }
 
 

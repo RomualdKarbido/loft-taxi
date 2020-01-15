@@ -45,6 +45,12 @@
 
   &__text {
     color: $gray;
+    .link {
+      border-bottom: 1px transparent solid;
+      &:hover {
+        border-bottom: 1px solid $blue;
+      }
+    }
   }
 
   &__form {

@@ -3,8 +3,9 @@ import Header from "./Header";
 
 
 const Profile = () => <div className={'profile__bg'}>
-
     <Header/>
+    тут модалка профиля
+
 </div>
 
 
