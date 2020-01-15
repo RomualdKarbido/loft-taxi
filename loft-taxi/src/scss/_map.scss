@@ -1,0 +1,10 @@
+.map {
+  background: gray;
+  height: calc(100vh - 75px);
+  &__content {
+    max-width: 1200px;
+    padding: 100px;
+    color: white;
+    margin: 0 auto;
+  }
+}

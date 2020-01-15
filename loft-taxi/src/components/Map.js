@@ -6,7 +6,11 @@ function Map() {
     return (
         <div>
            <Header/>
-           Карта
+           <div className={'map'}>
+               <div className={'map__content'}>
+                   <h1>Тут карта</h1>
+               </div>
+           </div>
         </div>
 
     );
