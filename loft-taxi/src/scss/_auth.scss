@@ -1,0 +1,79 @@
+.auth {
+  display: flex;
+  width: 1000px;
+  box-sizing: border-box;
+
+  &__wrap {
+    background: url("../assets/Loft-taxi.jpg") no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 65px 55px;
+  }
+
+  &__logo {
+    width: 160px;
+    height: 50px;
+    background: url("../assets/logo.png") no-repeat;
+    background-size: contain;
+  }
+
+  &__right {
+    background: white;
+    flex: 1;
+    padding: 65px 55px;
+    box-shadow: 0px 0px 4px 0px #00000014;
+    border-radius: 5px;
+  }
+
+  &__title {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+
+  &__text {
+    color: $gray;
+  }
+
+  &__form {
+    margin-bottom: $sp*2;
+    margin-top: $sp*2;
+  }
+
+  &__line {
+    display: flex;
+    margin-bottom: $sp*2;
+  }
+
+  &__halfline {
+    flex: 1;
+
+    &:first-child {
+      margin-right: $sp/2;
+    }
+
+    &:last-child {
+      margin-left: $sp/2;
+    }
+  }
+
+  &__submit-wrap {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+}
+
+

@@ -1,0 +1,20 @@
+.btn {
+  font-size: 16px;
+  background: $ell;
+  color: $black;
+  border: none;
+  display: flex;
+  height: 52px;
+  padding: 0 30px;
+  border-radius: 5px;
+  font-size: 21px;
+  font-weight: 500;
+  outline: none;
+  align-items: center;
+   a {
+     display: block;
+     color: $black;
+     text-decoration: none;
+     outline: none;
+   }
+}
