@@ -7,9 +7,9 @@ function Header() {
            <div className={'header__wrap'}>
                <div className={'header__logo'}>Logo</div>
                <div className={'header__right'}>
-                   <Link to={'/profil'}>Профиль</Link>
-                   <Link to={'/map'}>Карта</Link>
-                   <Link to={'/'}>Выйти</Link>
+                   <Link className={'header__right-item'} to={'/profile'}>Профиль</Link>
+                   <Link className={'header__right-item'} to={'/map'}>Карта</Link>
+                   <Link className={'header__right-item'} to={'/'}>Выйти</Link>
                </div>
            </div>
         </div>
