@@ -3,9 +3,9 @@ import './App.scss';
 
 import Auth from "./components/Auth";
 import Map from "./components/Map";
-
-import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import Profile from "./components/profile";
+
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 const App = () => <div>
     <Router>

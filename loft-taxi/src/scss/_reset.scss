@@ -51,8 +51,13 @@ body {
 	font: 16px/18px Arial, sans-serif;
 	color: $black;
 }
-a {
+a, .link {
 	color: $blue;
+	cursor: pointer !important;
+	transition: all 0.3s;
+	&:hover {
+		border-bottom: 1px solid;
+	}
 }
 
 
