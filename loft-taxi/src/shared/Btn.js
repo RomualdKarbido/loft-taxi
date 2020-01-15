@@ -1,18 +1,21 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {withRouter} from 'react-router-dom';
 
 
 const Btn = (props) => {
     // console.log(props);
     const bntClick = (e) => {
         if (props.st) {
-            console.log(props.st) // передаем в консоль данные из форм
+            console.log(props.st); // передаем в консоль данные из форм
+            props.history.push(props.link); // переход по ссылке
         }
     }
     return (
         <div className={'btn'} onClick={bntClick}>
-            <Link to={props.link}>{props.bnttext}</Link>
+            <div>{props.bnttext}</div>
         </div>
     );
 }
-export default Btn;
+// export default Btn;
+
+export default withRouter(Btn);

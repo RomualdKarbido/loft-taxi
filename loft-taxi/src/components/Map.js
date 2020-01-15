@@ -8,7 +8,6 @@ function Map() {
             <Header/>
             <div className={'map'}>
                 <div className={'map__content'}>
-
                 </div>
             </div>
         </div>
