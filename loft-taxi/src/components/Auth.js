@@ -20,8 +20,18 @@ class Auth extends React.Component {
 
     changeModal = () => {
         this.state.loginwin ?
-            this.setState({loginwin: false, title: 'Вход', logined: 'Зарегистрируйтесь', loginedtext: 'Новый пользователь? '})
-            : this.setState({loginwin: true, title: 'Регистрация', logined: 'Вход', loginedtext: 'Уже зарегистрирован? ',});
+            this.setState({
+                loginwin: false,
+                title: 'Вход',
+                logined: 'Зарегистрируйтесь',
+                loginedtext: 'Новый пользователь? '
+            })
+            : this.setState({
+                loginwin: true,
+                title: 'Регистрация',
+                logined: 'Вход',
+                loginedtext: 'Уже зарегистрирован? ',
+            });
     }
 
     render() {
@@ -50,47 +60,101 @@ class Auth extends React.Component {
 
 // два состояния окна логина
 
-const AuthBlock = () => {
-    return <div>
-        <div className={'auth__form'}>
-            <form noValidate autoComplete="off">
-                <div className={'auth__line'}>
-                    <TextField id="standard-basic" label="Адрес электронной почты"/>
-                </div>
-                <div className={'auth__line'}>
-                    <div className={'auth__halfline'}>
-                        <TextField id="standard-basic" label="Имя"/>
+class AuthBlock extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
+
+    render() {
+        const {mail, firstname, lastname, pass} = this.state;
+        const handleChange = event => {
+            this.setState({[event.target.name]: event.target.value});
+        };
+        return <div>
+            <div className={'auth__form'}>
+                <form noValidate autoComplete="off">
+                    <div className={'auth__line'}>
+                        <TextField id="standard-basic"
+                                   label="Адрес электронной почты"
+                                   name={'mail'}
+                                   onChange={handleChange}
+                        />
                     </div>
-                    <div className={'auth__halfline'}>
-                        <TextField id="standard-basic" label="Фамилия"/>
+                    <div className={'auth__line'}>
+                        <div className={'auth__halfline'}>
+                            <TextField
+                                id="standard-basic"
+                                label="Имя"
+                                name="firstname"
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className={'auth__halfline'}>
+                            <TextField id="standard-basic"
+                                       label="Фамилия"
+                                       name={'lastname'}
+                                       onChange={handleChange}
+                            />
+                        </div>
                     </div>
-                </div>
-                <div className={'auth__line'}>
-                    <TextField id="password-basic" label="Пароль"/>
-                </div>
-            </form>
+                    <div className={'auth__line'}>
+                        <TextField id="standard"
+                                   label="Пароль"
+                                   type="password"
+                                   name={'pass'}
+                                   onChange={handleChange}
+                        />
+                    </div>
+                </form>
+            </div>
+            <div className={'auth__submit-wrap'}>
+                <Btn bnttext={btntext} link={linkBtn} st={this.state}/>
+            </div>
         </div>
-        <div className={'auth__submit-wrap'}>
-            <Btn bnttext={btntext} link={linkBtn}/>
-        </div>
-    </div>
+    }
+
 }
-const LoginBlock = () => {
-    return <div>
-        <div className={'auth__form'}>
-            <form noValidate autoComplete="off">
-                <div className={'auth__line'}>
-                    <TextField id="standard-basic" label="Имя"/>
-                </div>
-                <div className={'auth__line'}>
-                    <TextField id="password-basic" label="Пароль"/>
-                </div>
-            </form>
+
+class LoginBlock extends React.Component {
+    constructor() {
+        super();
+        this.state = {}
+    }
+
+    render() {
+        const {name, pass} = this.state;
+        const handleChange = event => {
+            this.setState({[event.target.name]: event.target.value});
+        }
+
+        return <div>
+            <div className={'auth__form'}>
+                <form noValidate autoComplete="off">
+                    <div className={'auth__line'}>
+                        <TextField id="standard-basic"
+                                   label="Имя"
+                                   name={'name'}
+                                   onChange={handleChange}
+                        />
+                    </div>
+                    <div className={'auth__line'}>
+                        <TextField id="password-basic"
+                                   label="Пароль"
+                                   label="Имя"
+                                   name={'pass'}
+                                   onChange={handleChange}
+                        />
+                    </div>
+                </form>
+            </div>
+            <div className={'auth__submit-wrap'}>
+                <Btn bnttext="Войти" link={linkBtn} st={this.state}/>
+            </div>
         </div>
-        <div className={'auth__submit-wrap'}>
-            <Btn bnttext="Войти" link={linkBtn}/>
-        </div>
-    </div>
+
+    }
+
 }
 
 export default Auth;
