@@ -3,7 +3,7 @@ import './App.scss';
 
 import Auth from "./components/Auth";
 import Map from "./components/Map";
-import Profile from "./components/profile";
+import Profile from "./components/Profile";
 
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 

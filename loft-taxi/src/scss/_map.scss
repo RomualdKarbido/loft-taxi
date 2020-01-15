@@ -9,4 +9,25 @@
     color: white;
     margin: 0 auto;
   }
+  &__box {
+    width: 490px;
+    background: white;
+    padding: 40px;
+    box-shadow: 0px 0px 4px 0px #00000014;
+    box-sizing: border-box;
+  }
+  &__line {
+    margin-bottom: $sp*2;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    .btn {
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      }
+    }
+  }
 }
