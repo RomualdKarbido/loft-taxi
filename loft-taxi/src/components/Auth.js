@@ -143,6 +143,7 @@ class LoginBlock extends React.Component {
                                    label="Пароль"
                                    label="Имя"
                                    name={'pass'}
+                                   type={'password'}
                                    onChange={handleChange}
                         />
                     </div>
