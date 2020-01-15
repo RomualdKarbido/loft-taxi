@@ -12,6 +12,8 @@
   outline: none;
   align-items: center;
   text-decoration: none !important;
+  transition: all 0.3s;
+  cursor: pointer;
    a {
      display: block;
      color: $black;
@@ -21,4 +23,11 @@
        text-decoration: none !important;
      }
    }
+  &:hover {
+    background: black;
+    color: white;
+    a {
+      color: white;
+    }
+  }
 }
