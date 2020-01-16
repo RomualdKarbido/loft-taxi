@@ -3,7 +3,6 @@ import {withRouter} from 'react-router-dom';
 
 
 const Btn = (props) => {
-    // console.log(props);
     const bntClick = (e) => {
         if (props.st) {
             console.log(props.st); // передаем в консоль данные из форм
@@ -16,6 +15,6 @@ const Btn = (props) => {
         </div>
     );
 }
-// export default Btn;
+
 
 export default withRouter(Btn);

@@ -16,14 +16,27 @@
     margin: 0 auto;
   }
     &__right {
+      display: flex;
         &-item {
             text-decoration: none;
-            margin-left: 40px;
+            margin-left: $sp/3;
             color: $black;
             transition: 0.2s all;
+            display: flex;
+            height: 32px;
+            padding: 0 $sp;
+            align-items: center;
+            border-radius: 3px;
             &:hover {
-                color: $ell;
+                background: $ell;
             }
+          &.active {
+            background: #f2f2f2;
+            &:hover {
+              background: $ell;
+            }
+
+          }
         }
     }
   &__logo {
