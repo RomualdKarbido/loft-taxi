@@ -26,13 +26,13 @@ function Cart(props) {
         </div>
     } else {
         return <div className={'cart__wrap'}>
-            <div className={'cart__logo'}></div>
+
             <div className={'cart__form'}>
                 <div className={'cart__line'}>
                     <TextField
                         id="nameuser"
                         value="USER NAME"
-                        label="Номер карты"/>
+                        label="Имя владельца"/>
                 </div>
                 <div className={'cart__line'}>
                     <div className={'cart__line-short'}>
@@ -40,7 +40,7 @@ function Cart(props) {
                             id="cvc"
                             value={'123'}
                             type={'password'}
-                            label="Срок действия"/>
+                            label=" CVC"/>
                     </div>
                 </div>
 
