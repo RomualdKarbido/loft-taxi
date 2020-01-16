@@ -45,7 +45,7 @@ class Cart extends React.Component {
                     <div className={'cart__line'}>
                         <div className={'cart__line-short'}>
                             <TextField
-                                id="start"
+                                id="date"
                                 InputLabelProps={{
                                     shrink: true,
                                 }}
@@ -62,7 +62,7 @@ class Cart extends React.Component {
                 <div className={'cart__form'}>
                     <div className={'cart__line'}>
                         <TextField
-                            id="nameuser"
+                            id="user"
                             InputLabelProps={{
                                 shrink: true,
                             }}
