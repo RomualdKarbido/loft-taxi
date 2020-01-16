@@ -5,7 +5,7 @@ import TextField from "@material-ui/core/TextField";
 
 function Map() {
     return (
-        <div>
+        <React.Fragment>
             <div className={'map'}>
                 <div className={'map__content'}>
                     <div className={'map__box'}>
@@ -25,7 +25,7 @@ function Map() {
                     </div>
                 </div>
             </div>
-        </div>
+        </React.Fragment>
 
     );
 }

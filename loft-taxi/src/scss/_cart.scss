@@ -23,4 +23,25 @@
       max-width: 150px;
     }
   }
+  &__eye {
+    position: absolute;
+    top: 170px;
+    left: 195px;
+    cursor: pointer;
+    i {
+      font-size: 20px;
+      margin-right: $sp/2;
+    }
+  }
+  &__tool {
+    &-btn {
+      cursor: pointer;
+      position: absolute;
+      top: 146px;
+      left: 61px;
+      height: 16px;
+      width: 17px;
+      color: $gray;
+    }
+  }
 }

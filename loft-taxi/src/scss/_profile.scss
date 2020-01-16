@@ -80,4 +80,44 @@
       border-radius: 5px;
     }
   }
+  &__tool {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 195px;
+
+
+
+    &-box {
+      border: 1px solid #CDCDCD;
+      border-radius: 5px;
+      padding: 15px 30px;
+      font-size: 11px;
+      line-height: 1.2;
+      position: relative;
+      &:before {
+        content: '';
+        width: 15px;
+        background: white;
+        height: 15px;
+        border-left: 1px solid #CDCDCD;
+        border-top: 1px solid #CDCDCD;
+        position: absolute;
+        top: -9px;
+        right: calc(50% - 8px);
+        transform: rotate(45deg);
+      }
+    }
+    &-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin-bottom: 10px;
+      color: #CDCDCD;
+    }
+    &-text {
+      text-align: center;
+    }
+  }
 }

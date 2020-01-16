@@ -19,7 +19,7 @@ class AuthBlock extends React.Component {
         const handleChange = event => {
             this.setState({[event.target.name]: event.target.value});
         };
-        return <div>
+        return <React.Fragment>
             <div className={'auth__form'}>
                 <form noValidate autoComplete="off">
                     <div className={'auth__line'}>
@@ -60,7 +60,7 @@ class AuthBlock extends React.Component {
             <div className={'auth__submit-wrap'}>
                 <Btn bnttext={'Зарегистрироваться'} link={'/map'} st={this.state}/>
             </div>
-        </div>
+        </React.Fragment>
     }
 }
 
