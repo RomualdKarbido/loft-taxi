@@ -26,7 +26,6 @@ class Cart extends React.Component {
             this.setState({tooltip: true});
             this.props.tooltipedit(true);
         }
-        console.log(this.props);
     }
 
     render() {
@@ -37,7 +36,9 @@ class Cart extends React.Component {
                     <div className={'cart__line'}>
                         <TextField
                             id="numcart"
-                            defaultValue="1234 1234 1222 1223"
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
                             placeholder="1234 1234 1222 1223"
                             label="Номер карты"/>
                     </div>
@@ -45,7 +46,9 @@ class Cart extends React.Component {
                         <div className={'cart__line-short'}>
                             <TextField
                                 id="start"
-                                defaultValue={'00/00'}
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
                                 placeholder={'00/00'}
                                 label="Срок действия"/>
                         </div>
@@ -60,7 +63,9 @@ class Cart extends React.Component {
                     <div className={'cart__line'}>
                         <TextField
                             id="nameuser"
-                            defaultValue="USER NAME"
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
                             placeholder="USER NAME"
                             type={'text'}
                             label="Имя владельца"/>
@@ -71,13 +76,17 @@ class Cart extends React.Component {
                                 ?
                                 <TextField
                                     id="cvc"
-                                    defaultValue={'123'}
+                                    InputLabelProps={{
+                                        shrink: true,
+                                    }}
                                     placeholder={'123'}
                                     type={'text'}
                                     label=" CVC:"/>
                                 : <TextField
                                     id="cvc"
-                                    defaultValue={'123'}
+                                    InputLabelProps={{
+                                        shrink: true,
+                                    }}
                                     placeholder={'123'}
                                     type={'password'}
                                     label=" CVC:"/>
