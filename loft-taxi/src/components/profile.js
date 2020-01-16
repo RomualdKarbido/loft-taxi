@@ -1,5 +1,7 @@
 import React from 'react';
 import Btn from "../shared/Btn";
+import Cart from "./Cart";
+
 
 
 const Profile = () => <div className={'profile__bg'}>
@@ -11,10 +13,14 @@ const Profile = () => <div className={'profile__bg'}>
                     <div className={'profile__modal-text'}>Способ оплаты</div>
                     <div className={'profile__cartblock'}>
                         <div className={'profile__cart'}>
-                            <div className={'profile__cart-item'}></div>
+                            <div className={'profile__cart-item'}>
+                              <Cart side={'one'}  />
+                            </div>
                         </div>
                         <div className={'profile__cart'}>
-                            <div className={'profile__cart-item'}></div>
+                            <div className={'profile__cart-item'}>
+                                <Cart side={'two'}  />
+                            </div>
                         </div>
                     </div>
                     <div className={'profile__modal-btns'}>
