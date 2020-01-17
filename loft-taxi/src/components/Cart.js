@@ -1,14 +1,36 @@
 import React from 'react';
 import TextField from "@material-ui/core/TextField";
 
+import DateFnsUtils from '@date-io/date-fns';
+import {DatePicker, MuiPickersUtilsProvider,} from '@material-ui/pickers';
+
+
 class Cart extends React.Component {
     constructor(props) {
         super(props);
-            this.state = {
+        const dd = new Date();
+        this.state = {
             cvcVisible: false,
-            tooltip: false
+            tooltip: false,
+            selectedDate: dd,
+            amount: '',
+            password: '',
+            weight: '',
+            weightRange: '',
+            showPassword: false,
+            cvc: ''
         };
+
     }
+
+
+    handleDateChange = date => {
+        this.setState({selectedDate: date});
+    };
+
+    handleChange = event => {
+        this.setState({[event.target.name]: event.target.value});
+    };
 
     visibleCVC = () => {
         if (this.state.cvcVisible) {
@@ -44,13 +66,14 @@ class Cart extends React.Component {
                     </div>
                     <div className={'cart__line'}>
                         <div className={'cart__line-short'}>
-                            <TextField
-                                id="date"
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
-                                placeholder={'00/00'}
-                                label="Срок действия"/>
+                            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                                <DatePicker
+                                    format="MM/yy"
+                                    label="Срок действия"
+                                    value={this.state.selectedDate}
+                                    onChange={this.handleDateChange}
+                                />
+                            </MuiPickersUtilsProvider>
                         </div>
                     </div>
 
@@ -79,27 +102,34 @@ class Cart extends React.Component {
                                     InputLabelProps={{
                                         shrink: true,
                                     }}
+                                    name='cvc'
+                                    onChange={this.handleChange}
                                     placeholder={'123'}
                                     type={'text'}
                                     label=" CVC:"/>
                                 : <TextField
                                     id="cvc"
+                                    name='cvc'
                                     InputLabelProps={{
                                         shrink: true,
                                     }}
+                                    onChange={this.handleChange}
                                     placeholder={'123'}
                                     type={'password'}
                                     label=" CVC:"/>
                             }
-
-
                         </div>
-                        <div className={'cart__eye'} onClick={this.visibleCVC}>
-                            {this.state.cvcVisible
-                                ? <i className={'mdi mdi-eye-off-outline'}></i>
-                                : <i className={'mdi mdi-eye'}></i>
-                            }
-                        </div>
+                        {
+                            this.state.cvc.length > 0
+                                ? <div className={'cart__eye'} onClick={this.visibleCVC}>
+                                    {this.state.cvcVisible
+                                        ? <i className={'mdi mdi-eye-off-outline'}></i>
+                                        : <i className={'mdi mdi-eye'}></i>
+                                    }
+                                </div>
+                                : ''
+                        }
+
                         <div className='cart__tool-btn' onClick={this.tooltipedit}>
                             <i className='mdi mdi-help-rhombus-outline'></i>
                         </div>
@@ -109,7 +139,6 @@ class Cart extends React.Component {
             </div>
         }
     }
-
 }
 
 
