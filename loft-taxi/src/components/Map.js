@@ -16,9 +16,7 @@ function Map() {
                 <div className={'map__content'}>
                     <div className={'map__box'}>
                         <div className={'map__line'}>
-                            {/*<TextField*/}
-                            {/*    id="start"*/}
-                            {/*    label="Откуда"/>*/}
+                          
                             <InputLabel id="label">Откуда</InputLabel>
                             <Select labelId="label" id="select" value="20">
                                 <MenuItem value="10">Ten</MenuItem>

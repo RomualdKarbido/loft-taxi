@@ -11,9 +11,8 @@ function Header(state) {
                 <div className={'header__wrap'}>
                     <Link to={'/profile'} className={'header__logo'}></Link>
                     <div className={'header__right'}>
-                        <NavLink activeClassName="active" className={'header__right-item'}
-                                 to={'/profile'}>Профиль</NavLink>
                         <NavLink activeClassName="active" className={'header__right-item'} to={'/map'}>Карта</NavLink>
+                        <NavLink activeClassName="active" className={'header__right-item'} to={'/profile'}>Профиль</NavLink>
                         <NavLink exact={true} className={'header__right-item'} to={'/'}>Выйти</NavLink>
                     </div>
                 </div>
