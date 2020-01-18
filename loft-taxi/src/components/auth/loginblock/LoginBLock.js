@@ -1,6 +1,6 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
-import Btn from "../../shared/Btn";
+import Btn from "../../bnt/Btn";
 
 class LoginBlock extends React.Component {
     constructor(props) {

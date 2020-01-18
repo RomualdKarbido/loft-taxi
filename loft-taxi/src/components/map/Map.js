@@ -1,5 +1,5 @@
 import React from 'react';
-import Btn from "../shared/Btn";
+import Btn from "../bnt/Btn";
 import TextField from "@material-ui/core/TextField";
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';

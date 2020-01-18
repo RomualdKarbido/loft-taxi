@@ -1,7 +1,7 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
-import Btn from "../../shared/Btn";
-import Map from "../Map";
+import Btn from "../../bnt/Btn";
+import Map from "../../map/Map";
 
 class AuthBlock extends React.Component {
     constructor(props) {

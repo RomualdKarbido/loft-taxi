@@ -1,6 +1,6 @@
 import React from 'react';
-import AuthBlock from "./auth/AuthBlock";
-import LoginBlock from "./auth/LoginBLock";
+import AuthBlock from "./authblock/AuthBlock";
+import LoginBlock from "./loginblock/LoginBLock";
 
 
 class Auth extends React.Component {

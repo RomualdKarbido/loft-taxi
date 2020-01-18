@@ -1,26 +1,28 @@
 import React from 'react';
 import './App.scss';
-import Auth from "./components/Auth";
-import Header from "./components/Header";
+import Auth from "./components/auth/Auth";
+import Header from "./components/header/Header";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import Map from "./components/Map";
-import Profile from "./components/Profile";
+import Map from "./components/map/Map";
 
 
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            active: <Map/>,
-            activanename: 'map'
+            aternativerouter: {
+                href: 'auth',
+                comp: <Auth appp={this.upp2}/>
+            }
         };
+
     }
 
-    routR1 = (link, name) => {
-        this.setState({active: link, activanename: name});
+    routR1 = (com, link) => {
+        this.setState({aternativerouter: {href: link, comp: com}});
     }
     upp2 = () => {
-       this.routR1(<Map/>, 'map');
+        this.setState({aternativerouter: {href: 'map', comp: <Map/>}});
     }
 
 
@@ -28,24 +30,13 @@ class App extends React.Component {
         return (
             <React.Fragment>
 
-                { this.state.activanename !== 'auth'
-                    ? <div className='header'>
-                        <div className={'header__wrap'}>
-                            <div className={'header__logo'}></div>
-                            <div className={'header__right'}>
-                                <div  className={'header__right-item'} onClick={() => this.routR1(<Map/>, 'map')}>Карта</div>
-                                <div  className={'header__right-item'} onClick={() => this.routR1(<Profile/>, 'profile')}>Профиль</div>
-                                <div className={'header__right-item'} onClick={() => this.routR1(<Auth appp={this.upp2} />, 'auth')}>Выйти</div>
-                            </div>
-                        </div>
-                    </div>
+                {this.state.aternativerouter.href !== 'auth'
+                    ? <Header selectcomponen={(com, link) => this.routR1(com, link)}/>
                     : ''
                 }
 
 
-
-
-                {this.state.active}
+                {this.state.aternativerouter.comp}
 
 
                 {/*<Router>*/}
