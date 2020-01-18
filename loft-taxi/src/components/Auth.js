@@ -12,6 +12,11 @@ class Auth extends React.Component {
             logined: 'Вход',
             loginedtext: 'Уже зарегистрирован? ',
         };
+
+    }
+
+    upp = () => {
+        this.props.appp();
     }
 
     changeModal = () => {
@@ -30,6 +35,8 @@ class Auth extends React.Component {
             });
     }
 
+
+
     render() {
         return (
             <div className={'auth__wrap'}>
@@ -43,8 +50,8 @@ class Auth extends React.Component {
                             <span className={'link'} onClick={this.changeModal}>{this.state.logined}</span>
                         </div>
                         {this.state.loginwin
-                            ? <AuthBlock/>
-                            : <LoginBlock/>}
+                            ? <AuthBlock ap={this.upp} />
+                            : <LoginBlock ap={this.upp} />}
                     </div>
 
                 </div>

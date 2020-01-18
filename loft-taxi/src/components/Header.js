@@ -6,6 +6,9 @@ import Profile from "./Profile";
 
 function Header(state) {
     return (
+
+
+
         <div>
             <div className={'header'}>
                 <div className={'header__wrap'}>
@@ -21,6 +24,7 @@ function Header(state) {
                 ? <Map/>
                 : <Profile/>}
         </div>
+
     );
 }
 

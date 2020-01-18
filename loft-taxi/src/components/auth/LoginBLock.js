@@ -10,6 +10,11 @@ class LoginBlock extends React.Component {
             pass: ''
         }
     }
+    ap = () => {
+        this.props.ap();
+        console.log(this.state);
+    }
+
 
     render() {
         // const {name, pass} = this.state;
@@ -38,7 +43,8 @@ class LoginBlock extends React.Component {
                 </form>
             </div>
             <div className={'auth__submit-wrap'}>
-                <Btn bnttext="Войти" link={'/map'} st={this.state}/>
+                {/*<Btn bnttext="Войти" link={'/map'} st={this.state}/>*/}
+                <div className={'btn'} onClick={this.ap}>Зарегистрироваться</div>
             </div>
         </div>
 
