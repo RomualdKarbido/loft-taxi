@@ -23,7 +23,7 @@ class Header extends React.Component {
 
             <div className='header'>
                 <div className={'header__wrap'}>
-                    <div className={'header__logo'}></div>
+                    <div className='header__logo' onClick={()=> this.gotoLink(<Profile/>, 'profile')}></div>
                     <div className={'header__right'}>
                         <div className={'header__right-item'} onClick={() => this.gotoLink(<Map/>, 'map')}>Карта</div>
                         <div className={'header__right-item'}
