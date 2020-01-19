@@ -44,7 +44,7 @@ class LoginBlock extends React.Component {
             </div>
             <div className={'auth__submit-wrap'}>
                 {/*<Btn bnttext="Войти" link={'/map'} st={this.state}/>*/}
-                <div className={'btn'} onClick={this.ap}>Зарегистрироваться</div>
+                <div className={'btn'} onClick={this.ap}>Войти</div>
             </div>
         </div>
 
