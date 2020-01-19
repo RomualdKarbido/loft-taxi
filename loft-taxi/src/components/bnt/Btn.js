@@ -6,7 +6,7 @@ const Btn = (props) => {
     const bntClick = (e) => {
         if (props.st) {
             console.log(props.st); // передаем в консоль данные из форм
-            props.history.push(props.link); // переход по ссылке
+            // props.history.push(props.link); // переход по ссылке
         }
     }
     return (
@@ -17,4 +17,5 @@ const Btn = (props) => {
 }
 
 
-export default withRouter(Btn);
+// export default withRouter(Btn);
+export default Btn;

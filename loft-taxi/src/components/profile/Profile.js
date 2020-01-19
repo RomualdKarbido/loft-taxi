@@ -1,6 +1,6 @@
 import React from 'react';
-import Btn from "../shared/Btn";
-import Cart from "./Cart";
+import Btn from "../bnt/Btn";
+import Cart from "../cart/Cart";
 
 
 class Profile extends React.Component {

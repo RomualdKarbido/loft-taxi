@@ -1,5 +1,5 @@
 import React from 'react';
-import Btn from "../shared/Btn";
+import Btn from "../bnt/Btn";
 import TextField from "@material-ui/core/TextField";
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -16,7 +16,7 @@ function Map() {
                 <div className={'map__content'}>
                     <div className={'map__box'}>
                         <div className={'map__line'}>
-                          
+
                             <InputLabel id="label">Откуда</InputLabel>
                             <Select labelId="label" id="select" value="20">
                                 <MenuItem value="10">Ten</MenuItem>
