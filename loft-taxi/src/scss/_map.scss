@@ -1,11 +1,15 @@
 .map {
-  background: gray;
-  height: calc(100vh - 75px);
-  background: url("../assets/map.jpg") no-repeat;
-  background-size: cover;
+  //background: gray;
+  //height: calc(100vh - 75px);
+  ////background: url("../assets/map.jpg") no-repeat;
+  //background-size: cover;
+  position: absolute;
+  left: calc(50% - 600px);
+  top: 175px;
+  z-index: 10;
   &__content {
     max-width: 1200px;
-    padding: 100px;
+    //padding: 100px;
     color: white;
     margin: 0 auto;
   }
@@ -29,5 +33,12 @@
         width: 100%;
       }
     }
+  }
+  &__render {
+    position: absolute;
+    top: 75px;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
   }
 }

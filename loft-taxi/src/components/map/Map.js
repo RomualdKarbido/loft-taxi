@@ -1,5 +1,6 @@
 import React from 'react';
 import Btn from "../bnt/Btn";
+import Vectormap from "./Vectormap"
 import TextField from "@material-ui/core/TextField";
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -8,11 +9,15 @@ import InputLabel from '@material-ui/core/InputLabel';
 
 
 
-function Map() {
+class Map extends React.Component {
+    constructor(props) {
+        super(props);
+        this.exampleRef = React.createRef();
+    }
+    render () {
+        return <React.Fragment>
 
-    return (
-        <React.Fragment>
-            <div className={'map'}>
+            <div className='map'>
                 <div className={'map__content'}>
                     <div className={'map__box'}>
                         <div className={'map__line'}>
@@ -35,9 +40,13 @@ function Map() {
                     </div>
                 </div>
             </div>
+            <Vectormap ref={this.exampleRef} />
+
+
         </React.Fragment>
 
-    );
+
+    }
 }
 
 export default Map;

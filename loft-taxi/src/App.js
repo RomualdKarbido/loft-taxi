@@ -5,6 +5,8 @@ import Header from "./components/header/Header";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Map from "./components/map/Map";
 
+import PropTypes from "prop-types";
+
 
 class App extends React.Component {
     constructor(props) {
@@ -15,7 +17,10 @@ class App extends React.Component {
                 comp: <Auth appp={this.upp2}/>
             }
         };
-
+        this.state.propTypes = {
+            href: PropTypes.string,
+            comp: PropTypes.any
+        };
     }
 
     routR1 = (com, link) => {
