@@ -6,56 +6,94 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Map from "./components/map/Map";
 
 import PropTypes from "prop-types";
+import {Context} from "./context";
 
 
 class App extends React.Component {
+    static propTypes = {
+        aternativerouter: PropTypes.shape({
+            href: PropTypes.string,
+            comp: PropTypes.any
+        }),
+
+    };
+
     constructor(props) {
         super(props);
         this.state = {
+
+            userInfo: {
+                isLoggedIn: false,
+            },
             aternativerouter: {
                 href: 'auth',
-                comp: <Auth appp={this.upp2}/>
+                comp: <Auth/>
             }
         };
-        this.state.propTypes = {
-            href: PropTypes.string,
-            comp: PropTypes.any
-        };
+        this.fn = {
+            logOut: this.logOut,
+            routR1: this.routR1,
+            logIn: this.logIn
+
+        }
     }
 
-    routR1 = (com, link) => {
-        this.setState({aternativerouter: {href: link, comp: com}});
-    }
-    upp2 = () => {
-        this.setState({aternativerouter: {href: 'map', comp: <Map/>}});
+    logIn = (email, password) => {
+        console.log(email, password);
+        if (email.length > 2 && password.length > 2) {
+            this.setState({userInfo: {isLoggedIn: true}});
+            this.setState({aternativerouter: {href: 'map', comp: <Map/>}});
+        } else {
+            this.setState({userInfo: {isLoggedIn: false}});
+        }
     }
 
+
+    logOut = () => {
+        console.log('выход');
+        this.setState({userInfo: {isLoggedIn: false}});
+        this.setState({aternativerouter: {href: 'auth', comp: <Auth/>}});
+    }
+
+    routR1 = (com, link) => { // рендер содержимого приложения
+              if (this.state.userInfo.isLoggedIn) {
+            this.setState({aternativerouter: {href: link, comp: com}});
+        } else {
+            this.setState({aternativerouter: {href: 'auth', comp: <Auth/>}});
+        }
+    };
 
     render() {
         return (
             <React.Fragment>
+                <Context.Provider value={this.fn}>
 
-                {this.state.aternativerouter.href !== 'auth'
-                    ? <Header selectcomponen={(com, link) => this.routR1(com, link)}/>
-                    : ''
-                }
+                    {this.state.aternativerouter.href !== 'auth'
+                        ? <Header/>
+                        : null
+                    }
 
+                    {this.state.aternativerouter.comp}
 
-                {this.state.aternativerouter.comp}
-
-
-                {/*<Router>*/}
-                {/*    <Switch>*/}
-                {/*        <Route path="/map" component={Header}/>*/}
-                {/*        <Route path="/profile" component={Header}/>*/}
-                {/*        <Route path="/" component={Auth}/>*/}
-                {/*    </Switch>*/}
-                {/*</Router>*/}
-
-
+                </Context.Provider>
             </React.Fragment>
         )
     }
 }
 
 export default App;
+
+{/*<Router>*/
+}
+{/*    <Switch>*/
+}
+{/*        <Route path="/map" component={Header}/>*/
+}
+{/*        <Route path="/profile" component={Header}/>*/
+}
+{/*        <Route path="/" component={Auth}/>*/
+}
+{/*    </Switch>*/
+}
+{/*</Router>*/
+}

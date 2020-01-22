@@ -1,11 +1,22 @@
 import React from 'react';
 import TextField from "@material-ui/core/TextField";
-
 import DateFnsUtils from '@date-io/date-fns';
 import {DatePicker, MuiPickersUtilsProvider,} from '@material-ui/pickers';
+import PropTypes from "prop-types";
 
 
 class Cart extends React.Component {
+    static propTypes = {
+        cvcVisible: PropTypes.bool,
+        tooltip: PropTypes.bool,
+        selectedDate: PropTypes.any,
+        amount: PropTypes.string,
+        password: PropTypes.string,
+        weight: PropTypes.string,
+        weightRange: PropTypes.string,
+        showPassword: PropTypes.bool,
+        cvc: PropTypes.string
+    }
     constructor(props) {
         super(props);
         const dd = new Date();

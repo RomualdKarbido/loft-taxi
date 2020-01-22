@@ -1,9 +1,15 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
-import Btn from "../../bnt/Btn";
-import Map from "../../map/Map";
+import PropTypes from "prop-types";
 
 class AuthBlock extends React.Component {
+    static propTypes = {
+        email: PropTypes.string,
+        firstname: PropTypes.string,
+        lastname: PropTypes.string,
+        pass: PropTypes.string
+    }
+
     constructor(props) {
         super(props);
         this.state = {
@@ -14,13 +20,13 @@ class AuthBlock extends React.Component {
         }
     }
 
-    ap = () => {
-       this.props.ap();
-       console.log(this.state);
+    goLoginmodal = () => {
+        this.props.goLoginModal();
+        console.log(this.state);
     }
 
     render() {
-        // const {email, firstname, lastname, pass} = this.state;
+   
 
         const handleChange = event => {
             this.setState({[event.target.name]: event.target.value});
@@ -64,9 +70,7 @@ class AuthBlock extends React.Component {
                 </form>
             </div>
             <div className={'auth__submit-wrap'}>
-                {/*<Btn bnttext={'Зарегистрироваться'} link={'/map'} st={this.state}/>*/}
-
-                <div className={'btn'} onClick={this.ap}>Зарегистрироваться</div>
+                <div className={'btn'} onClick={this.goLoginmodal}>Зарегистрироваться</div>
             </div>
         </React.Fragment>
     }

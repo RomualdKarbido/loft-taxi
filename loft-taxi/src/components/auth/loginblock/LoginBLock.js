@@ -1,55 +1,43 @@
-import React from "react";
+import React, {useContext, useState} from "react";
 import TextField from "@material-ui/core/TextField";
-import Btn from "../../bnt/Btn";
+import PropTypes from "prop-types";
 
-class LoginBlock extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: '',
-            pass: ''
-        }
-    }
-    ap = () => {
-        this.props.ap();
-        console.log(this.state);
-    }
+import {Context} from "../../../context";
 
 
-    render() {
-        // const {name, pass} = this.state;
-        const handleChange = event => {
-            this.setState({[event.target.name]: event.target.value});
-        }
+const LoginBlock = (props) => {
 
-        return <div>
-            <div className={'auth__form'}>
-                <form noValidate autoComplete="off">
-                    <div className={'auth__line'}>
-                        <TextField id="standard-basicc1"
-                                   label="Имя"
-                                   name={'name'}
-                                   onChange={handleChange}
-                        />
-                    </div>
-                    <div className={'auth__line'}>
-                        <TextField id="password-basicc2"
-                                   label="Пароль"
-                                   name={'pass'}
-                                   type={'password'}
-                                   onChange={handleChange}
-                        />
-                    </div>
-                </form>
-            </div>
-            <div className={'auth__submit-wrap'}>
-                {/*<Btn bnttext="Войти" link={'/map'} st={this.state}/>*/}
-                <div className={'btn'} onClick={this.ap}>Войти</div>
-            </div>
+    const [name, setNamne] = useState('');
+    const [pass, setPass] = useState('');
+    const {logIn} = useContext(Context);
+
+
+    return <div>
+        <div className={'auth__form'}>
+            <form noValidate autoComplete="off">
+                <div className={'auth__line'}>
+                    <TextField id="standard-basicc1"
+                               label="Имя"
+                               name={'name'}
+                               onChange={event => setNamne(event.target.value)}
+                    />
+                </div>
+                <div className={'auth__line'}>
+                    <TextField id="password-basicc2"
+                               label="Пароль"
+                               name={'pass'}
+                               type={'password'}
+                               onChange={event => setPass(event.target.value)}
+                    />
+                </div>
+            </form>
         </div>
-
-    }
+        <div className={'auth__submit-wrap'}>
+            <div className={'btn'} onClick={() => logIn(name, pass)}>Войти</div>
+        </div>
+    </div>
 
 }
+
 
 export default LoginBlock;
