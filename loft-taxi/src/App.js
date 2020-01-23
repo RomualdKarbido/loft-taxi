@@ -15,13 +15,11 @@ class App extends React.Component {
             href: PropTypes.string,
             comp: PropTypes.any
         }),
-
     };
 
     constructor(props) {
         super(props);
         this.state = {
-
             userInfo: {
                 isLoggedIn: false,
             },
@@ -33,19 +31,15 @@ class App extends React.Component {
         this.fn = {
             logOut: this.logOut,
             routR1: this.routR1,
-            logIn: this.logIn
-
+            logIn: this.logIn,
         }
     }
 
+
+
     logIn = (email, password) => {
         console.log(email, password);
-        if (email.length > 2 && password.length > 2) {
-            this.setState({userInfo: {isLoggedIn: true}});
-            this.setState({aternativerouter: {href: 'map', comp: <Map/>}});
-        } else {
-            this.setState({userInfo: {isLoggedIn: false}});
-        }
+        this.setState({aternativerouter: {href: 'map', comp: <Map/>}});
     }
 
 

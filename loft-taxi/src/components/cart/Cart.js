@@ -6,17 +6,7 @@ import PropTypes from "prop-types";
 
 
 class Cart extends React.Component {
-    static propTypes = {
-        cvcVisible: PropTypes.bool,
-        tooltip: PropTypes.bool,
-        selectedDate: PropTypes.any,
-        amount: PropTypes.string,
-        password: PropTypes.string,
-        weight: PropTypes.string,
-        weightRange: PropTypes.string,
-        showPassword: PropTypes.bool,
-        cvc: PropTypes.string
-    }
+
     constructor(props) {
         super(props);
         const dd = new Date();
@@ -31,7 +21,6 @@ class Cart extends React.Component {
             showPassword: false,
             cvc: ''
         };
-
     }
 
 

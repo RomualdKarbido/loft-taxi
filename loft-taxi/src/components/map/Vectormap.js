@@ -4,8 +4,6 @@ import mapboxgl from 'mapbox-gl';
 
 class Vectormap extends React.Component {
 
-
-
     componentDidMount() {
         this.mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
         this.mapboxgl.accessToken = 'pk.eyJ1Ijoicm9tdWFsZGNhcmJpZG8iLCJhIjoiY2s1bnVrdGVqMDd3czNnczV5ZXNidmNtMCJ9.bLXOv4cC8uYB87kz2V5Llg';
@@ -25,10 +23,6 @@ class Vectormap extends React.Component {
     }
 
     render() {
-        const style = {
-
-        };
-
         return <div className='map__render' ref={el => this.mapContainer = el} />;
     }
 }
