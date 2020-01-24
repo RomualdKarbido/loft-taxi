@@ -50,21 +50,8 @@
       <recent name="$PROJECT_DIR$/src/components/auth" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.жопа.дичь">
-    <configuration name="дичь" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/components/auth/loginblock/loginblock.test.js" />
-      <test-names>
-        <test-name value="дичь" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="жопа" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Jest.x1.Проверка на валидность если симолов больше 3х">
+    <configuration name="x1" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
@@ -73,11 +60,11 @@
       <scope-kind value="SUITE" />
       <test-file value="$PROJECT_DIR$/src/components/auth/loginblock/loginblock.test.js" />
       <test-names>
-        <test-name value="жопа" />
+        <test-name value="x1" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="It should allow the $ to be deleted" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="x1.Проверка на валидность если симолов больше 3х" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
@@ -86,11 +73,12 @@
       <scope-kind value="TEST" />
       <test-file value="$PROJECT_DIR$/src/components/auth/loginblock/loginblock.test.js" />
       <test-names>
-        <test-name value="It should allow the $ to be deleted" />
+        <test-name value="x1" />
+        <test-name value="Проверка на валидность если симолов больше 3х" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="жопа.дичь" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="x1.Проверка на валидность если симолов меньше 3х" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
@@ -99,19 +87,37 @@
       <scope-kind value="TEST" />
       <test-file value="$PROJECT_DIR$/src/components/auth/loginblock/loginblock.test.js" />
       <test-names>
-        <test-name value="жопа" />
-        <test-name value="дичь" />
+        <test-name value="x1" />
+        <test-name value="Проверка на валидность если симолов меньше 3х" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="loginblock.test.js" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="x1.Проверка на валидность если симолов меньше 3х" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
-      <scope-kind value="TEST_FILE" />
+      <scope-kind value="TEST" />
       <test-file value="$PROJECT_DIR$/src/components/auth/loginblock/loginblock.test.js" />
+      <test-names>
+        <test-name value="x1" />
+        <test-name value="Проверка на валидность если симолов меньше 3х" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="x1.2" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/components/auth/loginblock/loginblock.test.js" />
+      <test-names>
+        <test-name value="x1" />
+        <test-name value="2" />
+      </test-names>
       <method v="2" />
     </configuration>
     <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
@@ -121,13 +127,23 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="test" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="test" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.жопа.дичь" />
-        <item itemvalue="Jest.жопа" />
-        <item itemvalue="Jest.дичь" />
-        <item itemvalue="Jest.loginblock.test.js" />
-        <item itemvalue="Jest.It should allow the $ to be deleted" />
+        <item itemvalue="Jest.x1.Проверка на валидность если симолов больше 3х" />
+        <item itemvalue="Jest.x1.Проверка на валидность если симолов меньше 3х" />
+        <item itemvalue="npm.test" />
+        <item itemvalue="Jest.x1" />
+        <item itemvalue="Jest.x1.2" />
       </list>
     </recent_temporary>
   </component>
@@ -160,7 +176,8 @@
       <workItem from="1579043260366" duration="58719000" />
       <workItem from="1579341941399" duration="13695000" />
       <workItem from="1579446828947" duration="1455000" />
-      <workItem from="1579535833700" duration="55818000" />
+      <workItem from="1579535833700" duration="70044000" />
+      <workItem from="1579880029012" duration="2183000" />
     </task>
     <servers />
   </component>
@@ -176,38 +193,110 @@
       <screen x="0" y="23" width="1920" height="1121" />
     </state>
     <state x="424" y="245" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1920.1121@0.23.1920.1121" timestamp="1579039692655" />
+    <state x="100" y="123" width="1720" height="921" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1579856113712">
+      <screen x="0" y="23" width="1920" height="1121" />
+    </state>
+    <state x="100" y="123" width="1720" height="921" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.23.1920.1121@0.23.1920.1121" timestamp="1579856113712" />
     <state x="672" y="393" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1579381152852">
       <screen x="0" y="23" width="1920" height="1121" />
     </state>
     <state x="672" y="393" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1920.1121@0.23.1920.1121" timestamp="1579381152852" />
-    <state width="1878" height="347" key="GridCell.Tab.0.bottom" timestamp="1579820780792">
+    <state width="1899" height="366" key="GridCell.Tab.0.bottom" timestamp="1579882170851">
       <screen x="0" y="23" width="1920" height="1121" />
     </state>
+    <state width="1878" height="308" key="GridCell.Tab.0.bottom/-342.-1417.2560.1417/0.23.1920.1121@0.23.1920.1121" timestamp="1579868557358" />
+    <state width="1899" height="360" key="GridCell.Tab.0.bottom/-359.-1417.2560.1361/2201.-1201.1920.1057/0.23.1920.1177@0.23.1920.1177" timestamp="1579880039460" />
     <state width="1899" height="333" key="GridCell.Tab.0.bottom/-359.-1417.2560.1417/2201.-1201.1920.1001/0.23.1920.1177@0.23.1920.1177" timestamp="1579279681789" />
-    <state width="1899" height="333" key="GridCell.Tab.0.bottom/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1579262278797" />
+    <state width="1878" height="383" key="GridCell.Tab.0.bottom/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1579872227204" />
     <state width="1899" height="298" key="GridCell.Tab.0.bottom/0.23.1920.1001@0.23.1920.1001" timestamp="1579109396635" />
-    <state width="1878" height="347" key="GridCell.Tab.0.bottom/0.23.1920.1121@0.23.1920.1121" timestamp="1579820780792" />
-    <state width="1878" height="347" key="GridCell.Tab.0.center" timestamp="1579820780792">
+    <state width="1899" height="366" key="GridCell.Tab.0.bottom/0.23.1920.1121@0.23.1920.1121" timestamp="1579882170851" />
+    <state width="1899" height="366" key="GridCell.Tab.0.center" timestamp="1579882170851">
       <screen x="0" y="23" width="1920" height="1121" />
     </state>
+    <state width="1878" height="308" key="GridCell.Tab.0.center/-342.-1417.2560.1417/0.23.1920.1121@0.23.1920.1121" timestamp="1579868557356" />
+    <state width="1899" height="360" key="GridCell.Tab.0.center/-359.-1417.2560.1361/2201.-1201.1920.1057/0.23.1920.1177@0.23.1920.1177" timestamp="1579880039457" />
     <state width="1899" height="333" key="GridCell.Tab.0.center/-359.-1417.2560.1417/2201.-1201.1920.1001/0.23.1920.1177@0.23.1920.1177" timestamp="1579279681788" />
-    <state width="1899" height="333" key="GridCell.Tab.0.center/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1579262278795" />
+    <state width="1878" height="383" key="GridCell.Tab.0.center/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1579872227202" />
     <state width="1899" height="298" key="GridCell.Tab.0.center/0.23.1920.1001@0.23.1920.1001" timestamp="1579109396634" />
-    <state width="1878" height="347" key="GridCell.Tab.0.center/0.23.1920.1121@0.23.1920.1121" timestamp="1579820780792" />
-    <state width="1878" height="347" key="GridCell.Tab.0.left" timestamp="1579820780791">
+    <state width="1899" height="366" key="GridCell.Tab.0.center/0.23.1920.1121@0.23.1920.1121" timestamp="1579882170851" />
+    <state width="1899" height="366" key="GridCell.Tab.0.left" timestamp="1579882170850">
       <screen x="0" y="23" width="1920" height="1121" />
     </state>
+    <state width="1878" height="308" key="GridCell.Tab.0.left/-342.-1417.2560.1417/0.23.1920.1121@0.23.1920.1121" timestamp="1579868557356" />
+    <state width="1899" height="360" key="GridCell.Tab.0.left/-359.-1417.2560.1361/2201.-1201.1920.1057/0.23.1920.1177@0.23.1920.1177" timestamp="1579880039456" />
     <state width="1899" height="333" key="GridCell.Tab.0.left/-359.-1417.2560.1417/2201.-1201.1920.1001/0.23.1920.1177@0.23.1920.1177" timestamp="1579279681787" />
-    <state width="1899" height="333" key="GridCell.Tab.0.left/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1579262278794" />
+    <state width="1878" height="383" key="GridCell.Tab.0.left/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1579872227201" />
     <state width="1899" height="298" key="GridCell.Tab.0.left/0.23.1920.1001@0.23.1920.1001" timestamp="1579109396633" />
-    <state width="1878" height="347" key="GridCell.Tab.0.left/0.23.1920.1121@0.23.1920.1121" timestamp="1579820780791" />
-    <state width="1878" height="347" key="GridCell.Tab.0.right" timestamp="1579820780792">
+    <state width="1899" height="366" key="GridCell.Tab.0.left/0.23.1920.1121@0.23.1920.1121" timestamp="1579882170850" />
+    <state width="1899" height="366" key="GridCell.Tab.0.right" timestamp="1579882170851">
       <screen x="0" y="23" width="1920" height="1121" />
     </state>
+    <state width="1878" height="308" key="GridCell.Tab.0.right/-342.-1417.2560.1417/0.23.1920.1121@0.23.1920.1121" timestamp="1579868557357" />
+    <state width="1899" height="360" key="GridCell.Tab.0.right/-359.-1417.2560.1361/2201.-1201.1920.1057/0.23.1920.1177@0.23.1920.1177" timestamp="1579880039457" />
     <state width="1899" height="333" key="GridCell.Tab.0.right/-359.-1417.2560.1417/2201.-1201.1920.1001/0.23.1920.1177@0.23.1920.1177" timestamp="1579279681789" />
-    <state width="1899" height="333" key="GridCell.Tab.0.right/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1579262278796" />
+    <state width="1878" height="383" key="GridCell.Tab.0.right/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1579872227203" />
     <state width="1899" height="298" key="GridCell.Tab.0.right/0.23.1920.1001@0.23.1920.1001" timestamp="1579109396635" />
-    <state width="1878" height="347" key="GridCell.Tab.0.right/0.23.1920.1121@0.23.1920.1121" timestamp="1579820780792" />
+    <state width="1899" height="366" key="GridCell.Tab.0.right/0.23.1920.1121@0.23.1920.1121" timestamp="1579882170851" />
+    <state width="1878" height="383" key="GridCell.Tab.1.bottom" timestamp="1579872227207">
+      <screen x="0" y="23" width="1920" height="1121" />
+    </state>
+    <state width="1878" height="383" key="GridCell.Tab.1.bottom/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1579872227207" />
+    <state width="1878" height="383" key="GridCell.Tab.1.bottom/0.23.1920.1121@0.23.1920.1121" timestamp="1579832958175" />
+    <state width="1878" height="383" key="GridCell.Tab.1.center" timestamp="1579872227206">
+      <screen x="0" y="23" width="1920" height="1121" />
+    </state>
+    <state width="1878" height="383" key="GridCell.Tab.1.center/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1579872227206" />
+    <state width="1878" height="383" key="GridCell.Tab.1.center/0.23.1920.1121@0.23.1920.1121" timestamp="1579832958175" />
+    <state width="1878" height="383" key="GridCell.Tab.1.left" timestamp="1579872227205">
+      <screen x="0" y="23" width="1920" height="1121" />
+    </state>
+    <state width="1878" height="383" key="GridCell.Tab.1.left/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1579872227205" />
+    <state width="1878" height="383" key="GridCell.Tab.1.left/0.23.1920.1121@0.23.1920.1121" timestamp="1579832958174" />
+    <state width="1878" height="383" key="GridCell.Tab.1.right" timestamp="1579872227206">
+      <screen x="0" y="23" width="1920" height="1121" />
+    </state>
+    <state width="1878" height="383" key="GridCell.Tab.1.right/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1579872227206" />
+    <state width="1878" height="383" key="GridCell.Tab.1.right/0.23.1920.1121@0.23.1920.1121" timestamp="1579832958175" />
+    <state width="1878" height="383" key="GridCell.Tab.2.bottom" timestamp="1579872227209">
+      <screen x="0" y="23" width="1920" height="1121" />
+    </state>
+    <state width="1878" height="383" key="GridCell.Tab.2.bottom/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1579872227209" />
+    <state width="1878" height="383" key="GridCell.Tab.2.bottom/0.23.1920.1121@0.23.1920.1121" timestamp="1579832958177" />
+    <state width="1878" height="383" key="GridCell.Tab.2.center" timestamp="1579872227208">
+      <screen x="0" y="23" width="1920" height="1121" />
+    </state>
+    <state width="1878" height="383" key="GridCell.Tab.2.center/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1579872227208" />
+    <state width="1878" height="383" key="GridCell.Tab.2.center/0.23.1920.1121@0.23.1920.1121" timestamp="1579832958176" />
+    <state width="1878" height="383" key="GridCell.Tab.2.left" timestamp="1579872227208">
+      <screen x="0" y="23" width="1920" height="1121" />
+    </state>
+    <state width="1878" height="383" key="GridCell.Tab.2.left/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1579872227208" />
+    <state width="1878" height="383" key="GridCell.Tab.2.left/0.23.1920.1121@0.23.1920.1121" timestamp="1579832958176" />
+    <state width="1878" height="383" key="GridCell.Tab.2.right" timestamp="1579872227208">
+      <screen x="0" y="23" width="1920" height="1121" />
+    </state>
+    <state width="1878" height="383" key="GridCell.Tab.2.right/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1579872227208" />
+    <state width="1878" height="383" key="GridCell.Tab.2.right/0.23.1920.1121@0.23.1920.1121" timestamp="1579832958177" />
+    <state width="1878" height="383" key="GridCell.Tab.3.bottom" timestamp="1579872227214">
+      <screen x="0" y="23" width="1920" height="1121" />
+    </state>
+    <state width="1878" height="383" key="GridCell.Tab.3.bottom/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1579872227214" />
+    <state width="1878" height="383" key="GridCell.Tab.3.bottom/0.23.1920.1121@0.23.1920.1121" timestamp="1579832958177" />
+    <state width="1878" height="383" key="GridCell.Tab.3.center" timestamp="1579872227210">
+      <screen x="0" y="23" width="1920" height="1121" />
+    </state>
+    <state width="1878" height="383" key="GridCell.Tab.3.center/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1579872227210" />
+    <state width="1878" height="383" key="GridCell.Tab.3.center/0.23.1920.1121@0.23.1920.1121" timestamp="1579832958177" />
+    <state width="1878" height="383" key="GridCell.Tab.3.left" timestamp="1579872227209">
+      <screen x="0" y="23" width="1920" height="1121" />
+    </state>
+    <state width="1878" height="383" key="GridCell.Tab.3.left/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1579872227209" />
+    <state width="1878" height="383" key="GridCell.Tab.3.left/0.23.1920.1121@0.23.1920.1121" timestamp="1579832958177" />
+    <state width="1878" height="383" key="GridCell.Tab.3.right" timestamp="1579872227210">
+      <screen x="0" y="23" width="1920" height="1121" />
+    </state>
+    <state width="1878" height="383" key="GridCell.Tab.3.right/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1579872227210" />
+    <state width="1878" height="383" key="GridCell.Tab.3.right/0.23.1920.1121@0.23.1920.1121" timestamp="1579832958177" />
     <state width="500" height="445" key="SwitcherDM" timestamp="1579659056325">
       <screen x="0" y="23" width="1920" height="1121" />
     </state>

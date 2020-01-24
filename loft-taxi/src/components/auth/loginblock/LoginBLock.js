@@ -1,17 +1,14 @@
 import React, {useContext, useState} from "react";
 import TextField from "@material-ui/core/TextField";
-import PropTypes from "prop-types";
-
 import {Context} from "../../../context";
 
 
 const LoginBlock = (props) => {
-
-    const {logIn} = useContext(Context);
     const [name, setNamne] = useState('');
     const [pass, setPass] = useState('');
     const [errnaname, setErrnaname] = useState(false);
     const [errpass, setErrpass] = useState(false);
+    const {logIn} = useContext(Context);
 
 
     const onsubmitBtn = () => {
@@ -34,6 +31,7 @@ const LoginBlock = (props) => {
                     <TextField id="standard-basicc1"
                                error={errnaname}
                                label="Имя"
+                               data-testid={'input1'}
                                name={'name'}
                                onChange={event => setNamne(event.target.value)}
                     />
@@ -41,6 +39,7 @@ const LoginBlock = (props) => {
                 <div className={'auth__line'}>
                     <TextField id="password-basicc2"
                                error={errpass}
+                               data-testid={'input2'}
                                label="Пароль"
                                name={'pass'}
                                type={'password'}
@@ -50,7 +49,7 @@ const LoginBlock = (props) => {
             </form>
         </div>
         <div className={'auth__submit-wrap'}>
-            <div className={'btn'} onClick={onsubmitBtn}>Войти</div>
+            <div className={'btn'} data-testid={'btnsend'} onClick={onsubmitBtn}>Войти</div>
         </div>
     </div>
 
