@@ -4,11 +4,11 @@ import {Context} from "../../../context";
 
 
 const LoginBlock = (props) => {
+    const {logIn} = useContext(Context);
     const [name, setNamne] = useState('');
     const [pass, setPass] = useState('');
     const [errnaname, setErrnaname] = useState(false);
     const [errpass, setErrpass] = useState(false);
-    const {logIn} = useContext(Context);
 
 
     const onsubmitBtn = () => {

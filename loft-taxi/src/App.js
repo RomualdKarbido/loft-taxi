@@ -31,7 +31,7 @@ class App extends React.Component {
         this.fn = {
             logOut: this.logOut,
             routR1: this.routR1,
-            logIn: this.logIn,
+            logIn: this.logIn
         }
     }
 
@@ -39,6 +39,7 @@ class App extends React.Component {
 
     logIn = (email, password) => {
         console.log(email, password);
+        this.setState({userInfo: {isLoggedIn: true}});
         this.setState({aternativerouter: {href: 'map', comp: <Map/>}});
     }
 
