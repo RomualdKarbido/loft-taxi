@@ -29,9 +29,8 @@ describe('x1', () => {
         );
         queryByTestId('input1').value = '1233';
         fireEvent.click(queryByTestId('btnsend'));
-        const inputName = queryByTestId('input1').children[1].children[0];
-        console.log(inputName);
-        // expect(inputName).toBe('true');
+        const inputName = queryByTestId('input1').children[1].children[0].getAttribute('aria-invalid');
+        expect(inputName).toBe('true');
     });
 
 
