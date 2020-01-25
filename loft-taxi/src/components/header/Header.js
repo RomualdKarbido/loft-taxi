@@ -12,11 +12,10 @@ const Header = (props) => {
 
     return <div className='header'>
         <div className={'header__wrap'}>
-            <div className='header__logo'  onClick={() => routR1(<Profile/>, 'profile')}></div>
+            <div  className='header__logo' data-testid={'logo'}  onClick={() => routR1(<Profile/>, 'profile')}></div>
             <div className={'header__right'}>
                 <div className={'header__right-item'} onClick={() => routR1(<Map/>, 'map')}>Карта</div>
-                <div className={'header__right-item'}
-                     onClick={() => routR1(<Profile/>, 'profile')}>Профиль
+                <div className={'header__right-item'} onClick={() => routR1(<Profile/>, 'profile')}>Профиль
                 </div>
                 <div className={'header__right-item'} onClick={logOut}>Выйти</div>
             </div>

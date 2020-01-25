@@ -36,7 +36,6 @@ class App extends React.Component {
     }
 
 
-
     logIn = (email, password) => {
         console.log(email, password);
         this.setState({userInfo: {isLoggedIn: true}});
@@ -51,7 +50,7 @@ class App extends React.Component {
     }
 
     routR1 = (com, link) => { // рендер содержимого приложения
-              if (this.state.userInfo.isLoggedIn) {
+        if (this.state.userInfo.isLoggedIn) {
             this.setState({aternativerouter: {href: link, comp: com}});
         } else {
             this.setState({aternativerouter: {href: 'auth', comp: <Auth/>}});
@@ -67,9 +66,7 @@ class App extends React.Component {
                         ? <Header/>
                         : null
                     }
-
                     {this.state.aternativerouter.comp}
-
                 </Context.Provider>
             </React.Fragment>
         )

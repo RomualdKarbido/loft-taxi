@@ -13,8 +13,7 @@ class Vectormap extends React.Component {
             style: 'mapbox://styles/mapbox/streets-v11',
             center: [37.5, 55.8],
             local : 'RU',
-            zoom: 13,
-            // hash: true,
+            zoom: 13
         });
     }
 

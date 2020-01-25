@@ -55,12 +55,12 @@ class Auth extends React.Component {
                         <div className={'auth__logo'}></div>
                     </div>
                     <div className={'auth__right'}>
-                        <div className={'auth__title'}>{this.state.title}</div>
-                        <div className={'auth__text'}>{this.state.loginedtext}
-                            <span className={'link'} onClick={this.changeModal}>{this.state.logined}</span>
+                        <div data-testid={'tile'} className={'auth__title'}>{this.state.title}</div>
+                        <div data-testid={'text'} className={'auth__text'}>{this.state.loginedtext}
+                            <span className={'link'}  data-testid={'сhangeModal'} onClick={this.changeModal}>{this.state.logined}</span>
                         </div>
                         {this.state.loginwin
-                            ? <AuthBlock goLoginModal={this.goLoginModal}/>
+                            ? <AuthBlock  goLoginModal={this.goLoginModal}/>
                             : <LoginBlock/>}
                     </div>
 

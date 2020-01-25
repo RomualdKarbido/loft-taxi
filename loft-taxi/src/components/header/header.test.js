@@ -4,28 +4,43 @@ import {render, fireEvent, screen} from "@testing-library/react";
 import {Context} from "../../context";
 // import Map from "../map/Map";
 // import Profile from "../profile/Profile";
-
+import mapboxgl from 'mapbox-gl';
+jest.mock('mapbox-gl');
 
 
 
 describe('Header', () => {
 
-    it('Хз', () => {
+    it('Проверяем клики по пунктам в хедере', () => {
         const HeaderMock = () => <Header/>;
         let clickLink = '';
 
         const routR1 = (component, link) => clickLink = link;
         const logOut = () => clickLink = 'Exit';
 
-        const {getByText} = render(
+
+
+
+        const {getByText, getByTestId} = render(
             <Context.Provider value={{logOut, routR1}}>
                 <HeaderMock/>
             </Context.Provider>
         );
 
-        const logo = getByText('Карта');
-        fireEvent.click(logo);
+        const map = getByText('Карта');
+        const profile = getByText('Профиль');
+        const logo = getByTestId('logo');
+        const exit = getByText('Выйти');
+
+        fireEvent.click(map);
         expect(clickLink).toBe('map');
+        fireEvent.click(profile);
+        expect(clickLink).toBe('profile');
+        fireEvent.click(logo);
+        expect(clickLink).toBe('profile');
+        fireEvent.click(exit);
+        expect(clickLink).toBe('Exit');
+
     });
 
 
