@@ -1,6 +1,6 @@
 import React from "react";
 import Btn from "../bnt/Btn";
-import Vectormap from "./Vectormap"
+import Vectormap from "./Vectormap";
 import TextField from "@material-ui/core/TextField";
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';

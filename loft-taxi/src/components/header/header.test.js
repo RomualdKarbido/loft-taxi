@@ -1,10 +1,10 @@
 import React, {useContext} from "react";
 import Header from "./Header";
 import {render, fireEvent, screen} from "@testing-library/react";
-import {Context} from "../../../context";
-import Map from "../map/Map";
-import Profile from "../profile/Profile";
-import Vectormap from "../map/Vectormap";
+import {Context} from "../../context";
+// import Map from "../map/Map";
+// import Profile from "../profile/Profile";
+
 
 
 
@@ -12,25 +12,20 @@ describe('Header', () => {
 
     it('Хз', () => {
         const HeaderMock = () => <Header/>;
-        let x, y = false;
+        let clickLink = '';
 
-        const routR1 = (component, link) => x = link;
-        const routR2 = () =>  y = true;
+        const routR1 = (component, link) => clickLink = link;
+        const logOut = () => clickLink = 'Exit';
 
-        const {getByTestId} = render(
-            <Context.Provider value={{routR1, routR2}}>
-                <HeaderMock>
-                    <Map/>
-                    <Profile/>
-                    <Vectormap/>
-                </HeaderMock>
+        const {getByText} = render(
+            <Context.Provider value={{logOut, routR1}}>
+                <HeaderMock/>
             </Context.Provider>
         );
 
-        const logo = getByTestId('Logo');
+        const logo = getByText('Карта');
         fireEvent.click(logo);
-
-        expect(x).toBe('profile');
+        expect(clickLink).toBe('map');
     });
 
 
