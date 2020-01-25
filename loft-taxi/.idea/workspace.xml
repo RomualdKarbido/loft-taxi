@@ -50,7 +50,34 @@
       <recent name="$PROJECT_DIR$/src/components/auth" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.start">
+  <component name="RunManager" selected="Jest.Header.Хз">
+    <configuration name="Header" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/components/header/header.test.js" />
+      <test-names>
+        <test-name value="Header" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Header.Хз" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/components/header/header.test.js" />
+      <test-names>
+        <test-name value="Header" />
+        <test-name value="Хз" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <configuration name="x1" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -64,20 +91,6 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="x1.Проверка на валидность если симолов больше 3х" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/components/auth/loginblock/loginblock.test.js" />
-      <test-names>
-        <test-name value="x1" />
-        <test-name value="Проверка на валидность если симолов больше 3х" />
-      </test-names>
-      <method v="2" />
-    </configuration>
     <configuration name="x1.Проверка на валидность если симолов меньше 3х" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -106,7 +119,7 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="x1.2" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="x1.Проверка на валидность если симолов меньше 3х" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
@@ -116,7 +129,21 @@
       <test-file value="$PROJECT_DIR$/src/components/auth/loginblock/loginblock.test.js" />
       <test-names>
         <test-name value="x1" />
-        <test-name value="2" />
+        <test-name value="Проверка на валидность если симолов меньше 3х" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="x1.Проверка на валидность поля пароль (&gt; 3x символов)" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/components/auth/loginblock/loginblock.test.js" />
+      <test-names>
+        <test-name value="x1" />
+        <test-name value="Проверка на валидность поля пароль (&gt; 3x символов)" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -127,22 +154,13 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="test" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="test" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.Header.Хз" />
+        <item itemvalue="Jest.Header" />
         <item itemvalue="Jest.x1" />
-        <item itemvalue="Jest.x1.Проверка на валидность если симолов больше 3х" />
-        <item itemvalue="npm.test" />
-        <item itemvalue="Jest.x1.2" />
+        <item itemvalue="Jest.x1.Проверка на валидность если симолов меньше 3х" />
+        <item itemvalue="Jest.x1.Проверка на валидность поля пароль (&gt; 3x символов)" />
       </list>
     </recent_temporary>
   </component>
@@ -200,7 +218,11 @@
       <screen x="0" y="23" width="1920" height="1121" />
     </state>
     <state x="672" y="393" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1920.1121@0.23.1920.1121" timestamp="1579381152852" />
-    <state width="1899" height="66" key="GridCell.Tab.0.bottom" timestamp="1579892456106">
+    <state x="591" y="259" key="#x1.Проверка_на_валидность_если_симолов_больше_3х" timestamp="1579935744925">
+      <screen x="0" y="23" width="1920" height="1121" />
+    </state>
+    <state x="591" y="259" key="#x1.Проверка_на_валидность_если_симолов_больше_3х/0.23.1920.1121@0.23.1920.1121" timestamp="1579935744925" />
+    <state width="1899" height="176" key="GridCell.Tab.0.bottom" timestamp="1579953638306">
       <screen x="0" y="23" width="1920" height="1121" />
     </state>
     <state width="1878" height="308" key="GridCell.Tab.0.bottom/-342.-1417.2560.1417/0.23.1920.1121@0.23.1920.1121" timestamp="1579868557358" />
@@ -208,8 +230,8 @@
     <state width="1899" height="333" key="GridCell.Tab.0.bottom/-359.-1417.2560.1417/2201.-1201.1920.1001/0.23.1920.1177@0.23.1920.1177" timestamp="1579279681789" />
     <state width="1878" height="383" key="GridCell.Tab.0.bottom/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1579872227204" />
     <state width="1899" height="298" key="GridCell.Tab.0.bottom/0.23.1920.1001@0.23.1920.1001" timestamp="1579109396635" />
-    <state width="1899" height="66" key="GridCell.Tab.0.bottom/0.23.1920.1121@0.23.1920.1121" timestamp="1579892456106" />
-    <state width="1899" height="66" key="GridCell.Tab.0.center" timestamp="1579892456105">
+    <state width="1899" height="176" key="GridCell.Tab.0.bottom/0.23.1920.1121@0.23.1920.1121" timestamp="1579953638306" />
+    <state width="1899" height="176" key="GridCell.Tab.0.center" timestamp="1579953638305">
       <screen x="0" y="23" width="1920" height="1121" />
     </state>
     <state width="1878" height="308" key="GridCell.Tab.0.center/-342.-1417.2560.1417/0.23.1920.1121@0.23.1920.1121" timestamp="1579868557356" />
@@ -217,8 +239,8 @@
     <state width="1899" height="333" key="GridCell.Tab.0.center/-359.-1417.2560.1417/2201.-1201.1920.1001/0.23.1920.1177@0.23.1920.1177" timestamp="1579279681788" />
     <state width="1878" height="383" key="GridCell.Tab.0.center/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1579872227202" />
     <state width="1899" height="298" key="GridCell.Tab.0.center/0.23.1920.1001@0.23.1920.1001" timestamp="1579109396634" />
-    <state width="1899" height="66" key="GridCell.Tab.0.center/0.23.1920.1121@0.23.1920.1121" timestamp="1579892456105" />
-    <state width="1899" height="66" key="GridCell.Tab.0.left" timestamp="1579892456105">
+    <state width="1899" height="176" key="GridCell.Tab.0.center/0.23.1920.1121@0.23.1920.1121" timestamp="1579953638305" />
+    <state width="1899" height="176" key="GridCell.Tab.0.left" timestamp="1579953638305">
       <screen x="0" y="23" width="1920" height="1121" />
     </state>
     <state width="1878" height="308" key="GridCell.Tab.0.left/-342.-1417.2560.1417/0.23.1920.1121@0.23.1920.1121" timestamp="1579868557356" />
@@ -226,8 +248,8 @@
     <state width="1899" height="333" key="GridCell.Tab.0.left/-359.-1417.2560.1417/2201.-1201.1920.1001/0.23.1920.1177@0.23.1920.1177" timestamp="1579279681787" />
     <state width="1878" height="383" key="GridCell.Tab.0.left/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1579872227201" />
     <state width="1899" height="298" key="GridCell.Tab.0.left/0.23.1920.1001@0.23.1920.1001" timestamp="1579109396633" />
-    <state width="1899" height="66" key="GridCell.Tab.0.left/0.23.1920.1121@0.23.1920.1121" timestamp="1579892456105" />
-    <state width="1899" height="66" key="GridCell.Tab.0.right" timestamp="1579892456106">
+    <state width="1899" height="176" key="GridCell.Tab.0.left/0.23.1920.1121@0.23.1920.1121" timestamp="1579953638305" />
+    <state width="1899" height="176" key="GridCell.Tab.0.right" timestamp="1579953638306">
       <screen x="0" y="23" width="1920" height="1121" />
     </state>
     <state width="1878" height="308" key="GridCell.Tab.0.right/-342.-1417.2560.1417/0.23.1920.1121@0.23.1920.1121" timestamp="1579868557357" />
@@ -235,7 +257,7 @@
     <state width="1899" height="333" key="GridCell.Tab.0.right/-359.-1417.2560.1417/2201.-1201.1920.1001/0.23.1920.1177@0.23.1920.1177" timestamp="1579279681789" />
     <state width="1878" height="383" key="GridCell.Tab.0.right/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1579872227203" />
     <state width="1899" height="298" key="GridCell.Tab.0.right/0.23.1920.1001@0.23.1920.1001" timestamp="1579109396635" />
-    <state width="1899" height="66" key="GridCell.Tab.0.right/0.23.1920.1121@0.23.1920.1121" timestamp="1579892456106" />
+    <state width="1899" height="176" key="GridCell.Tab.0.right/0.23.1920.1121@0.23.1920.1121" timestamp="1579953638306" />
     <state width="1878" height="383" key="GridCell.Tab.1.bottom" timestamp="1579872227207">
       <screen x="0" y="23" width="1920" height="1121" />
     </state>

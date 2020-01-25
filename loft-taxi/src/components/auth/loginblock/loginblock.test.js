@@ -4,34 +4,67 @@ import {render, fireEvent, screen} from "@testing-library/react";
 import {Context} from "../../../context";
 
 
-describe('x1', () => {
-    it('Имя не изменянеся после отправки', () => {
+describe('Модалка входа', () => {
+
+    it('Проверка на валидность поля login если симолов больше 3х', () => {
         const Mokk = () => <LoginBlock/>;
 
-        const {queryByTestId, findByText} = render(
-            <Context.Provider value={123}>
-                <Mokk/>
-            </Context.Provider>
-        );
-
-        queryByTestId('input1').value = '123';
-        fireEvent.click(queryByTestId('btnsend'));
-        expect(queryByTestId('input1').value).toBe('123');
-
-    });
-    it('Проверка на валидность если симолов больше 3х', () => {
-        const Mokk = () => <LoginBlock/>;
-
-        const {queryByTestId, findByText} = render(
+        const {getByTestId} = render(
             <Context.Provider value={'provider'}>
                 <Mokk/>
             </Context.Provider>
         );
-        queryByTestId('input1').value = '1233';
-        fireEvent.click(queryByTestId('btnsend'));
-        const inputName = queryByTestId('input1').children[1].children[0].getAttribute('aria-invalid');
-        expect(inputName).toBe('true');
+        const inputName = getByTestId('input1');
+        const BtnSibmit = getByTestId('btnsend');
+        // console.log(inputName);
+        fireEvent.change(inputName,  {target: {value: 1234}});
+        fireEvent.click(BtnSibmit);
+        expect(inputName.getAttribute('aria-invalid')).toBe('false');
+    });
+    it('Проверка на валидность поля login если симолов меньше 3х', () => {
+        const Mokk = () => <LoginBlock/>;
+
+        const {getByTestId} = render(
+            <Context.Provider value={'provider'}>
+                <Mokk/>
+            </Context.Provider>
+        );
+        const inputName = getByTestId('input1');
+        const BtnSibmit = getByTestId('btnsend');
+        // console.log(inputName);
+        fireEvent.change(inputName,  {target: {value: 12}});
+        fireEvent.click(BtnSibmit);
+        expect(inputName.getAttribute('aria-invalid')).toBe('true');
     });
 
+    it('Проверка на валидность поля пароль (> 3x символов)', () => {
+        const Mokk = () => <LoginBlock/>;
 
+        const {getByTestId} = render(
+            <Context.Provider value={'provider'}>
+                <Mokk/>
+            </Context.Provider>
+        );
+        const inputPass = getByTestId('input2');
+        const BtnSibmit = getByTestId('btnsend');
+        // console.log(inputName);
+        fireEvent.change(inputPass,  {target: {value: 1234}});
+        fireEvent.click(BtnSibmit);
+        expect(inputPass.getAttribute('aria-invalid')).toBe('false');
+    });
+    it('Проверка на валидность поля пароль (< 3x символов)', () => {
+        const Mokk = () => <LoginBlock/>;
+
+        const {getByTestId} = render(
+            <Context.Provider value={'provider'}>
+                <Mokk/>
+            </Context.Provider>
+        );
+        const inputPass = getByTestId('input2');
+        const BtnSibmit = getByTestId('btnsend');
+        // console.log(inputName);
+        fireEvent.change(inputPass,  {target: {value: 12}});
+        fireEvent.click(BtnSibmit);
+        expect(inputPass.getAttribute('aria-invalid')).toBe('true');
+    });
 });

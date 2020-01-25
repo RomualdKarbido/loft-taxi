@@ -31,7 +31,8 @@ const LoginBlock = (props) => {
                     <TextField id="standard-basicc1"
                                error={errnaname}
                                label="Имя"
-                               data-testid={'input1'}
+                               inputProps={{'data-testid': 'input1'}}
+
                                name={'name'}
                                onChange={event => setNamne(event.target.value)}
                     />
@@ -39,7 +40,7 @@ const LoginBlock = (props) => {
                 <div className={'auth__line'}>
                     <TextField id="password-basicc2"
                                error={errpass}
-                               data-testid={'input2'}
+                               inputProps={{'data-testid': 'input2'}}
                                label="Пароль"
                                name={'pass'}
                                type={'password'}
