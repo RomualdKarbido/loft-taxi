@@ -6,7 +6,9 @@ import PropTypes from "prop-types";
 
 
 class Cart extends React.Component {
-
+    static propTypes = {
+        side: PropTypes.string,
+    };
     constructor(props) {
         super(props);
         const dd = new Date();
@@ -23,7 +25,6 @@ class Cart extends React.Component {
         };
     }
 
-
     handleDateChange = date => {
         this.setState({selectedDate: date});
     };
@@ -38,7 +39,7 @@ class Cart extends React.Component {
         } else {
             this.setState({cvcVisible: true});
         }
-    }
+    };
 
     tooltipedit = () => {
         if (this.state.tooltip) {
@@ -48,7 +49,7 @@ class Cart extends React.Component {
             this.setState({tooltip: true});
             this.props.tooltipedit(true);
         }
-    }
+    };
 
     render() {
         if (this.props.side === 'one') {
@@ -96,8 +97,7 @@ class Cart extends React.Component {
                     <div className={'cart__line'}>
                         <div className={'cart__line-short'}>
                             {this.state.cvcVisible
-                                ?
-                                <TextField
+                                ? <TextField
                                     id="cvc"
                                     InputLabelProps={{
                                         shrink: true,
@@ -116,22 +116,23 @@ class Cart extends React.Component {
                                     onChange={this.handleChange}
                                     placeholder={'123'}
                                     type={'password'}
+                                    inputProps={{'data-testid': 'cvc'}}
                                     label=" CVC:"/>
                             }
                         </div>
                         {
                             this.state.cvc.length > 0
-                                ? <div className={'cart__eye'} onClick={this.visibleCVC}>
+                                ? <div data-testid={'eye1'} className={'cart__eye'} onClick={this.visibleCVC}>
                                     {this.state.cvcVisible
-                                        ? <i className={'mdi mdi-eye-off-outline'}></i>
-                                        : <i className={'mdi mdi-eye'}></i>
+                                        ? <i className={'mdi mdi-eye-off-outline'}/>
+                                        : <i className={'mdi mdi-eye'}/>
                                     }
                                 </div>
                                 : ''
                         }
 
-                        <div className='cart__tool-btn' onClick={this.tooltipedit}>
-                            <i className='mdi mdi-help-rhombus-outline'></i>
+                        <div data-testid={'bntTool'} className='cart__tool-btn' onClick={this.tooltipedit}>
+                            <i className='mdi mdi-help-rhombus-outline'/>
                         </div>
                     </div>
 

@@ -9,7 +9,6 @@ const Header = (props) => {
 
     const {logOut, routR1} = useContext(Context);
 
-
     return <div className='header'>
         <div className={'header__wrap'}>
             <div  className='header__logo' data-testid={'logo'}  onClick={() => routR1(<Profile/>, 'profile')}></div>

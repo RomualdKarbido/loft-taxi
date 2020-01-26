@@ -2,11 +2,8 @@ import React, {useContext} from "react";
 import Header from "./Header";
 import {render, fireEvent, screen} from "@testing-library/react";
 import {Context} from "../../context";
-// import Map from "../map/Map";
-// import Profile from "../profile/Profile";
-import mapboxgl from 'mapbox-gl';
-jest.mock('mapbox-gl');
 
+jest.mock('mapbox-gl');
 
 
 describe('Header', () => {
@@ -17,9 +14,6 @@ describe('Header', () => {
 
         const routR1 = (component, link) => clickLink = link;
         const logOut = () => clickLink = 'Exit';
-
-
-
 
         const {getByText, getByTestId} = render(
             <Context.Provider value={{logOut, routR1}}>

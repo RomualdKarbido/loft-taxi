@@ -3,13 +3,6 @@ import TextField from "@material-ui/core/TextField";
 import PropTypes from "prop-types";
 
 class AuthBlock extends React.Component {
-    static propTypes = {
-        email: PropTypes.string,
-        firstname: PropTypes.string,
-        lastname: PropTypes.string,
-        pass: PropTypes.string
-    }
-
     constructor(props) {
         super(props);
         this.state = {
@@ -23,7 +16,7 @@ class AuthBlock extends React.Component {
     goLoginmodal = () => {
         this.props.goLoginModal();
         console.log(this.state);
-    }
+    };
 
     render() {
    

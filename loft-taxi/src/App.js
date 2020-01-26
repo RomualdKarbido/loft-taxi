@@ -4,19 +4,10 @@ import Auth from "./components/auth/Auth";
 import Header from "./components/header/Header";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Map from "./components/map/Map";
-
-import PropTypes from "prop-types";
 import {Context} from "./context";
 
 
 class App extends React.Component {
-    static propTypes = {
-        aternativerouter: PropTypes.shape({
-            href: PropTypes.string,
-            comp: PropTypes.any
-        }),
-    };
-
     constructor(props) {
         super(props);
         this.state = {
