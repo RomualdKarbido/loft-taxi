@@ -44,14 +44,14 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/header/head" />
       <recent name="$PROJECT_DIR$/src/components/app" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/components/auth/loginblock" />
       <recent name="$PROJECT_DIR$/src/components/auth/authblock" />
-      <recent name="$PROJECT_DIR$/src/components/auth" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.Header.Проверяем клики по пунктам в хедере">
+  <component name="RunManager" selected="npm.start">
     <configuration name="Проверка переключения модалок входа.Переключение модального окна логин/аторицазия" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -66,17 +66,16 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="Проверка переключения модалок входа.всякое" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="Модалка входа" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/components/auth/auth.test.js" />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/components/auth/loginblock/loginblock.test.js" />
       <test-names>
-        <test-name value="Проверка переключения модалок входа" />
-        <test-name value="всякое" />
+        <test-name value="Модалка входа" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -136,20 +135,6 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="x1.Проверка на валидность если симолов меньше 3х" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/components/auth/loginblock/loginblock.test.js" />
-      <test-names>
-        <test-name value="x1" />
-        <test-name value="Проверка на валидность если симолов меньше 3х" />
-      </test-names>
-      <method v="2" />
-    </configuration>
     <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="start" />
@@ -159,11 +144,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.Модалка входа" />
         <item itemvalue="Jest.Header.Проверяем клики по пунктам в хедере" />
         <item itemvalue="Jest.Carts test --&gt;.Когда в поле cvc ввели текст то появляется иконка глаза при клике на глаз тип поля меняетсяна text и обратно на password " />
         <item itemvalue="Jest.profile tests.Переключение видимости тултипа" />
         <item itemvalue="Jest.Проверка переключения модалок входа.Переключение модального окна логин/аторицазия" />
-        <item itemvalue="Jest.Проверка переключения модалок входа.всякое" />
       </list>
     </recent_temporary>
   </component>
@@ -198,6 +183,7 @@
       <workItem from="1579446828947" duration="1455000" />
       <workItem from="1579535833700" duration="70044000" />
       <workItem from="1579880029012" duration="3026000" />
+      <workItem from="1580120393329" duration="16357000" />
     </task>
     <servers />
   </component>
@@ -225,40 +211,40 @@
       <screen x="0" y="23" width="1920" height="1121" />
     </state>
     <state x="591" y="259" key="#x1.Проверка_на_валидность_если_симолов_больше_3х/0.23.1920.1121@0.23.1920.1121" timestamp="1579935744925" />
-    <state width="1899" height="276" key="GridCell.Tab.0.bottom" timestamp="1580078606776">
+    <state width="1899" height="346" key="GridCell.Tab.0.bottom" timestamp="1580146483485">
       <screen x="0" y="23" width="1920" height="1121" />
     </state>
     <state width="1878" height="308" key="GridCell.Tab.0.bottom/-342.-1417.2560.1417/0.23.1920.1121@0.23.1920.1121" timestamp="1579868557358" />
     <state width="1899" height="360" key="GridCell.Tab.0.bottom/-359.-1417.2560.1361/2201.-1201.1920.1057/0.23.1920.1177@0.23.1920.1177" timestamp="1579880039460" />
     <state width="1899" height="333" key="GridCell.Tab.0.bottom/-359.-1417.2560.1417/2201.-1201.1920.1001/0.23.1920.1177@0.23.1920.1177" timestamp="1579279681789" />
-    <state width="1878" height="383" key="GridCell.Tab.0.bottom/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1579872227204" />
+    <state width="1899" height="346" key="GridCell.Tab.0.bottom/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1580146483485" />
     <state width="1899" height="298" key="GridCell.Tab.0.bottom/0.23.1920.1001@0.23.1920.1001" timestamp="1579109396635" />
     <state width="1899" height="276" key="GridCell.Tab.0.bottom/0.23.1920.1121@0.23.1920.1121" timestamp="1580078606776" />
-    <state width="1899" height="276" key="GridCell.Tab.0.center" timestamp="1580078606776">
+    <state width="1899" height="346" key="GridCell.Tab.0.center" timestamp="1580146483483">
       <screen x="0" y="23" width="1920" height="1121" />
     </state>
     <state width="1878" height="308" key="GridCell.Tab.0.center/-342.-1417.2560.1417/0.23.1920.1121@0.23.1920.1121" timestamp="1579868557356" />
     <state width="1899" height="360" key="GridCell.Tab.0.center/-359.-1417.2560.1361/2201.-1201.1920.1057/0.23.1920.1177@0.23.1920.1177" timestamp="1579880039457" />
     <state width="1899" height="333" key="GridCell.Tab.0.center/-359.-1417.2560.1417/2201.-1201.1920.1001/0.23.1920.1177@0.23.1920.1177" timestamp="1579279681788" />
-    <state width="1878" height="383" key="GridCell.Tab.0.center/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1579872227202" />
+    <state width="1899" height="346" key="GridCell.Tab.0.center/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1580146483483" />
     <state width="1899" height="298" key="GridCell.Tab.0.center/0.23.1920.1001@0.23.1920.1001" timestamp="1579109396634" />
     <state width="1899" height="276" key="GridCell.Tab.0.center/0.23.1920.1121@0.23.1920.1121" timestamp="1580078606776" />
-    <state width="1899" height="276" key="GridCell.Tab.0.left" timestamp="1580078606775">
+    <state width="1899" height="346" key="GridCell.Tab.0.left" timestamp="1580146483481">
       <screen x="0" y="23" width="1920" height="1121" />
     </state>
     <state width="1878" height="308" key="GridCell.Tab.0.left/-342.-1417.2560.1417/0.23.1920.1121@0.23.1920.1121" timestamp="1579868557356" />
     <state width="1899" height="360" key="GridCell.Tab.0.left/-359.-1417.2560.1361/2201.-1201.1920.1057/0.23.1920.1177@0.23.1920.1177" timestamp="1579880039456" />
     <state width="1899" height="333" key="GridCell.Tab.0.left/-359.-1417.2560.1417/2201.-1201.1920.1001/0.23.1920.1177@0.23.1920.1177" timestamp="1579279681787" />
-    <state width="1878" height="383" key="GridCell.Tab.0.left/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1579872227201" />
+    <state width="1899" height="346" key="GridCell.Tab.0.left/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1580146483481" />
     <state width="1899" height="298" key="GridCell.Tab.0.left/0.23.1920.1001@0.23.1920.1001" timestamp="1579109396633" />
     <state width="1899" height="276" key="GridCell.Tab.0.left/0.23.1920.1121@0.23.1920.1121" timestamp="1580078606775" />
-    <state width="1899" height="276" key="GridCell.Tab.0.right" timestamp="1580078606776">
+    <state width="1899" height="346" key="GridCell.Tab.0.right" timestamp="1580146483484">
       <screen x="0" y="23" width="1920" height="1121" />
     </state>
     <state width="1878" height="308" key="GridCell.Tab.0.right/-342.-1417.2560.1417/0.23.1920.1121@0.23.1920.1121" timestamp="1579868557357" />
     <state width="1899" height="360" key="GridCell.Tab.0.right/-359.-1417.2560.1361/2201.-1201.1920.1057/0.23.1920.1177@0.23.1920.1177" timestamp="1579880039457" />
     <state width="1899" height="333" key="GridCell.Tab.0.right/-359.-1417.2560.1417/2201.-1201.1920.1001/0.23.1920.1177@0.23.1920.1177" timestamp="1579279681789" />
-    <state width="1878" height="383" key="GridCell.Tab.0.right/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1579872227203" />
+    <state width="1899" height="346" key="GridCell.Tab.0.right/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1580146483484" />
     <state width="1899" height="298" key="GridCell.Tab.0.right/0.23.1920.1001@0.23.1920.1001" timestamp="1579109396635" />
     <state width="1899" height="276" key="GridCell.Tab.0.right/0.23.1920.1121@0.23.1920.1121" timestamp="1580078606776" />
     <state width="1899" height="383" key="GridCell.Tab.1.bottom" timestamp="1580078606607">
@@ -343,6 +329,17 @@
     </state>
     <state x="625" y="274" width="670" height="676" key="search.everywhere.popup/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1579192095613" />
     <state x="625" y="274" width="670" height="676" key="search.everywhere.popup/0.23.1920.1121@0.23.1920.1121" timestamp="1579608291428" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/main/Header.js</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/loft_taxi$It_should_allow_the___to_be_deleted.info" NAME="It should allow the $ to be deleted Coverage Results" MODIFIED="1579818367860" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="JestJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

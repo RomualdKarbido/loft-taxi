@@ -1,21 +1,25 @@
 import React, {useContext, useState} from "react";
 import TextField from "@material-ui/core/TextField";
 import {Context} from "../../../context";
+import { useHistory } from "react-router-dom";
 
 
 const LoginBlock = (props) => {
     const {logIn} = useContext(Context);
+
     const [name, setNamne] = useState('');
     const [pass, setPass] = useState('');
     const [errnaname, setErrnaname] = useState(false);
     const [errpass, setErrpass] = useState(false);
 
+    let history = useHistory();
 
     const onsubmitBtn = () => {
         if (name.length > 2 && pass.length > 2) {
             logIn(name, pass);
             setErrnaname(false);
             setErrpass(false);
+            history.push("/map");
         } else {
             if (name.length <= 2) setErrnaname(true);
             else setErrnaname(false);

@@ -1,82 +1,54 @@
 import React from 'react';
 import './App.scss';
 import Auth from "./components/auth/Auth";
-import Header from "./components/header/Header";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import Map from "./components/map/Map";
 import {Context} from "./context";
+import Main from "./components/main/main";
 
 
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            userInfo: {
-                isLoggedIn: false,
-            },
-            aternativerouter: {
-                href: 'auth',
-                comp: <Auth/>
-            }
+            isLoggedIn: false,
         };
-        this.fn = {
-            logOut: this.logOut,
-            routR1: this.routR1,
-            logIn: this.logIn
-        }
     }
 
 
     logIn = (email, password) => {
         console.log(email, password);
-        this.setState({userInfo: {isLoggedIn: true}});
-        this.setState({aternativerouter: {href: 'map', comp: <Map/>}});
-    }
+        this.setState({isLoggedIn: true});
+    };
 
 
     logOut = () => {
         console.log('выход');
-        this.setState({userInfo: {isLoggedIn: false}});
-        this.setState({aternativerouter: {href: 'auth', comp: <Auth/>}});
-    }
-
-    routR1 = (com, link) => { // рендер содержимого приложения
-        if (this.state.userInfo.isLoggedIn) {
-            this.setState({aternativerouter: {href: link, comp: com}});
-        } else {
-            this.setState({aternativerouter: {href: 'auth', comp: <Auth/>}});
-        }
+        this.setState({isLoggedIn: false});
     };
+
+
+
 
     render() {
         return (
-            <React.Fragment>
-                <Context.Provider value={this.fn}>
-
-                    {this.state.aternativerouter.href !== 'auth'
-                        ? <Header/>
-                        : null
-                    }
-                    {this.state.aternativerouter.comp}
-                </Context.Provider>
-            </React.Fragment>
+            <Context.Provider value={{
+                logIn: this.logIn,
+                logOut: this.logOut,
+                isLoggedIn: this.state.isLoggedIn}}
+            >
+                <Router>
+                    <Switch>
+                        <Route path="/map" component={Main}/>
+                        <Route path="/profile" component={Main}/>
+                        <Route path="/" component={Auth}/>
+                    </Switch>
+                </Router>
+            </Context.Provider>
         )
     }
 }
 
+
 export default App;
 
-{/*<Router>*/
-}
-{/*    <Switch>*/
-}
-{/*        <Route path="/map" component={Header}/>*/
-}
-{/*        <Route path="/profile" component={Header}/>*/
-}
-{/*        <Route path="/" component={Auth}/>*/
-}
-{/*    </Switch>*/
-}
-{/*</Router>*/
-}
+

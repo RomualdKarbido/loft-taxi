@@ -1,15 +1,15 @@
 import React, {useContext} from "react";
-import Header from "./Header";
+import Main from "./Main";
 import {render, fireEvent, screen} from "@testing-library/react";
 import {Context} from "../../context";
 
 jest.mock('mapbox-gl');
 
 
-describe('Header', () => {
+describe('Main', () => {
 
     it('Проверяем клики по пунктам в хедере', () => {
-        const HeaderMock = () => <Header/>;
+        const HeaderMock = () => <Main/>;
         let clickLink = '';
 
         const routR1 = (component, link) => clickLink = link;
