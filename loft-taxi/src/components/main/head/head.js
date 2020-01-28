@@ -1,9 +1,23 @@
 import {Link, NavLink} from "react-router-dom";
 import React, {useContext} from "react";
-import {Context} from "../../../context";
+import { useHistory } from "react-router-dom";
+import {connect} from "react-redux";
+import {setUserInfo} from "../../../store/loginblock/actions";
 
-const Head = () => {
-    const {logOut} = useContext(Context);
+
+const Head = (props) => {
+    const history = useHistory();
+
+    const logOut = () => {
+        console.log('выход');
+
+        let logInfo = {
+            name: '',
+            pass: '',
+            state: false
+        };
+        props.setUserInfo(logInfo); // отправляем данные в redux
+    };
     return (
         <div className={'header'}>
             <div className={'header__wrap'}>
@@ -18,4 +32,9 @@ const Head = () => {
     )
 }
 
-export default Head;
+
+const mapDispatchToProps = {
+    setUserInfo
+};
+
+export default connect('', mapDispatchToProps)(Head);

@@ -1,17 +1,17 @@
-import React, {useContext} from "react";
-import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
+import React, {useState} from "react";
+import {Redirect, Route, Switch} from "react-router-dom";
 import Map from "../map/Map";
 import Profile from "../profile/Profile";
-import {Context} from "../../context";
 import Head from "./head/head";
+import {connect} from "react-redux";
 
 
 const Main = (props) => {
-    const {isLoggedIn} = useContext(Context);
-    console.log(isLoggedIn);
 
-    if (!isLoggedIn) {
-        return <Redirect to={'/'}/>
+    console.log('залиогиненность', props.isLoggedIn);
+
+    if (!props.isLoggedIn) {
+        return <Redirect path="/"/>
     } else {
         return (
             <React.Fragment>
@@ -24,8 +24,15 @@ const Main = (props) => {
         )
     }
 };
-export default Main;
+
+const mapStateToProps = state => {
+    console.log(state.lloginblock);
+    return  ({isLoggedIn: state.lloginblock.state});
+}
 
 
+
+export default connect(mapStateToProps, '')(Main);
+// export default Main;
 
 
