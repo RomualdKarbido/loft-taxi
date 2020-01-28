@@ -1,72 +1,60 @@
 import React from 'react';
 import Btn from "../bnt/Btn";
 import Cart from "../cart/Cart";
+import Toolltip from "./tooltip/Tooltip";
 
 
 class Profile extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             tooll: false
         };
     }
 
-
     tool = (st) => {
         this.setState({tooll: st});
-    }
-
+    };
 
     render() {
         return (
-            <div className={'profile__bg'}>
-                <div className={'profile'}>
-                    <div className={'profile__content'}>
-                        <form noValidate autoComplete="off">
-                            <div className={'profile__modal'}>
-                                <div className={'profile__modal-title'}>Профиль</div>
-                                <div className={'profile__modal-text'}>Способ оплаты</div>
-                                <div className={'profile__cartblock'}>
-                                    <div className={'profile__cart'}>
-                                        <div className={'profile__cart-item'}>
-                                            <Cart side={'one'}/>
+            <React.Fragment>
+                <div className={'profile__bg'}>
+                    <div className={'profile'}>
+                        <div className={'profile__content'}>
+                            <form noValidate autoComplete="off">
+                                <div className={'profile__modal'}>
+                                    <div className={'profile__modal-title'}>Профиль</div>
+                                    <div className={'profile__modal-text'}>Способ оплаты</div>
+                                    <div className={'profile__cartblock'}>
+                                        <div className={'profile__cart'}>
+                                            <div className={'profile__cart-item'}>
+                                                <Cart side={'one'}/>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className={'profile__cart'}>
-                                        <div className={'profile__cart-item'}>
-                                            <Cart side={'two'} tooltipedit={this.tool}/>
+                                        <div className={'profile__cart'}>
+                                            <div className={'profile__cart-item'}>
+                                                <Cart side={'two'} tooltipedit={this.tool}/>
+                                            </div>
                                         </div>
+
                                     </div>
 
+                                    {this.state.tooll ? <Toolltip/> : null}
+
+                                    <div className={'profile__modal-btns'}>
+                                        <Btn link={'/profile'} bnttext={'Сохранить'}/>
+                                    </div>
                                 </div>
-                                {this.state.tooll ? <Toolltip/> : ''}
-                                <div className={'profile__modal-btns'}>
-                                    <Btn link={'/profile'} bnttext={'Сохранить'}/>
-                                </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </React.Fragment>
         )
-
     }
-
-
 }
 
 export default Profile;
 
 
-function Toolltip() {
-    return (
-        <div className='profile__tool'>
-            <div className='profile__tool-icon'>
-                <i className='mdi mdi-help-rhombus-outline'></i>
-            </div>
-            <div className='profile__tool-box'>
-                <div className='profile__tool-text'>Три последние цифры на обратной строне карты</div>
-            </div>
-        </div>
-    )
-}

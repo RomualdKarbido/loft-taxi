@@ -1,12 +1,10 @@
-import React from 'react';
+import React from "react";
 import Btn from "../bnt/Btn";
-import Vectormap from "./Vectormap"
+import Vectormap from "./Vectormap";
 import TextField from "@material-ui/core/TextField";
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
-
-
 
 
 class Map extends React.Component {
@@ -16,7 +14,6 @@ class Map extends React.Component {
     }
     render () {
         return <React.Fragment>
-
             <div className='map'>
                 <div className={'map__content'}>
                     <div className={'map__box'}>
@@ -41,11 +38,7 @@ class Map extends React.Component {
                 </div>
             </div>
             <Vectormap ref={this.exampleRef} />
-
-
         </React.Fragment>
-
-
     }
 }
 

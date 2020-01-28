@@ -1,55 +1,64 @@
-import React from "react";
+import React, {useContext, useState} from "react";
 import TextField from "@material-ui/core/TextField";
-import Btn from "../../bnt/Btn";
+import {Context} from "../../../context";
+import { useHistory } from "react-router-dom";
 
-class LoginBlock extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: '',
-            pass: ''
+
+const LoginBlock = (props) => {
+    const {logIn} = useContext(Context);
+
+    const [name, setNamne] = useState('');
+    const [pass, setPass] = useState('');
+    const [errnaname, setErrnaname] = useState(false);
+    const [errpass, setErrpass] = useState(false);
+
+    let history = useHistory();
+
+    const onsubmitBtn = () => {
+        if (name.length > 2 && pass.length > 2) {
+            logIn(name, pass);
+            setErrnaname(false);
+            setErrpass(false);
+            history.push("/map");
+        } else {
+            if (name.length <= 2) setErrnaname(true);
+            else setErrnaname(false);
+            if (pass.length <= 2) setErrpass(true);
+            else setErrpass(false);
         }
     }
-    ap = () => {
-        this.props.ap();
-        console.log(this.state);
-    }
 
+    return <div>
+        <div className={'auth__form'}>
+            <form autoComplete="off">
+                <div className={'auth__line'}>
+                    <TextField id="standard-basicc1"
+                               error={errnaname}
+                               label="Имя"
+                               inputProps={{'data-testid': 'input1'}}
 
-    render() {
-        // const {name, pass} = this.state;
-        const handleChange = event => {
-            this.setState({[event.target.name]: event.target.value});
-        }
-
-        return <div>
-            <div className={'auth__form'}>
-                <form noValidate autoComplete="off">
-                    <div className={'auth__line'}>
-                        <TextField id="standard-basicc1"
-                                   label="Имя"
-                                   name={'name'}
-                                   onChange={handleChange}
-                        />
-                    </div>
-                    <div className={'auth__line'}>
-                        <TextField id="password-basicc2"
-                                   label="Пароль"
-                                   name={'pass'}
-                                   type={'password'}
-                                   onChange={handleChange}
-                        />
-                    </div>
-                </form>
-            </div>
-            <div className={'auth__submit-wrap'}>
-                {/*<Btn bnttext="Войти" link={'/map'} st={this.state}/>*/}
-                <div className={'btn'} onClick={this.ap}>Войти</div>
-            </div>
+                               name={'name'}
+                               onChange={event => setNamne(event.target.value)}
+                    />
+                </div>
+                <div className={'auth__line'}>
+                    <TextField id="password-basicc2"
+                               error={errpass}
+                               inputProps={{'data-testid': 'input2'}}
+                               label="Пароль"
+                               name={'pass'}
+                               type={'password'}
+                               onChange={event => setPass(event.target.value)}
+                    />
+                </div>
+            </form>
         </div>
-
-    }
+        <div className={'auth__submit-wrap'}>
+            <div className={'btn'} data-testid={'btnsend'} onClick={onsubmitBtn}>Войти</div>
+        </div>
+    </div>
 
 }
+
 
 export default LoginBlock;

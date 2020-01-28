@@ -2,22 +2,28 @@ import React from 'react';
 import AuthBlock from "./authblock/AuthBlock";
 import LoginBlock from "./loginblock/LoginBLock";
 
+import PropTypes from "prop-types";
+
 
 class Auth extends React.Component {
+
+    static propTypes = {
+        loginwin: PropTypes.bool,
+        title: PropTypes.string,
+        logined: PropTypes.string,
+        loginedtext: PropTypes.string
+    }
+
     constructor(props) {
         super(props);
         this.state = {
-            loginwin: true,
-            title: 'Регистрация',
-            logined: 'Вход',
-            loginedtext: 'Уже зарегистрирован? ',
+            loginwin: false,
+            title: 'Вход',
+            logined: 'Зарегистрируйтесь',
+            loginedtext: 'Новый пользователь? ',
         };
-
     }
 
-    upp = () => {
-        this.props.appp();
-    }
 
     changeModal = () => {
         this.state.loginwin ?
@@ -35,6 +41,10 @@ class Auth extends React.Component {
             });
     }
 
+    goLoginModal = () => {
+        this.setState({loginwin: false});
+        this.changeModal();
+    }
 
 
     render() {
@@ -45,13 +55,13 @@ class Auth extends React.Component {
                         <div className={'auth__logo'}></div>
                     </div>
                     <div className={'auth__right'}>
-                        <div className={'auth__title'}>{this.state.title}</div>
-                        <div className={'auth__text'}>{this.state.loginedtext}
-                            <span className={'link'} onClick={this.changeModal}>{this.state.logined}</span>
+                        <div data-testid={'tile'} className={'auth__title'}>{this.state.title}</div>
+                        <div data-testid={'text'} className={'auth__text'}>{this.state.loginedtext}
+                            <span className={'link'}  data-testid={'сhangeModal'} onClick={this.changeModal}>{this.state.logined}</span>
                         </div>
                         {this.state.loginwin
-                            ? <AuthBlock ap={this.upp} />
-                            : <LoginBlock ap={this.upp} />}
+                            ? <AuthBlock  goLoginModal={this.goLoginModal}/>
+                            : <LoginBlock/>}
                     </div>
 
                 </div>
