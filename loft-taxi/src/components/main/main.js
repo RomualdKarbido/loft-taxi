@@ -8,9 +8,10 @@ import {connect} from "react-redux";
 
 const Main = (props) => {
 
+    let stringInfo = JSON.parse(localStorage.getItem('userInfo'));
 
-    if (!props.isLoggedIn) {
-        return <Redirect path="/"/>
+    if (!stringInfo) {
+        return <Redirect  to={'/'}/>
     } else {
         return (
             <React.Fragment>
@@ -22,6 +23,7 @@ const Main = (props) => {
             </React.Fragment>
         )
     }
+
 };
 
 const mapStateToProps = state => {

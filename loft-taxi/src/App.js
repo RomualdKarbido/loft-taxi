@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.scss';
 import Auth from "./components/auth/Auth";
 import Main from "./components/main/main";
@@ -28,6 +28,7 @@ const App = () => {
     //         console.log('адец');
     //     }
     // });
+
 
     return (
             <Provider store={store}>

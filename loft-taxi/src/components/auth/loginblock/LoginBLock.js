@@ -17,9 +17,9 @@ const LoginBlock = (props) => {
     const history = useHistory();
 
 
-    if (props.isLoggedIn) {
-        history.push("/map"); // переходим на карту
-    }
+    // if (props.isLoggedIn) {
+    //     history.push("/map"); // переходим на карту
+    // }
 
     const onsubmitBtn = () => {
 

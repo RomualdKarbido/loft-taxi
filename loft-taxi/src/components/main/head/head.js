@@ -1,14 +1,17 @@
 import React from "react";
-import {Link, NavLink} from "react-router-dom";
+import {Link, NavLink, useHistory} from "react-router-dom";
 import {connect} from "react-redux";
 import {setLogOut} from "../../../store/actions";
 
 
 const Head = (props) => {
+
+    const history = useHistory();
     const logOut = () => {
         console.log('выход');
-
+        localStorage.removeItem('userInfo');
         props.setLogOut(); // обнуляем данные в redux
+        history.push("/map")
     };
     return (
         <div className={'header'}>

@@ -1,4 +1,10 @@
-import {setUserInfo, setUserToken, setUserAcitve, setLogOut, setpreloader, setRegistration, setMessageError} from './actions';
+import {setUserInfo,
+    setUserToken,
+    setUserAcitve,
+    setLogOut,
+    setpreloader,
+    setRegistration,
+    setMessageError} from './actions';
 
 const link = 'https://loft-taxi.glitch.me/';
 
@@ -22,6 +28,11 @@ export const authMiddleware = store => next => acion => {
                     store.dispatch(setUserToken({token: x.token}));
                     store.dispatch(setUserAcitve({state: true}));
                     console.log('перейти на карту');
+                    let userInfo = {
+                        email: name,
+                        token:  x.token
+                    }
+                    localStorage.setItem('userInfo', JSON.stringify(userInfo));
                     setTimeout(() => {
                         store.dispatch(setpreloader({preloaderState: false}));
                     }, 300)
@@ -67,7 +78,8 @@ export const registrMiddleware = store => next => acion => {
                     console.log(x);
                     setTimeout(() => {
                         store.dispatch(setpreloader({preloaderState: false}));
-                    }, 300)
+                    }, 300);
+                    store.dispatch(setMessageError({err: 'Пользователь успешно зарегистрирован'}));
 
                 } else {
                     store.dispatch(setMessageError({err: x.error}));

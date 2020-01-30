@@ -5,6 +5,7 @@ import LoginBlock from "./loginblock/LoginBLock";
 import {setpreloader, setMessageError} from "../../store/actions";
 import {connect} from "react-redux";
 import Preloader from "../preloader/preloader";
+import {useHistory} from "react-router-dom";
 
 
 const Auth = (props) => {
@@ -12,6 +13,7 @@ const Auth = (props) => {
     const [title, setTitle] = useState('Вход');
     const [logined, setLogined] = useState('Зарегистрируйтесь');
     const [loginedtext, setLoginedtext] = useState('Новый пользователь? ');
+    const history = useHistory();
 
     const changeModal = () => {
         if (loginwin) {
@@ -28,9 +30,29 @@ const Auth = (props) => {
         }
     }
 
+    const getInfoUserStorage = () => {
+
+        let stringInfo = localStorage.getItem('userInfo');
+        if (stringInfo) {
+            history.push("/map")
+        }
+    }
+
+    getInfoUserStorage();
+
 
     props.setpreloader(false); // прелоадер
     props.setMessageError('');
+
+    if (props.messageerr === 'Пользователь успешно зарегистрирован') {
+        setTimeout(()=> {
+            setLoginwin(true);
+            setTitle('Вход');
+            setLogined('Зарегистрируйтесь');
+            setLoginedtext('Новый пользователь? ');
+        }, 3000);
+    }
+
 
     return (
         <React.Fragment>
