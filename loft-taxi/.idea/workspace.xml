@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3253d16f-8865-4958-b7cc-a7ce4da81178" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/store/reducers.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/auth/Auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/auth/Auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/auth/loginblock/LoginBLock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/auth/loginblock/LoginBLock.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/main/head/head.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/main/head/head.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/main/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/main/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/middlewares.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/middlewares.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,21 +54,7 @@
       <recent name="$PROJECT_DIR$/src/components/auth/authblock" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.start">
-    <configuration name="Проверка переключения модалок входа.Переключение модального окна логин/аторицазия" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/components/auth/auth.test.js" />
-      <test-names>
-        <test-name value="Проверка переключения модалок входа" />
-        <test-name value="Переключение модального окна логин/аторицазия" />
-      </test-names>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Jest.reducers">
     <configuration name="Модалка входа" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -129,17 +110,16 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="x1.Проверка на валидность если симолов меньше 3х" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="reducers" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/components/auth/loginblock/loginblock.test.js" />
+      <test-file value="$PROJECT_DIR$/src/store/reducers.test.js" />
       <test-names>
-        <test-name value="x1" />
-        <test-name value="Проверка на валидность если симолов меньше 3х" />
+        <test-name value="reducers" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -152,11 +132,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.reducers" />
         <item itemvalue="Jest.Модалка входа" />
         <item itemvalue="Jest.Header.Проверяем клики по пунктам в хедере" />
         <item itemvalue="Jest.Carts test --&gt;.Когда в поле cvc ввели текст то появляется иконка глаза при клике на глаз тип поля меняетсяна text и обратно на password " />
         <item itemvalue="Jest.profile tests.Переключение видимости тултипа" />
-        <item itemvalue="Jest.Проверка переключения модалок входа.Переключение модального окна логин/аторицазия" />
       </list>
     </recent_temporary>
   </component>
@@ -194,7 +174,7 @@
       <workItem from="1580120393329" duration="45435000" />
       <workItem from="1580234353635" duration="48120000" />
       <workItem from="1580384882384" duration="966000" />
-      <workItem from="1580390166213" duration="7136000" />
+      <workItem from="1580390166213" duration="7477000" />
     </task>
     <servers />
   </component>
@@ -226,7 +206,7 @@
       <screen x="0" y="23" width="1920" height="1121" />
     </state>
     <state x="591" y="259" key="#x1.Проверка_на_валидность_если_симолов_больше_3х/0.23.1920.1121@0.23.1920.1121" timestamp="1579935744925" />
-    <state width="1899" height="271" key="GridCell.Tab.0.bottom" timestamp="1580400793730">
+    <state width="1899" height="271" key="GridCell.Tab.0.bottom" timestamp="1580407925901">
       <screen x="0" y="23" width="1920" height="1123" />
     </state>
     <state width="1878" height="308" key="GridCell.Tab.0.bottom/-342.-1417.2560.1417/0.23.1920.1121@0.23.1920.1121" timestamp="1579868557358" />
@@ -235,8 +215,8 @@
     <state width="1899" height="262" key="GridCell.Tab.0.bottom/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1580304681634" />
     <state width="1899" height="298" key="GridCell.Tab.0.bottom/0.23.1920.1001@0.23.1920.1001" timestamp="1579109396635" />
     <state width="1899" height="262" key="GridCell.Tab.0.bottom/0.23.1920.1121@0.23.1920.1121" timestamp="1580245503049" />
-    <state width="1899" height="271" key="GridCell.Tab.0.bottom/0.23.1920.1123@0.23.1920.1123" timestamp="1580400793730" />
-    <state width="1899" height="271" key="GridCell.Tab.0.center" timestamp="1580400793729">
+    <state width="1899" height="271" key="GridCell.Tab.0.bottom/0.23.1920.1123@0.23.1920.1123" timestamp="1580407925901" />
+    <state width="1899" height="271" key="GridCell.Tab.0.center" timestamp="1580407925900">
       <screen x="0" y="23" width="1920" height="1123" />
     </state>
     <state width="1878" height="308" key="GridCell.Tab.0.center/-342.-1417.2560.1417/0.23.1920.1121@0.23.1920.1121" timestamp="1579868557356" />
@@ -245,8 +225,8 @@
     <state width="1899" height="262" key="GridCell.Tab.0.center/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1580304681633" />
     <state width="1899" height="298" key="GridCell.Tab.0.center/0.23.1920.1001@0.23.1920.1001" timestamp="1579109396634" />
     <state width="1899" height="262" key="GridCell.Tab.0.center/0.23.1920.1121@0.23.1920.1121" timestamp="1580245503048" />
-    <state width="1899" height="271" key="GridCell.Tab.0.center/0.23.1920.1123@0.23.1920.1123" timestamp="1580400793729" />
-    <state width="1899" height="271" key="GridCell.Tab.0.left" timestamp="1580400793728">
+    <state width="1899" height="271" key="GridCell.Tab.0.center/0.23.1920.1123@0.23.1920.1123" timestamp="1580407925900" />
+    <state width="1899" height="271" key="GridCell.Tab.0.left" timestamp="1580407925899">
       <screen x="0" y="23" width="1920" height="1123" />
     </state>
     <state width="1878" height="308" key="GridCell.Tab.0.left/-342.-1417.2560.1417/0.23.1920.1121@0.23.1920.1121" timestamp="1579868557356" />
@@ -255,8 +235,8 @@
     <state width="1899" height="262" key="GridCell.Tab.0.left/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1580304681631" />
     <state width="1899" height="298" key="GridCell.Tab.0.left/0.23.1920.1001@0.23.1920.1001" timestamp="1579109396633" />
     <state width="1899" height="262" key="GridCell.Tab.0.left/0.23.1920.1121@0.23.1920.1121" timestamp="1580245503047" />
-    <state width="1899" height="271" key="GridCell.Tab.0.left/0.23.1920.1123@0.23.1920.1123" timestamp="1580400793728" />
-    <state width="1899" height="271" key="GridCell.Tab.0.right" timestamp="1580400793730">
+    <state width="1899" height="271" key="GridCell.Tab.0.left/0.23.1920.1123@0.23.1920.1123" timestamp="1580407925899" />
+    <state width="1899" height="271" key="GridCell.Tab.0.right" timestamp="1580407925900">
       <screen x="0" y="23" width="1920" height="1123" />
     </state>
     <state width="1878" height="308" key="GridCell.Tab.0.right/-342.-1417.2560.1417/0.23.1920.1121@0.23.1920.1121" timestamp="1579868557357" />
@@ -265,7 +245,7 @@
     <state width="1899" height="262" key="GridCell.Tab.0.right/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1580304681634" />
     <state width="1899" height="298" key="GridCell.Tab.0.right/0.23.1920.1001@0.23.1920.1001" timestamp="1579109396635" />
     <state width="1899" height="262" key="GridCell.Tab.0.right/0.23.1920.1121@0.23.1920.1121" timestamp="1580245503048" />
-    <state width="1899" height="271" key="GridCell.Tab.0.right/0.23.1920.1123@0.23.1920.1123" timestamp="1580400793730" />
+    <state width="1899" height="271" key="GridCell.Tab.0.right/0.23.1920.1123@0.23.1920.1123" timestamp="1580407925900" />
     <state width="1899" height="383" key="GridCell.Tab.1.bottom" timestamp="1580078606607">
       <screen x="0" y="23" width="1920" height="1121" />
     </state>
