@@ -15,10 +15,10 @@ const Head = (props) => {
     };
     const username = JSON.parse(localStorage.getItem('userInfo'));
     return (
-        <div className={'header'}>
+        <div className='header'>
             <div className={'header__wrap'}>
                 <Link to={'/profile'} className={'header__logo'}></Link>
-                <div className='header__user'>Вы вошли как: {username.email}</div>
+                <div className='header__user'>{username.email}</div>
                 <div className={'header__right'}>
                     <NavLink activeClassName="active" className={'header__right-item'} to={'/map'}>Карта</NavLink>
                     <NavLink activeClassName="active" className={'header__right-item'} to={'/profile'}>Профиль</NavLink>
