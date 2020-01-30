@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import {Redirect, Route, Switch} from "react-router-dom";
 import Map from "../map/Map";
 import Profile from "../profile/Profile";
@@ -8,7 +8,6 @@ import {connect} from "react-redux";
 
 const Main = (props) => {
 
-    console.log('залиогиненность', props.isLoggedIn);
 
     if (!props.isLoggedIn) {
         return <Redirect path="/"/>
@@ -26,13 +25,10 @@ const Main = (props) => {
 };
 
 const mapStateToProps = state => {
-    console.log(state.lloginblock);
-    return  ({isLoggedIn: state.lloginblock.state});
+    return ({isLoggedIn: state.lloginblock.state});
 }
 
 
-
 export default connect(mapStateToProps, '')(Main);
-// export default Main;
 
 

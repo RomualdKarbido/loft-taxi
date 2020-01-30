@@ -1,13 +1,9 @@
-import React, {useState} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import TextField from "@material-ui/core/TextField";
 import {useHistory} from "react-router-dom";
 
 import {connect} from "react-redux";
-import {setUserInfo} from '../../../store/loginblock/actions'
-
-
-
-
+import {setUserInfo} from '../../../store/actions'
 
 
 const LoginBlock = (props) => {
@@ -21,21 +17,21 @@ const LoginBlock = (props) => {
     const history = useHistory();
 
 
+    if (props.isLoggedIn) {
+        history.push("/map"); // переходим на карту
+    }
+
     const onsubmitBtn = () => {
 
         if (name.length > 2 && pass.length > 2) {
-            // logIn(name, pass);
             setErrnaname(false);
             setErrpass(false);
 
             let logInfo = {
                 name: name,
-                pass: pass,
-                state: true
+                pass: pass
             };
             props.setUserInfo(logInfo); // отправляем данные в redux
-            history.push("/map"); // переходим на карту
-
         } else {
             if (name.length <= 2) setErrnaname(true);
             else setErrnaname(false);
@@ -43,6 +39,7 @@ const LoginBlock = (props) => {
             else setErrpass(false);
         }
     }
+
 
     return <div>
         <div className={'auth__form'}>
@@ -52,7 +49,7 @@ const LoginBlock = (props) => {
                                error={errnaname}
                                label="Имя"
                                inputProps={{'data-testid': 'input1'}}
-
+                               defaultValue={'test5@test.com'}
                                name={'name'}
                                onChange={event => setNamne(event.target.value)}
                     />
@@ -76,10 +73,16 @@ const LoginBlock = (props) => {
 
 }
 
+const mapStateToProps = state => {
+    return ({
+        isLoggedIn: state.lloginblock.state,
+        preloader: state.lloginblock.preloaderState
+    });
+}
 
 const mapDispatchToProps = {
     setUserInfo
 }
 
 
-export default connect('', mapDispatchToProps )(LoginBlock);
+export default connect(mapStateToProps, mapDispatchToProps )(LoginBlock);

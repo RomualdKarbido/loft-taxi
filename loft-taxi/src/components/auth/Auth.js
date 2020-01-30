@@ -1,74 +1,79 @@
-import React from 'react';
+import React, {useState} from 'react';
 import AuthBlock from "./authblock/AuthBlock";
 import LoginBlock from "./loginblock/LoginBLock";
 
-import PropTypes from "prop-types";
+import {setpreloader, setMessageError} from "../../store/actions";
+import {connect} from "react-redux";
+import Preloader from "../preloader/preloader";
 
 
-class Auth extends React.Component {
+const Auth = (props) => {
+    const [loginwin, setLoginwin] = useState('false');
+    const [title, setTitle] = useState('Вход');
+    const [logined, setLogined] = useState('Зарегистрируйтесь');
+    const [loginedtext, setLoginedtext] = useState('Новый пользователь? ');
 
-    static propTypes = {
-        loginwin: PropTypes.bool,
-        title: PropTypes.string,
-        logined: PropTypes.string,
-        loginedtext: PropTypes.string
-    }
+    const changeModal = () => {
+        if (loginwin) {
+            setLoginwin(false);
+            setTitle('Регистрация');
+            setLogined('Вход');
+            setLoginedtext('Уже зарегистрирован? ');
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            loginwin: false,
-            title: 'Вход',
-            logined: 'Зарегистрируйтесь',
-            loginedtext: 'Новый пользователь? ',
-        };
-    }
-
-
-    changeModal = () => {
-        this.state.loginwin ?
-            this.setState({
-                loginwin: false,
-                title: 'Вход',
-                logined: 'Зарегистрируйтесь',
-                loginedtext: 'Новый пользователь? '
-            })
-            : this.setState({
-                loginwin: true,
-                title: 'Регистрация',
-                logined: 'Вход',
-                loginedtext: 'Уже зарегистрирован? ',
-            });
-    }
-
-    goLoginModal = () => {
-        this.setState({loginwin: false});
-        this.changeModal();
+        } else {
+            setLoginwin(true);
+            setTitle('Вход');
+            setLogined('Зарегистрируйтесь');
+            setLoginedtext('Новый пользователь? ');
+        }
     }
 
 
-    render() {
-        return (
-            <div className={'auth__wrap'}>
+    props.setpreloader(false); // прелоадер
+    props.setMessageError('');
+
+    return (
+        <React.Fragment>
+            {props.preloader
+                ? <Preloader/>
+                : null
+            }
+
+            <div className='auth__wrap'>
                 <div className={'auth'}>
                     <div className={'auth__left'}>
                         <div className={'auth__logo'}></div>
                     </div>
                     <div className={'auth__right'}>
-                        <div data-testid={'tile'} className={'auth__title'}>{this.state.title}</div>
-                        <div data-testid={'text'} className={'auth__text'}>{this.state.loginedtext}
-                            <span className={'link'}  data-testid={'сhangeModal'} onClick={this.changeModal}>{this.state.logined}</span>
+                        <div data-testid={'tile'} className={'auth__title'}>{title}</div>
+                        <div data-testid={'text'} className={'auth__text'}>{loginedtext}
+                            <span className={'link'} data-testid={'сhangeModal'} onClick={changeModal}>{logined}</span>
                         </div>
-                        {this.state.loginwin
-                            ? <AuthBlock  goLoginModal={this.goLoginModal}/>
+                        {!loginwin
+                            ? <AuthBlock/>
                             : <LoginBlock/>}
                     </div>
 
                 </div>
             </div>
-        );
-    }
+            {
+                props.messageerr.length
+                    ? <div className='auth__error'>{props.messageerr}</div>
+                    : null
+            }
+
+        </React.Fragment>
+    );
+
+}
+const mapStateToProps = state => {
+    return ({
+        preloader: state.pleloader.preloaderState,
+        messageerr: state.messageErrorReducer.err
+    });
+}
+const mapDispatchToProps = {
+    setpreloader, setMessageError
 }
 
-
-export default Auth;
+export default connect(mapStateToProps, mapDispatchToProps)(Auth);
