@@ -52,13 +52,13 @@ export const registrMiddleware = store => next => acion => {
 
         store.dispatch(setpreloader({preloaderState: true}));
         store.dispatch(setMessageError({err: ''}));
-        
+
         fetch(`${link}/register`, {
             method: 'POST', body: JSON.stringify({
                 email: acion.payload.email,
                 password: acion.payload.password,
-                name: acion.payload.name,
-                surname: acion.payload.surname
+                name: acion.payload.firstname,
+                surname: acion.payload.lastname
             }), headers: {'content-type': 'application/json'}
         })
             .then(response => response.json())
