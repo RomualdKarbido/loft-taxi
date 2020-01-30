@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3253d16f-8865-4958-b7cc-a7ce4da81178" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/store/reducers.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/main/head/head.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/main/head/head.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +54,7 @@
       <recent name="$PROJECT_DIR$/src/components/auth/authblock" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.reducers">
+  <component name="RunManager" selected="npm.start">
     <configuration name="Модалка входа" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -174,7 +174,7 @@
       <workItem from="1580120393329" duration="45435000" />
       <workItem from="1580234353635" duration="48120000" />
       <workItem from="1580384882384" duration="966000" />
-      <workItem from="1580390166213" duration="7477000" />
+      <workItem from="1580390166213" duration="8713000" />
     </task>
     <servers />
   </component>
