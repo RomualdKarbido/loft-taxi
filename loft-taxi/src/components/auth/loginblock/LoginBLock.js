@@ -47,7 +47,7 @@ const LoginBlock = (props) => {
                 <div className={'auth__line'}>
                     <TextField id="standard-basicc1"
                                error={errnaname}
-                               label="Имя"
+                               label="E-mail"
                                inputProps={{'data-testid': 'input1'}}
                                defaultValue={'test5@test.com'}
                                name={'name'}
