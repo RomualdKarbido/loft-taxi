@@ -67,7 +67,7 @@ const LoginBlock = (props) => {
             </form>
         </div>
         <div className={'auth__submit-wrap'}>
-            <div className={'btn'} data-testid={'btnsend'} onClick={onsubmitBtn}>Войти</div>
+            <div className={'btn'} data-testid={'btnsend'} onClick={onsubmitBtn}><span>Войти</span></div>
         </div>
     </div>
 

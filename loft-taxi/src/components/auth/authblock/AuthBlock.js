@@ -59,7 +59,7 @@ const AuthBlock = (props) => {
             </form>
         </div>
         <div className={'auth__submit-wrap'}>
-            <div className={'btn'} onClick={registr}>Зарегистрироваться</div>
+            <div className={'btn'} onClick={registr}><span>Зарегистрироваться</span></div>
         </div>
     </React.Fragment>
 

@@ -11,7 +11,7 @@ const Btn = (props) => {
     }
     return (
         <div className={'btn'} onClick={bntClick}>
-            <div>{props.bnttext}</div>
+            <span>{props.bnttext}</span>
         </div>
     );
 }
