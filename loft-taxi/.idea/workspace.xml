@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="3253d16f-8865-4958-b7cc-a7ce4da81178" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scss/_btn.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/_btn.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/auth/Auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/auth/Auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/auth/authblock/AuthBlock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/auth/authblock/AuthBlock.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/auth/loginblock/LoginBLock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/auth/loginblock/LoginBLock.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/main/head/head.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/main/head/head.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/main/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/main/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +183,7 @@
       <workItem from="1580468593540" duration="2572000" />
       <workItem from="1580480027185" duration="165000" />
       <workItem from="1580480425644" duration="78000" />
-      <workItem from="1580480527865" duration="765000" />
+      <workItem from="1580480527865" duration="5753000" />
     </task>
     <servers />
   </component>
@@ -315,6 +319,10 @@
     </state>
     <state width="1878" height="383" key="GridCell.Tab.3.right/-359.-1417.2560.1417/2201.-1201.1920.1057/0.23.1920.1121@0.23.1920.1121" timestamp="1579872227210" />
     <state width="1899" height="383" key="GridCell.Tab.3.right/0.23.1920.1121@0.23.1920.1121" timestamp="1580078606610" />
+    <state x="750" y="302" key="RollbackChangesDialog" timestamp="1580511973967">
+      <screen x="0" y="23" width="1920" height="1123" />
+    </state>
+    <state x="750" y="302" key="RollbackChangesDialog/0.23.1920.1123@0.23.1920.1123" timestamp="1580511973967" />
     <state x="446" y="309" key="SettingsEditor" timestamp="1580391094398">
       <screen x="0" y="23" width="1920" height="1123" />
     </state>

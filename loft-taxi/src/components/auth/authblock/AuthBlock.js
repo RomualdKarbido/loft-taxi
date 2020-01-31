@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import TextField from "@material-ui/core/TextField";
-import {setMessageError, setRegistration} from "../../../store/actions";
-import {connect} from "react-redux";
+import {setRegistration} from "../../../store/actions";
+import {useDispatch} from "react-redux";
 
 
 const AuthBlock = (props) => {
@@ -11,12 +11,12 @@ const AuthBlock = (props) => {
     const [password, setPassword] = useState('');
 
 
+    const dispatch = useDispatch();
 
     const registr = () => {
         let registrInfo = {email, firstname, lastname, password};
-        props.setRegistration(registrInfo);
+        dispatch(setRegistration(registrInfo));
     }
-
 
 
     return <React.Fragment>
@@ -65,16 +65,4 @@ const AuthBlock = (props) => {
 
 }
 
-const mapStateToProps = state => {
-    return ({
-        isLoggedIn: state.lloginblock.state,
-        preloader: state.lloginblock.preloaderState
-    });
-}
-
-const mapDispatchToProps = {
-    setRegistration
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps )(AuthBlock);
+export default AuthBlock;

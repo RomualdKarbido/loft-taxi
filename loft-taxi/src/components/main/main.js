@@ -3,7 +3,7 @@ import {Redirect, Route, Switch} from "react-router-dom";
 import Map from "../map/Map";
 import Profile from "../profile/Profile";
 import Head from "./head/head";
-import {connect} from "react-redux";
+
 
 
 const Main = (props) => {
@@ -26,11 +26,6 @@ const Main = (props) => {
 
 };
 
-const mapStateToProps = state => {
-    return ({isLoggedIn: state.lloginblock.state});
-}
-
-
-export default connect(mapStateToProps, '')(Main);
+export default Main;
 
 

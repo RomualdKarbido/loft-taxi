@@ -1,9 +1,7 @@
 import React, {useState} from 'react';
 import AuthBlock from "./authblock/AuthBlock";
 import LoginBlock from "./loginblock/LoginBLock";
-
-import {setpreloader, setMessageError} from "../../store/actions";
-import {connect} from "react-redux";
+import {useSelector} from "react-redux";
 import Preloader from "../preloader/preloader";
 import {useHistory} from "react-router-dom";
 
@@ -14,6 +12,12 @@ const Auth = (props) => {
     const [logined, setLogined] = useState('Зарегистрируйтесь');
     const [loginedtext, setLoginedtext] = useState('Новый пользователь? ');
     const history = useHistory();
+
+
+
+    const preloader = useSelector(state => state.pleloader.preloaderState);
+    const err = useSelector(state => state.messageErrorReducer.err);
+
 
     const changeModal = () => {
         if (loginwin) {
@@ -40,11 +44,7 @@ const Auth = (props) => {
 
     getInfoUserStorage();
 
-
-    props.setpreloader(false); // прелоадер
-    props.setMessageError('');
-
-    if (props.messageerr === 'Пользователь успешно зарегистрирован') {
+    if (err === 'Пользователь успешно зарегистрирован') {
         setTimeout(()=> {
             setLoginwin(true);
             setTitle('Вход');
@@ -53,10 +53,9 @@ const Auth = (props) => {
         }, 3000);
     }
 
-
     return (
         <React.Fragment>
-            {props.preloader
+            { preloader
                 ? <Preloader/>
                 : null
             }
@@ -78,24 +77,17 @@ const Auth = (props) => {
 
                 </div>
             </div>
+            <div>{err}</div>
             {
-                props.messageerr.length
-                    ? <div className='auth__error'>{props.messageerr}</div>
+                err.length
+                    ? <div className='auth__error'>{err}</div>
                     : null
             }
 
         </React.Fragment>
     );
-
-}
-const mapStateToProps = state => {
-    return ({
-        preloader: state.pleloader.preloaderState,
-        messageerr: state.messageErrorReducer.err
-    });
-}
-const mapDispatchToProps = {
-    setpreloader, setMessageError
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Auth);
+
+
+export default Auth;

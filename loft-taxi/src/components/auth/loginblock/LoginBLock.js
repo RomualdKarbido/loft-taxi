@@ -1,25 +1,17 @@
 import React, {useState, useEffect, useRef} from "react";
 import TextField from "@material-ui/core/TextField";
-import {useHistory} from "react-router-dom";
-
-import {connect} from "react-redux";
+import {useDispatch} from "react-redux";
 import {setUserInfo} from '../../../store/actions'
-
 
 const LoginBlock = (props) => {
 
+    const dispatch = useDispatch();
 
     const [name, setNamne] = useState('');
     const [pass, setPass] = useState('');
     const [errnaname, setErrnaname] = useState(false);
     const [errpass, setErrpass] = useState(false);
 
-    const history = useHistory();
-
-
-    // if (props.isLoggedIn) {
-    //     history.push("/map"); // переходим на карту
-    // }
 
     const onsubmitBtn = () => {
 
@@ -31,7 +23,7 @@ const LoginBlock = (props) => {
                 name: name,
                 pass: pass
             };
-            props.setUserInfo(logInfo); // отправляем данные в redux
+            dispatch(setUserInfo(logInfo)); // отправляем данные в redux
         } else {
             if (name.length <= 2) setErrnaname(true);
             else setErrnaname(false);
@@ -73,16 +65,5 @@ const LoginBlock = (props) => {
 
 }
 
-const mapStateToProps = state => {
-    return ({
-        isLoggedIn: state.lloginblock.state,
-        preloader: state.lloginblock.preloaderState
-    });
-}
 
-const mapDispatchToProps = {
-    setUserInfo
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps )(LoginBlock);
+export default LoginBlock;
