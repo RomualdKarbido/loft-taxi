@@ -14,11 +14,13 @@ const LoginBlock = (props) => {
 
 
     const onSubmit = (data) => {
+
         if (data.name.length > 2 && data.pass.length > 2) {
             setErrnaname(false);
             setErrpass(false);
             dispatch(setUserInfo(data)); // отправляем данные в redux
         } else {
+
             if (data.name.length <= 2) setErrnaname(true);
             else setErrnaname(false);
             if (data.pass.length <= 2) setErrpass(true);
@@ -53,7 +55,7 @@ const LoginBlock = (props) => {
             </div>
         </div>
         <div className={'auth__submit-wrap'}>
-            <div className={'btn'} data-testid={'btnsend'} onClick={handleSubmit(onSubmit)}><span>Войти</span></div>
+            <button className={'btn'} data-testid={'btnsend'} onClick={handleSubmit(onSubmit)}><span>Войти</span></button>
         </div>
     </form>
 

@@ -1,50 +1,46 @@
-import React, {useState} from "react";
+import React from "react";
 import TextField from "@material-ui/core/TextField";
 import {setRegistration} from "../../../store/actions";
 import {useDispatch} from "react-redux";
+import {useForm} from "react-hook-form";
 
 
 const AuthBlock = (props) => {
-    const [email, setEmail] = useState('');
-    const [firstname, setFirstname] = useState('');
-    const [lastname, setLastname] = useState('');
-    const [password, setPassword] = useState('');
-
-
+    const {register, handleSubmit} = useForm();
     const dispatch = useDispatch();
 
-    const registr = () => {
-        let registrInfo = {email, firstname, lastname, password};
-        dispatch(setRegistration(registrInfo));
-    }
+    const registr = (data) => {
+        dispatch(setRegistration(data));
+    };
 
 
-    return <React.Fragment>
+    return <form noValidate autoComplete="off">
 
-        <div className={'auth__form'}>
-            <form noValidate autoComplete="off">
+        <div className={'auth__form'} onSubmit={handleSubmit(registr)}>
+            <div>
                 <div className={'auth__line'}>
                     <TextField id="standard-basic3"
                                label="Адрес электронной почты"
                                name={'email'}
                                type={'email'}
-                               onChange={event => setEmail(event.target.value)}
+                               inputRef={register({ required: true, minLength: 2 })}
                     />
+
                 </div>
                 <div className={'auth__line'}>
                     <div className={'auth__halfline'}>
                         <TextField
                             id="standard-basic4"
                             label="Имя"
-                            name="firstname"
-                            onChange={event => setFirstname(event.target.value)}
+                            name="name"
+                            inputRef={register({ required: true, minLength: 2 })}
                         />
                     </div>
                     <div className={'auth__halfline'}>
                         <TextField id="standard-basic5"
                                    label="Фамилия"
-                                   name={'lastname'}
-                                   onChange={event => setLastname(event.target.value)}
+                                   name={'surname'}
+                                   inputRef={register({ required: true, minLength: 2 })}
                         />
                     </div>
                 </div>
@@ -52,16 +48,17 @@ const AuthBlock = (props) => {
                     <TextField id="standard"
                                label="Пароль"
                                type="password"
-                               name={'pass'}
-                               onChange={event => setPassword(event.target.value)}
+                               name={'password'}
+                               inputRef={register({ required: true, minLength: 2 })}
                     />
                 </div>
-            </form>
+            </div>
         </div>
         <div className={'auth__submit-wrap'}>
-            <div className={'btn'} onClick={registr}><span>Зарегистрироваться</span></div>
+            <button className={'btn'} data-testid={'btnsend'} onClick={handleSubmit(registr)}>
+                <span>Зарегистрироваться</span></button>
         </div>
-    </React.Fragment>
+    </form>
 
 }
 

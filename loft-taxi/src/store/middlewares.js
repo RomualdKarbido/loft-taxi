@@ -68,8 +68,8 @@ export const registrMiddleware = store => next => acion => {
             method: 'POST', body: JSON.stringify({
                 email: acion.payload.email,
                 password: acion.payload.password,
-                name: acion.payload.firstname,
-                surname: acion.payload.lastname
+                name: acion.payload.name,
+                surname: acion.payload.surname
             }), headers: {'content-type': 'application/json'}
         })
             .then(response => response.json())
