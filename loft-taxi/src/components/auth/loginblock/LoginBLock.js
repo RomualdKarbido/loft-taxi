@@ -14,7 +14,6 @@ const LoginBlock = (props) => {
 
 
     const onSubmit = (data) => {
-
         if (data.name.length > 2 && data.pass.length > 2) {
             setErrnaname(false);
             setErrpass(false);
@@ -55,11 +54,16 @@ const LoginBlock = (props) => {
             </div>
         </div>
         <div className={'auth__submit-wrap'}>
-            <button className={'btn'} data-testid={'btnsend'} onClick={handleSubmit(onSubmit)}><span>Войти</span></button>
+            <button
+                className={'btn'}
+                data-testid={'btnsend'}
+                onClick={handleSubmit(onSubmit)}
+            ><span>Войти</span>
+            </button>
         </div>
     </form>
 
-}
+};
 
 
 export default LoginBlock;

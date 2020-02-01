@@ -23,7 +23,7 @@ const AuthBlock = (props) => {
                                label="Адрес электронной почты"
                                name={'email'}
                                type={'email'}
-                               inputRef={register({ required: true, minLength: 2 })}
+                               inputRef={register({required: true, minLength: 2})}
                     />
 
                 </div>
@@ -33,14 +33,14 @@ const AuthBlock = (props) => {
                             id="standard-basic4"
                             label="Имя"
                             name="name"
-                            inputRef={register({ required: true, minLength: 2 })}
+                            inputRef={register({required: true, minLength: 2})}
                         />
                     </div>
                     <div className={'auth__halfline'}>
                         <TextField id="standard-basic5"
                                    label="Фамилия"
                                    name={'surname'}
-                                   inputRef={register({ required: true, minLength: 2 })}
+                                   inputRef={register({required: true, minLength: 2})}
                         />
                     </div>
                 </div>
@@ -49,7 +49,7 @@ const AuthBlock = (props) => {
                                label="Пароль"
                                type="password"
                                name={'password'}
-                               inputRef={register({ required: true, minLength: 2 })}
+                               inputRef={register({required: true, minLength: 2})}
                     />
                 </div>
             </div>

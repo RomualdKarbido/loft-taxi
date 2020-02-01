@@ -5,7 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/auth/authblock/AuthBlock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/auth/authblock/AuthBlock.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/auth/loginblock/LoginBLock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/auth/loginblock/LoginBLock.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/middlewares.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/middlewares.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/main/head/head.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/main/head/head.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scss/_header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/_header.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +182,7 @@
       <workItem from="1580468593540" duration="2572000" />
       <workItem from="1580480027185" duration="165000" />
       <workItem from="1580480425644" duration="78000" />
-      <workItem from="1580480527865" duration="16527000" />
+      <workItem from="1580480527865" duration="19770000" />
     </task>
     <servers />
   </component>
@@ -205,10 +206,11 @@
       <screen x="0" y="23" width="1920" height="1121" />
     </state>
     <state x="672" y="393" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1920.1121@0.23.1920.1121" timestamp="1580163322464" />
-    <state x="547" y="256" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1580165826686">
-      <screen x="0" y="23" width="1920" height="1121" />
+    <state x="547" y="256" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1580593128807">
+      <screen x="0" y="23" width="1920" height="1123" />
     </state>
     <state x="547" y="256" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.23.1920.1121@0.23.1920.1121" timestamp="1580165826686" />
+    <state x="547" y="256" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.23.1920.1123@0.23.1920.1123" timestamp="1580593128807" />
     <state x="591" y="259" key="#x1.Проверка_на_валидность_если_симолов_больше_3х" timestamp="1579935744925">
       <screen x="0" y="23" width="1920" height="1121" />
     </state>
