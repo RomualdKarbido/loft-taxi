@@ -1,10 +1,12 @@
-import {setUserInfo,
+import {
+    setUserInfo,
     setUserToken,
     setUserAcitve,
     setLogOut,
     setpreloader,
     setRegistration,
-    setMessageError} from './actions';
+    setMessageError
+} from './actions';
 
 const link = 'https://loft-taxi.glitch.me/';
 
@@ -30,7 +32,7 @@ export const authMiddleware = store => next => acion => {
                     console.log('перейти на карту');
                     let userInfo = {
                         email: name,
-                        token:  x.token
+                        token: x.token
                     }
                     localStorage.setItem('userInfo', JSON.stringify(userInfo));
                     setTimeout(() => {
@@ -52,7 +54,6 @@ export const authMiddleware = store => next => acion => {
                 console.log('Ошибка');
                 console.log(error);
             })
-
     }
     next(acion);
 };

@@ -10,25 +10,24 @@ import {Provider} from 'react-redux'
 import rootReducer from './store/reducers'
 import {authMiddleware, registrMiddleware} from './store/middlewares'
 
+import createSagaMiddleWare from 'redux-saga';
+import {testSaga} from './store/sagas'
+
+
+const sagaMiddleware = createSagaMiddleWare();
+
 
 const App = () => {
 
-
-
     const store = createStore(
         rootReducer,
-        compose(applyMiddleware(authMiddleware, registrMiddleware),
+        compose(applyMiddleware(authMiddleware, registrMiddleware, sagaMiddleware),
+        // compose(applyMiddleware(sagaMiddleware),
             window.__REDUX_DEVTOOLS_EXTENSION__
                 ? window.__REDUX_DEVTOOLS_EXTENSION__()
                 : noop => noop
         ));
-    // store.subscribe(x => {
-    //     console.log('подписка из app', store.getState().lloginblock.state);
-    //     if (store.getState().lloginblock.state) {
-    //         console.log('адец');
-    //     }
-    // });
-
+    // sagaMiddleware.run(testSaga);
 
     return (
             <Provider store={store}>
