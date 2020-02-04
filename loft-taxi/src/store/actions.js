@@ -8,3 +8,5 @@ export const setpreloader = createAction('PRELOADER');
 
 export const setRegistration = createAction('UESR_REGISTRATION');
 export const setMessageError = createAction('MESSAGE_ERROR');
+
+export const setAdressList = createAction('SETADRESSLIST');

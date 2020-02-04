@@ -10,22 +10,25 @@ import {authMiddleware, registrMiddleware, logOutMiddleware} from "./store/middl
 import {setLogOut, setUserAcitve, setUserToken} from "./store/actions";
 import {BrowserRouter as Router} from "react-router-dom";
 
-// import createSagaMiddleWare from 'redux-saga';
-// import {testSaga} from './store/sagas'
+import createSagaMiddleWare from 'redux-saga';
+import {authorizationSaga, registrationSaga, logOutSaga, addressListSaga} from './store/sagas'
 
-// const sagaMiddleware = createSagaMiddleWare();
+const sagaMiddleware = createSagaMiddleWare();
 
 
 const store = createStore(
     rootReducer,
-    compose(applyMiddleware(authMiddleware, registrMiddleware, logOutMiddleware),
-        // compose(applyMiddleware(sagaMiddleware),
+    // compose(applyMiddleware(authMiddleware, registrMiddleware, logOutMiddleware),
+        compose(applyMiddleware(sagaMiddleware),
         window.__REDUX_DEVTOOLS_EXTENSION__
             ? window.__REDUX_DEVTOOLS_EXTENSION__()
             : noop => noop
     ));
 
-// sagaMiddleware.run(testSaga);
+sagaMiddleware.run(authorizationSaga);
+sagaMiddleware.run(registrationSaga);
+sagaMiddleware.run(logOutSaga);
+sagaMiddleware.run(addressListSaga);
 
 
 const stringInfo = JSON.parse(localStorage.getItem('userInfo'));
