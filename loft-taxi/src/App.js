@@ -16,9 +16,9 @@ const App = () => {
         <React.Fragment>
             {preloader ? <Preloader/> : null}
                 <Switch>
-                    <Route exact path="/" component={Auth}/>
                     <Route exact path="/profile" component={Main}/>
                     <Route exact path="/map" component={Main}/>
+                    <Route path="/" component={Auth}/>
                 </Switch>
 
         </React.Fragment>

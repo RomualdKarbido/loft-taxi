@@ -8,6 +8,7 @@ const Head = (props) => {
 
     const dispatch = useDispatch();
     const username = useSelector(state => state.lloginblock.name);
+
     const logOut = () => {
         dispatch(setLogOut()); // обнуляем данные в redux
     };
