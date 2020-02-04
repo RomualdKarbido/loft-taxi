@@ -1,72 +1,65 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
+import {setRegistration} from "../../../store/actions";
+import {useDispatch} from "react-redux";
+import {useForm} from "react-hook-form";
 
 
-class AuthBlock extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            email: '',
-            firstname: '',
-            lastname: '',
-            pass: '',
-        }
-    }
+const AuthBlock = (props) => {
+    const {register, handleSubmit} = useForm();
+    const dispatch = useDispatch();
 
-    goLoginmodal = () => {
-        this.props.goLoginModal();
-        console.log(this.state);
+    const registr = (data) => {
+        dispatch(setRegistration(data));
     };
 
-    render() {
-   
 
-        const handleChange = event => {
-            this.setState({[event.target.name]: event.target.value});
-        };
-        return <React.Fragment>
-            <div className={'auth__form'}>
-                <form noValidate autoComplete="off">
-                    <div className={'auth__line'}>
-                        <TextField id="standard-basic3"
-                                   label="Адрес электронной почты"
-                                   name={'email'}
-                                   type={'email'}
-                                   onChange={handleChange}
+    return <form noValidate autoComplete="off">
+
+        <div className={'auth__form'} onSubmit={handleSubmit(registr)}>
+            <div>
+                <div className={'auth__line'}>
+                    <TextField id="standard-basic3"
+                               label="Адрес электронной почты"
+                               name={'email'}
+                               type={'email'}
+                               inputRef={register({required: true, minLength: 2})}
+                    />
+
+                </div>
+                <div className={'auth__line'}>
+                    <div className={'auth__halfline'}>
+                        <TextField
+                            id="standard-basic4"
+                            label="Имя"
+                            name="name"
+                            inputRef={register({required: true, minLength: 2})}
                         />
                     </div>
-                    <div className={'auth__line'}>
-                        <div className={'auth__halfline'}>
-                            <TextField
-                                id="standard-basic4"
-                                label="Имя"
-                                name="firstname"
-                                onChange={handleChange}
-                            />
-                        </div>
-                        <div className={'auth__halfline'}>
-                            <TextField id="standard-basic5"
-                                       label="Фамилия"
-                                       name={'lastname'}
-                                       onChange={handleChange}
-                            />
-                        </div>
-                    </div>
-                    <div className={'auth__line'}>
-                        <TextField id="standard"
-                                   label="Пароль"
-                                   type="password"
-                                   name={'pass'}
-                                   onChange={handleChange}
+                    <div className={'auth__halfline'}>
+                        <TextField id="standard-basic5"
+                                   label="Фамилия"
+                                   name={'surname'}
+                                   inputRef={register({required: true, minLength: 2})}
                         />
                     </div>
-                </form>
+                </div>
+                <div className={'auth__line'}>
+                    <TextField id="standard"
+                               label="Пароль"
+                               type="password"
+                               name={'password'}
+                               inputRef={register({required: true, minLength: 2})}
+                    />
+                </div>
             </div>
-            <div className={'auth__submit-wrap'}>
-                <div className={'btn'} onClick={this.goLoginmodal}>Зарегистрироваться</div>
-            </div>
-        </React.Fragment>
-    }
+        </div>
+        <div className={'auth__submit-wrap'}>
+            <button className={'btn'} data-testid={'btnsend'} onClick={handleSubmit(registr)}>
+                <span>Зарегистрироваться</span></button>
+        </div>
+    </form>
+
 }
 
 export default AuthBlock;

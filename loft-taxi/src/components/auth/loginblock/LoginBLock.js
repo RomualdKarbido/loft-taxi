@@ -1,60 +1,43 @@
 import React, {useState} from "react";
 import TextField from "@material-ui/core/TextField";
-import {useHistory} from "react-router-dom";
-
-import {connect} from "react-redux";
-import {setUserInfo} from '../../../store/loginblock/actions'
-
-
-
-
-
+import {useDispatch} from "react-redux";
+import {setUserInfo} from '../../../store/actions'
+import {useForm} from "react-hook-form";
 
 const LoginBlock = (props) => {
 
+    const {register, handleSubmit} = useForm();
+    const dispatch = useDispatch();
 
-    const [name, setNamne] = useState('');
-    const [pass, setPass] = useState('');
     const [errnaname, setErrnaname] = useState(false);
     const [errpass, setErrpass] = useState(false);
 
-    const history = useHistory();
 
-
-    const onsubmitBtn = () => {
-
-        if (name.length > 2 && pass.length > 2) {
-            // logIn(name, pass);
+    const onSubmit = (data) => {
+        if (data.name.length > 2 && data.pass.length > 2) {
             setErrnaname(false);
             setErrpass(false);
-
-            let logInfo = {
-                name: name,
-                pass: pass,
-                state: true
-            };
-            props.setUserInfo(logInfo); // отправляем данные в redux
-            history.push("/map"); // переходим на карту
-
+            dispatch(setUserInfo(data)); // отправляем данные в redux
         } else {
-            if (name.length <= 2) setErrnaname(true);
+            if (data.name.length <= 2) setErrnaname(true);
             else setErrnaname(false);
-            if (pass.length <= 2) setErrpass(true);
+            if (data.pass.length <= 2) setErrpass(true);
             else setErrpass(false);
         }
-    }
+    };
 
-    return <div>
+
+    return <form autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
         <div className={'auth__form'}>
-            <form autoComplete="off">
+            <div>
                 <div className={'auth__line'}>
                     <TextField id="standard-basicc1"
                                error={errnaname}
-                               label="Имя"
+                               label="E-mail"
                                inputProps={{'data-testid': 'input1'}}
-
+                               defaultValue={'test5@test.com'}
                                name={'name'}
-                               onChange={event => setNamne(event.target.value)}
+                               inputRef={register}
                     />
                 </div>
                 <div className={'auth__line'}>
@@ -64,22 +47,22 @@ const LoginBlock = (props) => {
                                label="Пароль"
                                name={'pass'}
                                type={'password'}
-                               onChange={event => setPass(event.target.value)}
+                               inputRef={register}
                     />
                 </div>
-            </form>
+            </div>
         </div>
         <div className={'auth__submit-wrap'}>
-            <div className={'btn'} data-testid={'btnsend'} onClick={onsubmitBtn}>Войти</div>
+            <button
+                className={'btn'}
+                data-testid={'btnsend'}
+                onClick={handleSubmit(onSubmit)}
+            ><span>Войти</span>
+            </button>
         </div>
-    </div>
+    </form>
 
-}
-
-
-const mapDispatchToProps = {
-    setUserInfo
-}
+};
 
 
-export default connect('', mapDispatchToProps )(LoginBlock);
+export default LoginBlock;

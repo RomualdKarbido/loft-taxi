@@ -1,5 +1,4 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom';
 
 
 const Btn = (props) => {
@@ -11,11 +10,10 @@ const Btn = (props) => {
     }
     return (
         <div className={'btn'} onClick={bntClick}>
-            <div>{props.bnttext}</div>
+            <span>{props.bnttext}</span>
         </div>
     );
 }
 
 
-// export default withRouter(Btn);
 export default Btn;
