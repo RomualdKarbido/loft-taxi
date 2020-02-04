@@ -2,46 +2,30 @@ import React from 'react';
 import './App.scss';
 import Auth from "./components/auth/Auth";
 import Main from "./components/main/main";
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
-
-
-import {createStore, compose, applyMiddleware} from "redux";
-import {Provider} from 'react-redux'
-import rootReducer from './store/reducers'
-import {authMiddleware, registrMiddleware} from './store/middlewares'
-
-import createSagaMiddleWare from 'redux-saga';
-import {testSaga} from './store/sagas'
-
-
-const sagaMiddleware = createSagaMiddleWare();
+import Preloader from "./components/preloader/preloader";
+import {Switch, Route} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 
 const App = () => {
 
-    const store = createStore(
-        rootReducer,
-        compose(applyMiddleware(authMiddleware, registrMiddleware, sagaMiddleware),
-        // compose(applyMiddleware(sagaMiddleware),
-            window.__REDUX_DEVTOOLS_EXTENSION__
-                ? window.__REDUX_DEVTOOLS_EXTENSION__()
-                : noop => noop
-        ));
-    // sagaMiddleware.run(testSaga);
+    const preloader = useSelector(state => state.pleloader.preloaderState);
+
 
     return (
-            <Provider store={store}>
-                <Router>
-                    <Switch>
-                        <Route path="/map" component={Main}/>
-                        <Route path="/profile" component={Main}/>
-                        <Route path="/" component={Auth}/>
-                    </Switch>
-                </Router>
-            </Provider>
+        <React.Fragment>
+            {preloader ? <Preloader/> : null}
+                <Switch>
+                    <Route exact path="/" component={Auth}/>
+                    <Route exact path="/profile" component={Main}/>
+                    <Route exact path="/map" component={Main}/>
+                </Switch>
+
+        </React.Fragment>
     )
-}
+};
 
 export default App;
 
 
+// return <Redirect  to={'/'}/>

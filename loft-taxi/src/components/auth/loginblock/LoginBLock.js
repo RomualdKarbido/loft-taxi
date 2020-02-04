@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from "react";
+import React, {useState} from "react";
 import TextField from "@material-ui/core/TextField";
 import {useDispatch} from "react-redux";
 import {setUserInfo} from '../../../store/actions'
@@ -19,7 +19,6 @@ const LoginBlock = (props) => {
             setErrpass(false);
             dispatch(setUserInfo(data)); // отправляем данные в redux
         } else {
-
             if (data.name.length <= 2) setErrnaname(true);
             else setErrnaname(false);
             if (data.pass.length <= 2) setErrpass(true);

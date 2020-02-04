@@ -1,18 +1,14 @@
 import React from "react";
-import {Redirect, Route, Switch} from "react-router-dom";
+import {Route, Switch, Redirect} from "react-router-dom";
 import Map from "../map/Map";
 import Profile from "../profile/Profile";
 import Head from "./head/head";
-
-
+import {useSelector} from "react-redux";
 
 const Main = (props) => {
+    const isLodined = useSelector(state => state.lloginblock.state);
 
-    let stringInfo = JSON.parse(localStorage.getItem('userInfo'));
-
-    if (!stringInfo) {
-        return <Redirect  to={'/'}/>
-    } else {
+    if (isLodined) {
         return (
             <React.Fragment>
                 <Head/>
@@ -22,8 +18,9 @@ const Main = (props) => {
                 </Switch>
             </React.Fragment>
         )
+    } else {
+       return <Redirect to={'/'}/>
     }
-
 };
 
 export default Main;
