@@ -1,18 +1,14 @@
-import React, {useState} from "react";
-import {Redirect, Route, Switch} from "react-router-dom";
+import React from "react";
+import {Route, Switch, Redirect} from "react-router-dom";
 import Map from "../map/Map";
 import Profile from "../profile/Profile";
 import Head from "./head/head";
-import {connect} from "react-redux";
-
+import {useSelector} from "react-redux";
 
 const Main = (props) => {
+    const isLodined = useSelector(state => state.lloginblock.state);
 
-    console.log('залиогиненность', props.isLoggedIn);
-
-    if (!props.isLoggedIn) {
-        return <Redirect path="/"/>
-    } else {
+    if (isLodined) {
         return (
             <React.Fragment>
                 <Head/>
@@ -22,17 +18,11 @@ const Main = (props) => {
                 </Switch>
             </React.Fragment>
         )
+    } else {
+       return <Redirect to={'/'}/>
     }
 };
 
-const mapStateToProps = state => {
-    console.log(state.lloginblock);
-    return  ({isLoggedIn: state.lloginblock.state});
-}
-
-
-
-export default connect(mapStateToProps, '')(Main);
-// export default Main;
+export default Main;
 
 

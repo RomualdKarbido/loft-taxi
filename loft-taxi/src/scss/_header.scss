@@ -2,10 +2,17 @@
   height: 75px;
   background: white;
   box-shadow: 0px 1px 3.6px 0.4px rgba(0, 0, 0, 0.11);
-
   position: relative;
   z-index: 100;
   margin: 0 auto;
+
+  &__user {
+    background: $ell;
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-size: 13px;
+    margin-right: -120px;
+  }
 
   &__wrap {
     width: 1200px;
@@ -15,37 +22,48 @@
     height: 100%;
     margin: 0 auto;
   }
-    &__right {
-      display: flex;
-        &-item {
-            text-decoration: none;
-            margin-left: $sp/3;
-            color: $black;
-            transition: 0.2s all;
-            display: flex;
-            height: 32px;
-            padding: 0 $sp;
-            align-items: center;
-            border-radius: 3px;
-            cursor: pointer;
-            &:hover {
-                background: $ell;
-            }
-          &.active {
-            background: #f2f2f2;
-            &:hover {
-              background: $ell;
-            }
 
-          }
+  &__right {
+    display: flex;
+
+    &-item {
+      text-decoration: none;
+      margin-left: $sp/3;
+      color: $black;
+      transition: 0.2s all;
+      display: flex;
+      height: 32px;
+      padding: 0 $sp;
+      align-items: center;
+      border-radius: 3px;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.2s;
+
+      span {
+        position: relative;
+        z-index: 1;
+      }
+
+      &:hover {
+        background: $ell;
+      }
+
+      &.active {
+        background: #f2f2f2;
+
+        &:hover {
+          background: $ell;
         }
+      }
     }
+  }
+
   &__logo {
     background: url("../assets/logo-black.png") no-repeat;
     width: 160px;
     height: 38px;
     cursor: pointer;
     outline: none;
-
   }
 }
