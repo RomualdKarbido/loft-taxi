@@ -85,6 +85,6 @@ export function* logOutSaga() {
 export function* addressListSaga() {
     yield takeEvery(setAdressList, function* () {
         const result = yield call(getListAdress);
-        console.log(result);
+        console.log(result); 
     });
 }
