@@ -1,51 +1,45 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Btn from "../bnt/Btn";
 import Vectormap from "./Vectormap";
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import {useDispatch, useSelector} from "react-redux";
-import {setAdressList, setAdressListRedux} from "../../store/actions";
+import {useSelector} from "react-redux";
 
 
 const Map = (props) => {
     const exampleRef = React.createRef();
-    const dispatch = useDispatch();
-
-
     let aderssList = useSelector(state => state.addressListReducer);
-    let newAddres = []; // начальные адреса
+    // let newAddres = []; // начальные адреса
 
+    const [newAddres, setNewAdres] = useState([]); // весь список адресов
 
-    const [one, setOne] = useState([]);
-    const [two, setTwo] = useState([]);
+    const [oneList, setOnelist] = useState([]);
+    const [twoList, setTwoList] = useState([]);
 
-    if (aderssList.length === 0) {
-        dispatch(setAdressList()); // если redux пустой то получаем адреса
-    }
-    for (var key in aderssList) {
-        newAddres = [...newAddres, aderssList[key]];
-     }
-    if (aderssList.length > 0) {
-       setOne(aderssList);
-        console.log(one);
-    }
+    useEffect(() => {
+        let adrr = [];
+        for (var key in aderssList) {
+            adrr = [...adrr, aderssList[key]];
+        }
+        setNewAdres(adrr);
+        setOnelist(newAddres);
+        setTwoList(newAddres);
+    }, [aderssList]);
 
-
-
-
-
-
-    console.log(one);
 
     const selecedAdres = (val, sl) => {
-        // console.log(val, sl);
-        // if (sl === 'in') {
-        //     let twto1 = newAddres.filter(adres => adres.adress === val.adress);
-        //     setTwo(twto1);
-        // } else if (sl === 'out') {
-        //
-        // }
-        // console.log(two);
+        if (val && sl === 'in') {
+            let filtredList = newAddres.filter(x => x.adress !== val.adress);
+            setTwoList(filtredList);
+        } else {
+            setTwoList(newAddres);
+        }
+        if (val && sl === 'out') {
+            let filtredList = newAddres.filter(x => x.adress !== val.adress);
+            setOnelist(filtredList);
+        } else {
+            setOnelist(newAddres);
+        }
     };
 
 
@@ -58,7 +52,7 @@ const Map = (props) => {
                         <Autocomplete
                             id="in"
                             onChange={(event, value) => selecedAdres(value, 'in')}
-                            options={newAddres}
+                            options={oneList}
                             getOptionLabel={option => option.adress}
                             renderInput={params => (
                                 <TextField
@@ -73,7 +67,7 @@ const Map = (props) => {
                         <Autocomplete
                             id="out"
                             onChange={(event, value) => selecedAdres(value, 'out')}
-                            options={newAddres}
+                            options={twoList}
                             getOptionLabel={option => option.adress}
                             renderInput={params => (
                                 <TextField

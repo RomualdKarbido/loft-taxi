@@ -21,12 +21,17 @@ const getToken = (uinfo) => fetch(`${link}/auth`, {
 
 const setAutorisation = (uinfo) => fetch(`${link}/register`, {
     method: 'POST', body: JSON.stringify(uinfo), headers: {'content-type': 'application/json'}
-}).then(response => response.json()); // получене токена
+}).then(response => response.json()); // получене токена при авторизации
 
 
 const getListAdress = () => fetch(`${link}/addressList`, {
     method: 'get', headers: {'content-type': 'application/json'}
-}).then(response => response.json()); // получене токена
+}).then(response => response.json()); // получене списко адресов
+
+
+const setPaymentInfo = () => fetch(`${link}/addressList`, {
+    method: 'get', headers: {'content-type': 'application/json'}
+}).then(response => response.json()); // отправка платежной информации
 
 
 export function* authorizationSaga() {
@@ -84,20 +89,26 @@ export function* logOutSaga() {
 }
 
 
-
 export function* addressListSaga() {
     yield put(setpreloader({preloaderState: true}));
 
-        yield takeEvery(setAdressList, function* () {
-            const result = yield call(getListAdress);
-            // console.log(result);
-            let mass = [];
-            for (let i = 0; i < result.addresses.length; i++) {
-                mass = [...mass, {adress: result.addresses[i]}]
-            }
-            yield put(setAdressListRedux(mass));
-        });
+    yield takeEvery(setAdressList, function* () {
+        const result = yield call(getListAdress);
+        // console.log(result);
+        let mass = [];
+        for (let i = 0; i < result.addresses.length; i++) {
+            mass = [...mass, {adress: result.addresses[i]}]
+        }
+        yield put(setAdressListRedux(mass));
+        yield put(setpreloader({preloaderState: false}));
 
-    yield put(setpreloader({preloaderState: false}));
+    });
+}
+
+export function* paymentSaga() {
+    yield takeEvery(actions, function* () {
+        const result = yield call(setPaymentInfo);
+
+    })
 
 }

@@ -3,11 +3,14 @@ import {Route, Switch, Redirect} from "react-router-dom";
 import Map from "../map/Map";
 import Profile from "../profile/Profile";
 import Head from "./head/head";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {setAdressList} from "../../store/actions";
 
 const Main = (props) => {
     const isLodined = useSelector(state => state.lloginblock.state);
+    const dispatch = useDispatch();
 
+    dispatch(setAdressList()); // если redux пустой то получаем адреса
 
     if (isLodined) {
         return (
