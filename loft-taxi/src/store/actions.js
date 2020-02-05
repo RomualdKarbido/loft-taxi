@@ -10,3 +10,4 @@ export const setRegistration = createAction('UESR_REGISTRATION');
 export const setMessageError = createAction('MESSAGE_ERROR');
 
 export const setAdressList = createAction('SETADRESSLIST');
+export const setAdressListRedux = createAction('SETADRESSLISTREDUX');

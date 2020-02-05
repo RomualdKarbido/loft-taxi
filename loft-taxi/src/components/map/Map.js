@@ -1,25 +1,53 @@
-import React from "react";
+import React, {useState} from 'react';
 import Btn from "../bnt/Btn";
 import Vectormap from "./Vectormap";
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import {useDispatch} from "react-redux";
-import {setAdressList} from "../../store/actions";
+import {useDispatch, useSelector} from "react-redux";
+import {setAdressList, setAdressListRedux} from "../../store/actions";
 
 
 const Map = (props) => {
     const exampleRef = React.createRef();
-
     const dispatch = useDispatch();
-    dispatch(setAdressList());
 
-    const top100Films = [
-        {title: 'The Shawshank Redemption', year: 1994},
-        {title: 'The Godfather', year: 1972},
-        {title: 'The Godfather: Part II', year: 1974},
-        {title: 'The Dark Knight', year: 2008},
-        {title: '12 Angry Men', year: 1957}
-    ];
+
+    let aderssList = useSelector(state => state.addressListReducer);
+    let newAddres = []; // начальные адреса
+
+
+    const [one, setOne] = useState([]);
+    const [two, setTwo] = useState([]);
+
+    if (aderssList.length === 0) {
+        dispatch(setAdressList()); // если redux пустой то получаем адреса
+    }
+    for (var key in aderssList) {
+        newAddres = [...newAddres, aderssList[key]];
+     }
+    if (aderssList.length > 0) {
+       setOne(aderssList);
+        console.log(one);
+    }
+
+
+
+
+
+
+    console.log(one);
+
+    const selecedAdres = (val, sl) => {
+        // console.log(val, sl);
+        // if (sl === 'in') {
+        //     let twto1 = newAddres.filter(adres => adres.adress === val.adress);
+        //     setTwo(twto1);
+        // } else if (sl === 'out') {
+        //
+        // }
+        // console.log(two);
+    };
+
 
     return <React.Fragment>
         <div className='map'>
@@ -29,22 +57,24 @@ const Map = (props) => {
 
                         <Autocomplete
                             id="in"
-                            options={top100Films}
-                            getOptionLabel={option => option.title}
+                            onChange={(event, value) => selecedAdres(value, 'in')}
+                            options={newAddres}
+                            getOptionLabel={option => option.adress}
                             renderInput={params => (
                                 <TextField
                                     {...params}
                                     label="Откуда"
+
                                     fullWidth/>
                             )}
                         />
-
                     </div>
                     <div className={'map__line'}>
                         <Autocomplete
                             id="out"
-                            options={top100Films}
-                            getOptionLabel={option => option.title}
+                            onChange={(event, value) => selecedAdres(value, 'out')}
+                            options={newAddres}
+                            getOptionLabel={option => option.adress}
                             renderInput={params => (
                                 <TextField
                                     {...params}

@@ -1,4 +1,4 @@
-import {takeEvery, call, take, put} from 'redux-saga/effects';
+import {takeEvery, call, take, select, put} from 'redux-saga/effects';
 import {
     setLogOut,
     setMessageError,
@@ -7,7 +7,8 @@ import {
     setUserAcitve,
     setUserInfo,
     setUserToken,
-    setAdressList
+    setAdressList,
+    setAdressListRedux
 } from './actions'
 
 
@@ -82,9 +83,21 @@ export function* logOutSaga() {
     });
 }
 
+
+
 export function* addressListSaga() {
-    yield takeEvery(setAdressList, function* () {
-        const result = yield call(getListAdress);
-        console.log(result); 
-    });
+    yield put(setpreloader({preloaderState: true}));
+
+        yield takeEvery(setAdressList, function* () {
+            const result = yield call(getListAdress);
+            // console.log(result);
+            let mass = [];
+            for (let i = 0; i < result.addresses.length; i++) {
+                mass = [...mass, {adress: result.addresses[i]}]
+            }
+            yield put(setAdressListRedux(mass));
+        });
+
+    yield put(setpreloader({preloaderState: false}));
+
 }

@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import {setUserInfo, setUserToken, setUserAcitve, setLogOut, setpreloader, setMessageError} from './actions';
+import {setUserInfo, setUserToken, setUserAcitve, setLogOut, setpreloader, setMessageError, setAdressListRedux} from './actions';
 
 const defaultState = {
     name: '',
@@ -64,6 +64,19 @@ export const messageErrorReducer = (state = {err: ''}, action) => {
     }
 };
 
+const addresses = [];
+
+export const addressListReducer = (state= addresses, action) => {
+    switch (action.type) {
+        case setAdressListRedux.toString():
+            return {
+                ...state, ...action.payload
+            };
+        default:
+            return state;
+    }
+};
+
 
 
 export default combineReducers({
@@ -71,4 +84,5 @@ export default combineReducers({
     token: setToken,
     pleloader: preloader,
     messageErrorReducer: messageErrorReducer,
+    addressListReducer: addressListReducer
 });
