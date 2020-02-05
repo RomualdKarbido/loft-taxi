@@ -58,7 +58,6 @@ const Map = (props) => {
                                 <TextField
                                     {...params}
                                     label="Откуда"
-
                                     fullWidth/>
                             )}
                         />

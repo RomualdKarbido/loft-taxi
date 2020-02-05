@@ -8,8 +8,11 @@ import {
     setUserInfo,
     setUserToken,
     setAdressList,
-    setAdressListRedux
+    setAdressListRedux,
+    settPaymentInfo,
+    settPaymentInfoRedux
 } from './actions'
+import get from "redux-actions/lib/utils/get";
 
 
 const link = 'https://loft-taxi.glitch.me/';
@@ -29,8 +32,8 @@ const getListAdress = () => fetch(`${link}/addressList`, {
 }).then(response => response.json()); // получене списко адресов
 
 
-const setPaymentInfo = () => fetch(`${link}/addressList`, {
-    method: 'get', headers: {'content-type': 'application/json'}
+const setPaymentInfo = (payInfo) => fetch(`${link}/card`, {
+    method: 'post',body: JSON.stringify(payInfo), headers: {'content-type': 'application/json'}
 }).then(response => response.json()); // отправка платежной информации
 
 
@@ -106,8 +109,25 @@ export function* addressListSaga() {
 }
 
 export function* paymentSaga() {
-    yield takeEvery(actions, function* () {
-        const result = yield call(setPaymentInfo);
+    yield takeEvery(settPaymentInfo, function* (actions) {
+        yield put(setpreloader({preloaderState: true}));
+
+        let payIinfo = {...actions.payload};
+        const getToke = state => state.token.token;
+        let toke = yield select(getToke);
+        payIinfo.token = toke;
+        console.log(payIinfo);
+
+        const result = yield call(setPaymentInfo, payIinfo);
+        console.log(result);
+        if (result.success) {
+            console.log('данные сохранены');
+            yield put(settPaymentInfoRedux(actions.payload));
+            yield put(setpreloader({preloaderState: false}));
+        } else {
+            console.log(result.error);
+            yield put(setpreloader({preloaderState: false}));
+        }
 
     })
 

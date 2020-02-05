@@ -1,145 +1,176 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import TextField from "@material-ui/core/TextField";
 import DateFnsUtils from '@date-io/date-fns';
 import {DatePicker, MuiPickersUtilsProvider,} from '@material-ui/pickers';
-import PropTypes from "prop-types";
+import {useDispatch, useSelector} from "react-redux";
 
 
-class Cart extends React.Component {
-    static propTypes = {
-        side: PropTypes.string,
+const Cart = (props) => {
+
+    const storageInfo = useSelector(state => state.addPaynentInfoReducer);
+
+    const [tooltip, setTooltip] = useState(false);
+    const [cvcVisible, setcvcVisible] = useState(false);
+
+    const [cardNumber, setcardNumber] = useState('');
+    const [expiryDate, setexpiryDate] = useState(new Date());
+    const [cardName, setcardName] = useState('');
+    const [cvc, setCvc] = useState('');
+
+
+    useEffect(() => {
+        console.log('eff', storageInfo);
+
+        if (storageInfo.cardNumber) {
+            setcardNumber('1000');
+            // setcardNumber('100')
+            console.log('говнида');
+        } else if (storageInfo.cardName) {
+            // setcardName(storageInfo.cardName);
+        }
+
+
+        // if (storageInfo) {
+        //     setcardNumber(storageInfo.cardNumber);
+        //
+        //     if(storageInfo.expiryDate)  {
+        //        let dat = new Date(storageInfo.expiryDate);
+        //         setexpiryDate(dat);
+        //     }
+        //
+        //
+        //     // setCvc(storageInfo.cvc);
+        // }
+    }, [storageInfo]);
+
+
+    const handleDateChange = date => {
+        setexpiryDate(date);
+        props.info({key: 'expiryDate', value: date});
     };
-    constructor(props) {
-        super(props);
-        const dd = new Date();
-        this.state = {
-            cvcVisible: false,
-            tooltip: false,
-            selectedDate: dd,
-            amount: '',
-            password: '',
-            weight: '',
-            weightRange: '',
-            showPassword: false,
-            cvc: ''
-        };
-    }
 
-    handleDateChange = date => {
-        this.setState({selectedDate: date});
+    const handleChange = (event) => {
+        if (event.target.name === 'cvc') {
+            setCvc(event.target.value);
+        }
+        props.info({key: event.target.name, value: event.target.value});
     };
 
-    handleChange = event => {
-        this.setState({[event.target.name]: event.target.value});
+    const visibleCVC = () => {
+        cvcVisible ? setcvcVisible(false) : setcvcVisible(true);
     };
 
-    visibleCVC = () => {
-        if (this.state.cvcVisible) {
-            this.setState({cvcVisible: false});
+    const tooltipedit = () => {
+        if (tooltip) {
+            setTooltip(false);
+            props.tooltipedit(false);
         } else {
-            this.setState({cvcVisible: true});
+            setTooltip(true);
+            props.tooltipedit(true);
         }
     };
 
-    tooltipedit = () => {
-        if (this.state.tooltip) {
-            this.setState({tooltip: false});
-            this.props.tooltipedit(false);
-        } else {
-            this.setState({tooltip: true});
-            this.props.tooltipedit(true);
-        }
-    };
 
-    render() {
-        if (this.props.side === 'one') {
-            return <div className={'cart__wrap'}>
-                <div className={'cart__logo'}></div>
-                <div className={'cart__form'}>
-                    <div className={'cart__line'}>
-                        <TextField
-                            id="numcart"
-                            InputLabelProps={{
-                                shrink: true,
-                            }}
-                            placeholder="1234 1234 1222 1223"
-                            label="Номер карты"/>
-                    </div>
-                    <div className={'cart__line'}>
-                        <div className={'cart__line-short'}>
-                            <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                                <DatePicker
-                                    format="MM/yy"
-                                    label="Срок действия"
-                                    value={this.state.selectedDate}
-                                    onChange={this.handleDateChange}
-                                />
-                            </MuiPickersUtilsProvider>
-                        </div>
-                    </div>
-
+    if (props.side === 'one') {
+        return <div className={'cart__wrap'}>
+            <div className={'cart__logo'}></div>
+            <div className={'cart__form'}>
+                <div className={'cart__line'}>
+                    <TextField
+                        id="cardNumber"
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                        defaultValue={cardNumber}
+                        type={'number'}
+                        name={'cardNumber'}
+                        onChange={(event) => handleChange(event)}
+                        placeholder="1234 1234 1222 1223"
+                        label="Номер карты"/>
                 </div>
-            </div>
-        } else {
-            return <div className={'cart__wrap'}>
+                <div className={'cart__line'}>
+                    <div className={'cart__line-short'}>
+                        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                            <DatePicker
+                                format="MM/yy"
+                                label="Срок действия"
+                                value={expiryDate}
+                                onChange={handleDateChange}
+                            />
+                        </MuiPickersUtilsProvider>
+                    </div>
+                </div>
 
+            </div>
+        </div>
+    } else {
+        return (
+            <div className={'cart__wrap'}>
                 <div className={'cart__form'}>
                     <div className={'cart__line'}>
                         <TextField
-                            id="user"
+                            id="cardName"
                             InputLabelProps={{
                                 shrink: true,
                             }}
+                            defaultValue={cardName}
+                            name={'cardName'}
                             placeholder="USER NAME"
                             type={'text'}
-                            label="Имя владельца"/>
+                            label="Имя владельца"
+                            onChange={(event) => handleChange(event)}
+                        />
                     </div>
                     <div className={'cart__line'}>
                         <div className={'cart__line-short'}>
-                            {this.state.cvcVisible
+                            {cvcVisible
                                 ? <TextField
                                     id="cvc"
                                     InputLabelProps={{
                                         shrink: true,
                                     }}
                                     name='cvc'
-                                    onChange={this.handleChange}
+                                    onChange={(event) => handleChange(event)}
                                     placeholder={'123'}
                                     type={'text'}
-                                    label=" CVC:"/>
+                                    label=" CVC:"
+                                />
                                 : <TextField
                                     id="cvc"
                                     name='cvc'
                                     InputLabelProps={{
                                         shrink: true,
                                     }}
-                                    onChange={this.handleChange}
+                                    defaultValue={cvc}
+                                    onChange={(event) => handleChange(event)}
                                     placeholder={'123'}
                                     type={'password'}
                                     inputProps={{'data-testid': 'cvc'}}
-                                    label=" CVC:"/>
+                                    label=" CVC:"
+                                />
                             }
                         </div>
                         {
-                            this.state.cvc.length > 0
-                                ? <div data-testid={'eye1'} className={'cart__eye'} onClick={this.visibleCVC}>
-                                    {this.state.cvcVisible
+                            cvc.length > 0
+                                ? <div data-testid={'eye1'} className={'cart__eye'} onClick={visibleCVC}>
+                                    {cvcVisible
                                         ? <i className={'mdi mdi-eye-off-outline'}/>
                                         : <i className={'mdi mdi-eye'}/>
                                     }
                                 </div>
-                                : ''
+                                : null
                         }
 
-                        <div data-testid={'bntTool'} className='cart__tool-btn' onClick={this.tooltipedit}>
+                        <div data-testid={'bntTool'} className='cart__tool-btn' onClick={tooltipedit}>
                             <i className='mdi mdi-help-rhombus-outline'/>
                         </div>
                     </div>
 
                 </div>
             </div>
-        }
+        )
     }
+
 }
 
 

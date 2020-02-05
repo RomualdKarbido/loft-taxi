@@ -11,3 +11,6 @@ export const setMessageError = createAction('MESSAGE_ERROR');
 
 export const setAdressList = createAction('SETADRESSLIST');
 export const setAdressListRedux = createAction('SETADRESSLISTREDUX');
+
+export const settPaymentInfo = createAction('SETPAYMENTINFO');
+export const settPaymentInfoRedux = createAction('SETPAYMENTINFOREDUX');

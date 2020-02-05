@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import {setUserInfo, setUserToken, setUserAcitve, setLogOut, setpreloader, setMessageError, setAdressListRedux} from './actions';
+import {setUserInfo, setUserToken, setUserAcitve, setLogOut, setpreloader, setMessageError, setAdressListRedux, settPaymentInfoRedux} from './actions';
 
 const defaultState = {
     name: '',
@@ -76,6 +76,16 @@ export const addressListReducer = (state= addresses, action) => {
             return state;
     }
 };
+export const addPaynentInfoReducer = (state= {}, action) => {
+    switch (action.type) {
+        case settPaymentInfoRedux.toString():
+            return {
+                ...state, ...action.payload
+            };
+        default:
+            return state;
+    }
+};
 
 
 
@@ -84,5 +94,6 @@ export default combineReducers({
     token: setToken,
     pleloader: preloader,
     messageErrorReducer: messageErrorReducer,
-    addressListReducer: addressListReducer
+    addressListReducer: addressListReducer,
+    addPaynentInfoReducer: addPaynentInfoReducer
 });
