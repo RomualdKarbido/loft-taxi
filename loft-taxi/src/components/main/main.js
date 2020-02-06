@@ -4,13 +4,15 @@ import Map from "../map/Map";
 import Profile from "../profile/Profile";
 import Head from "./head/head";
 import {useDispatch, useSelector} from "react-redux";
-import {setAdressList} from "../../store/actions";
+import {setAdressList, setPayInfo} from "../../store/actions";
 
 const Main = (props) => {
     const isLodined = useSelector(state => state.lloginblock.state);
     const dispatch = useDispatch();
 
     dispatch(setAdressList()); // если redux пустой то получаем адреса
+    dispatch(setPayInfo()); // данные пластиковй карты
+
 
     if (isLodined) {
         return (
@@ -23,7 +25,7 @@ const Main = (props) => {
             </React.Fragment>
         )
     } else {
-       return <Redirect to={'/'}/>
+        return <Redirect to={'/'}/>
     }
 };
 

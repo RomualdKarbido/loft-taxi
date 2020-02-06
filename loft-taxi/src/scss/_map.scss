@@ -19,6 +19,9 @@
     padding: 40px;
     box-shadow: 0px 0px 4px 0px #00000014;
     box-sizing: border-box;
+    &-error {
+      color: black;
+    }
   }
   &__line {
     margin-bottom: $sp*2;
@@ -32,6 +35,11 @@
         align-items: center;
         width: 100%;
       }
+    }
+    &-title {
+      font-weight: bold;
+      font-size: 22px;
+      margin-bottom: $sp;
     }
   }
   &__render {

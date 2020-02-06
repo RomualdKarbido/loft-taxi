@@ -10,9 +10,11 @@ import {
     setAdressList,
     setAdressListRedux,
     settPaymentInfo,
-    settPaymentInfoRedux
+    settPaymentInfoRedux,
+    setPayInfo, settPaymentInfoFromOnlyRedux
 } from './actions'
 import get from "redux-actions/lib/utils/get";
+import {addPaynentInfoReducer} from "./reducers";
 
 
 const link = 'https://loft-taxi.glitch.me/';
@@ -33,9 +35,12 @@ const getListAdress = () => fetch(`${link}/addressList`, {
 
 
 const setPaymentInfo = (payInfo) => fetch(`${link}/card`, {
-    method: 'post',body: JSON.stringify(payInfo), headers: {'content-type': 'application/json'}
+    method: 'post', body: JSON.stringify(payInfo), headers: {'content-type': 'application/json'}
 }).then(response => response.json()); // отправка платежной информации
 
+const getPaymentInfo = (token) => fetch(`${link}/card?token=${token}`, {
+    method: 'get', headers: {'content-type': 'application/json'}
+}).then(response => response.json()); // получение платежной информации
 
 export function* authorizationSaga() {
     yield takeEvery(setUserInfo, function* (actions) {
@@ -87,7 +92,15 @@ export function* registrationSaga() {
 export function* logOutSaga() {
     yield takeEvery(setLogOut, function* () {
         yield put(setUserToken({token: ''}));
+        yield put(settPaymentInfoFromOnlyRedux({
+            id: '',
+            cardNumber: '',
+            expiryDate: '',
+            cardName: '',
+            cvc: ''
+        }));
         localStorage.removeItem('userInfo');
+        yield put(setpreloader({preloaderState: false}))
     });
 }
 
@@ -109,26 +122,47 @@ export function* addressListSaga() {
 }
 
 export function* paymentSaga() {
-    yield takeEvery(settPaymentInfo, function* (actions) {
+    yield takeEvery(settPaymentInfo, function* () {
         yield put(setpreloader({preloaderState: true}));
 
-        let payIinfo = {...actions.payload};
-        const getToke = state => state.token.token;
-        let toke = yield select(getToke);
-        payIinfo.token = toke;
-        console.log(payIinfo);
+        const getPayInfo = state => state.addPaynentInfoReducer;
+        let payIinfo = yield select(getPayInfo); // получаем данные из redux
 
-        const result = yield call(setPaymentInfo, payIinfo);
-        console.log(result);
+        const getToke = state => state.token.token;
+        let toke = yield select(getToke); // получаем токен из redux
+
+        payIinfo.token = toke; // добавить токен
+
+        const result = yield call(setPaymentInfo, payIinfo); // сохраняем в базу
         if (result.success) {
-            console.log('данные сохранены');
-            yield put(settPaymentInfoRedux(actions.payload));
             yield put(setpreloader({preloaderState: false}));
         } else {
             console.log(result.error);
             yield put(setpreloader({preloaderState: false}));
         }
+    })
+}
+
+export function* getPayInfoSaga() {
+    yield takeEvery(setPayInfo, function* (actions) {
+        console.log('Грузим данные пластиковой карты');
+        const getToke = state => state.token.token;
+        let toke = yield select(getToke); // получаем токен из redux
+
+        const result = yield call(getPaymentInfo, toke);
+        if (result.success === false && result) { // если ошибка
+            console.log(result.error);
+        }
+        if (result.id && result) { // если пришел ответ
+
+            const getPayInfo = state => state.addPaynentInfoReducer;
+            let payIinfo = yield select(getPayInfo); // получаем данные из redux
+
+            if (payIinfo.id === '' || !payIinfo.id) {
+                yield put(settPaymentInfoRedux(result)); // данные из базы пишем в redux
+            }
+        }
+
 
     })
-
 }

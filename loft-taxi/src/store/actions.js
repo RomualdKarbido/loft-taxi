@@ -13,4 +13,6 @@ export const setAdressList = createAction('SETADRESSLIST');
 export const setAdressListRedux = createAction('SETADRESSLISTREDUX');
 
 export const settPaymentInfo = createAction('SETPAYMENTINFO');
+export const settPaymentInfoFromOnlyRedux = createAction('SETPAYMENTINFOFROMONLIREDUX');
 export const settPaymentInfoRedux = createAction('SETPAYMENTINFOREDUX');
+export const setPayInfo = createAction('SETPAYINFO');

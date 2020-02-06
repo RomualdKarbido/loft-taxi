@@ -1,44 +1,22 @@
 import React, {useState} from 'react';
 import Cart from "../cart/Cart";
 import Toolltip from "./tooltip/Tooltip";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {settPaymentInfo} from '../../store/actions'
-
 
 const Profile = (props) => {
 
     const [tooll, setTooll] = useState(false);
 
-    const [cardNumber, setcardNumber] = useState('1');
-    const [expiryDate, setexpiryDate] = useState('');
-    const [cardName, setcardName] = useState('');
-    const [cvc, setcvc] = useState('');
-
     const tool = (st) => setTooll(st);
     const dispatch = useDispatch();
 
-    const setPaymentInfo = () => {
-        dispatch(settPaymentInfo({
-                cardNumber: cardNumber,
-                expiryDate: expiryDate,
-                cardName: cardName,
-                cvc: cvc
-            }
-        ));
-    };
+    // const payInfo = useSelector(state => state.addPaynentInfoReducer);
 
-    const twocart = (info) => {
-        // console.log(info);
-        if (info.key === 'cvc') {
-            setcvc(info.value);
-        } else if (info.key === 'cardName') {
-            setcardName(info.value);
-        } else if (info.key === 'cardNumber') {
-            setcardNumber(info.value);
-        } else if (info.key === 'expiryDate') {
-            setexpiryDate(info.value);
-        }
-    }; // получаем данные из полей. сохраняем в стейт
+    const setPaymentInfo = () => {
+        // console.log(payInfo);
+        dispatch(settPaymentInfo());
+    };
 
 
     return (
@@ -53,12 +31,12 @@ const Profile = (props) => {
                                 <div className={'profile__cartblock'}>
                                     <div className={'profile__cart'}>
                                         <div className={'profile__cart-item'}>
-                                            <Cart side={'one'} info={(info) => twocart(info)}/>
+                                            <Cart side={'one'} />
                                         </div>
                                     </div>
                                     <div className={'profile__cart'}>
                                         <div className={'profile__cart-item'}>
-                                            <Cart side={'two'} tooltipedit={tool} info={(info) => twocart(info)}/>
+                                            <Cart side={'two'} tooltipedit={tool} />
                                         </div>
                                     </div>
 

@@ -2,7 +2,8 @@ import React, {useEffect, useState} from 'react';
 import TextField from "@material-ui/core/TextField";
 import DateFnsUtils from '@date-io/date-fns';
 import {DatePicker, MuiPickersUtilsProvider,} from '@material-ui/pickers';
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
+import {settPaymentInfoFromOnlyRedux} from "../../store/actions";
 
 
 const Cart = (props) => {
@@ -17,43 +18,36 @@ const Cart = (props) => {
     const [cardName, setcardName] = useState('');
     const [cvc, setCvc] = useState('');
 
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log('eff', storageInfo);
-
-        if (storageInfo.cardNumber) {
-            setcardNumber('1000');
-            // setcardNumber('100')
-            console.log('говнида');
-        } else if (storageInfo.cardName) {
-            // setcardName(storageInfo.cardName);
+        setcardNumber(storageInfo.cardNumber);
+        setcardName(storageInfo.cardName);
+        if (storageInfo.expiryDate) {
+            setexpiryDate(new Date(storageInfo.expiryDate));
         }
-
-
-        // if (storageInfo) {
-        //     setcardNumber(storageInfo.cardNumber);
-        //
-        //     if(storageInfo.expiryDate)  {
-        //        let dat = new Date(storageInfo.expiryDate);
-        //         setexpiryDate(dat);
-        //     }
-        //
-        //
-        //     // setCvc(storageInfo.cvc);
-        // }
+        if (storageInfo.cvc) {
+            setCvc(storageInfo.cvc);
+        }
     }, [storageInfo]);
 
 
     const handleDateChange = date => {
         setexpiryDate(date);
-        props.info({key: 'expiryDate', value: date});
+        dispatch(settPaymentInfoFromOnlyRedux({expiryDate: date}));
     };
 
     const handleChange = (event) => {
-        if (event.target.name === 'cvc') {
+        if (event.target.name === 'cardNumber') {
+            setcardNumber(event.target.value);
+            dispatch(settPaymentInfoFromOnlyRedux({cardNumber: event.target.value}));
+        } else if (event.target.name === 'cardName') {
+            setcardName(event.target.value);
+            dispatch(settPaymentInfoFromOnlyRedux({cardName: event.target.value}));
+        } else if (event.target.name === 'cvc') {
             setCvc(event.target.value);
+            dispatch(settPaymentInfoFromOnlyRedux({cvc: event.target.value}));
         }
-        props.info({key: event.target.name, value: event.target.value});
     };
 
     const visibleCVC = () => {
@@ -81,10 +75,10 @@ const Cart = (props) => {
                         InputLabelProps={{
                             shrink: true,
                         }}
-                        defaultValue={cardNumber}
+                        value={cardNumber || ''}
                         type={'number'}
                         name={'cardNumber'}
-                        onChange={(event) => handleChange(event)}
+                        onChange={handleChange}
                         placeholder="1234 1234 1222 1223"
                         label="Номер карты"/>
                 </div>
@@ -113,12 +107,12 @@ const Cart = (props) => {
                             InputLabelProps={{
                                 shrink: true,
                             }}
-                            defaultValue={cardName}
                             name={'cardName'}
                             placeholder="USER NAME"
                             type={'text'}
                             label="Имя владельца"
-                            onChange={(event) => handleChange(event)}
+                            value={cardName || ''}
+                            onChange={handleChange}
                         />
                     </div>
                     <div className={'cart__line'}>
@@ -129,8 +123,9 @@ const Cart = (props) => {
                                     InputLabelProps={{
                                         shrink: true,
                                     }}
+                                    value={cvc || ''}
                                     name='cvc'
-                                    onChange={(event) => handleChange(event)}
+                                    onChange={handleChange}
                                     placeholder={'123'}
                                     type={'text'}
                                     label=" CVC:"
@@ -141,8 +136,8 @@ const Cart = (props) => {
                                     InputLabelProps={{
                                         shrink: true,
                                     }}
-                                    defaultValue={cvc}
-                                    onChange={(event) => handleChange(event)}
+                                    value={cvc || ''}
+                                    onChange={handleChange}
                                     placeholder={'123'}
                                     type={'password'}
                                     inputProps={{'data-testid': 'cvc'}}

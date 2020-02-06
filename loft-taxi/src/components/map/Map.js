@@ -4,19 +4,23 @@ import Vectormap from "./Vectormap";
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import {useSelector} from "react-redux";
+import {Link} from "react-router-dom";
 
 
 const Map = (props) => {
+
     const exampleRef = React.createRef();
     let aderssList = useSelector(state => state.addressListReducer);
-    // let newAddres = []; // начальные адреса
+    let stateCart = useSelector(state => state.addPaynentInfoReducer.id);
+
 
     const [newAddres, setNewAdres] = useState([]); // весь список адресов
-
     const [oneList, setOnelist] = useState([]);
     const [twoList, setTwoList] = useState([]);
 
     useEffect(() => {
+
+
         let adrr = [];
         for (var key in aderssList) {
             adrr = [...adrr, aderssList[key]];
@@ -47,38 +51,53 @@ const Map = (props) => {
         <div className='map'>
             <div className={'map__content'}>
                 <div className={'map__box'}>
-                    <div className={'map__line'}>
+                    {
+                        stateCart
+                            ? <div>
+                                <div className={'map__line'}>
 
-                        <Autocomplete
-                            id="in"
-                            onChange={(event, value) => selecedAdres(value, 'in')}
-                            options={oneList}
-                            getOptionLabel={option => option.adress}
-                            renderInput={params => (
-                                <TextField
-                                    {...params}
-                                    label="Откуда"
-                                    fullWidth/>
-                            )}
-                        />
-                    </div>
-                    <div className={'map__line'}>
-                        <Autocomplete
-                            id="out"
-                            onChange={(event, value) => selecedAdres(value, 'out')}
-                            options={twoList}
-                            getOptionLabel={option => option.adress}
-                            renderInput={params => (
-                                <TextField
-                                    {...params}
-                                    label="Куда"
-                                    fullWidth/>
-                            )}
-                        />
-                    </div>
-                    <div className={'map__line'}>
-                        <Btn bnttext={'Вызвать такси'} link={'/map'}/>
-                    </div>
+                                    <Autocomplete
+                                        id="in"
+                                        onChange={(event, value) => selecedAdres(value, 'in')}
+                                        options={oneList}
+                                        getOptionLabel={option => option.adress}
+                                        renderInput={params => (
+                                            <TextField
+                                                {...params}
+                                                label="Откуда"
+                                                fullWidth/>
+                                        )}
+                                    />
+                                </div>
+                                <div className={'map__line'}>
+                                    <Autocomplete
+                                        id="out"
+                                        onChange={(event, value) => selecedAdres(value, 'out')}
+                                        options={twoList}
+                                        getOptionLabel={option => option.adress}
+                                        renderInput={params => (
+                                            <TextField
+                                                {...params}
+                                                label="Куда"
+                                                fullWidth/>
+                                        )}
+                                    />
+                                </div>
+                                <div className={'map__line'}>
+                                    <Btn bnttext={'Вызвать такси'} link={'/map'}/>
+                                </div>
+                            </div>
+                            : <div className='map__box-error'>
+                                <div className='map__line'>
+                                    <div className='map__line-title'>Еще немного!</div>
+                                    <span>Убедительная просьба перейти в профиль и ввести данные карты.</span>
+                                </div>
+                                <div className='map__line'>
+                                    <Link to={'/profile'} className='btn'><span>Заполнить платежную информацию</span></Link>
+                                </div>
+
+                            </div>
+                    }
                 </div>
             </div>
         </div>

@@ -1,5 +1,15 @@
 import {combineReducers} from 'redux';
-import {setUserInfo, setUserToken, setUserAcitve, setLogOut, setpreloader, setMessageError, setAdressListRedux, settPaymentInfoRedux} from './actions';
+import {
+    setUserInfo,
+    setUserToken,
+    setUserAcitve,
+    setLogOut,
+    setpreloader,
+    setMessageError,
+    setAdressListRedux,
+    settPaymentInfoRedux,
+    settPaymentInfoFromOnlyRedux
+} from './actions';
 
 const defaultState = {
     name: '',
@@ -52,7 +62,6 @@ export const preloader = (state = {preloaderState: false}, action) => {
 };
 
 
-
 export const messageErrorReducer = (state = {err: ''}, action) => {
     switch (action.type) {
         case setMessageError.toString():
@@ -66,7 +75,7 @@ export const messageErrorReducer = (state = {err: ''}, action) => {
 
 const addresses = [];
 
-export const addressListReducer = (state= addresses, action) => {
+export const addressListReducer = (state = addresses, action) => {
     switch (action.type) {
         case setAdressListRedux.toString():
             return {
@@ -76,9 +85,13 @@ export const addressListReducer = (state= addresses, action) => {
             return state;
     }
 };
-export const addPaynentInfoReducer = (state= {}, action) => {
+export const addPaynentInfoReducer = (state = {}, action) => {
     switch (action.type) {
         case settPaymentInfoRedux.toString():
+            return {
+                ...state, ...action.payload
+            };
+        case settPaymentInfoFromOnlyRedux.toString():
             return {
                 ...state, ...action.payload
             };
@@ -86,7 +99,6 @@ export const addPaynentInfoReducer = (state= {}, action) => {
             return state;
     }
 };
-
 
 
 export default combineReducers({
