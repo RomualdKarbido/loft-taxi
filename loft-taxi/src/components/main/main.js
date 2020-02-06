@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Route, Switch, Redirect} from "react-router-dom";
 import Map from "../map/Map";
 import Profile from "../profile/Profile";
@@ -10,8 +10,10 @@ const Main = (props) => {
     const isLodined = useSelector(state => state.lloginblock.state);
     const dispatch = useDispatch();
 
-    dispatch(setAdressList()); // если redux пустой то получаем адреса
-    dispatch(setPayInfo()); // данные пластиковй карты
+    useEffect(() => {
+        dispatch(setAdressList()); // если redux пустой то получаем адреса
+        dispatch(setPayInfo()); // данные пластиковй карты
+    }, []);
 
 
     if (isLodined) {

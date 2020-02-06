@@ -33,7 +33,7 @@ const setAutorisation = (uinfo) => fetch(`${link}/register`, {
 
 const getListAdress = () => fetch(`${link}/addressList`, {
     method: 'get', headers: {'content-type': 'application/json'}
-}).then(response => response.json()); // получене списко адресов
+}).then(response => response.json()); // получене списка адресов
 
 
 const setPaymentInfo = (payInfo) => fetch(`${link}/card`, {

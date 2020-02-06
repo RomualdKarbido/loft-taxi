@@ -8,7 +8,9 @@ class Vectormap extends React.Component {
         this.state = {
             lng: 30.355483,
             lat: 59.93168,
-            zoom: 10
+            zoom: 10,
+            draw: true
+
         };
     }
 
@@ -26,13 +28,10 @@ class Vectormap extends React.Component {
     }
 
     drawRoute = (coordinates) => {
-        console.log('рисуем карту');
-        console.log(coordinates);
 
-        if (coordinates.length > 0) {
-
+        if (this.state.draw) {
             this.map.flyTo({
-                center: coordinates[0],
+                center: coordinates[3],
                 zoom: 13
             });
 
@@ -59,13 +58,16 @@ class Vectormap extends React.Component {
                     "line-width": 4
                 }
             });
+            this.setState({draw: false});
         } else {
-            console.log('очищаем карту');
-            if (this.map.getLayer('route')) this.map.removeLayer('route');
+            this.map.removeLayer("route");
+            this.map.removeSource("route");
+
             this.map.flyTo({
                 center: [this.state.lng, this.state.lat],
                 zoom: this.state.zoom
             });
+            this.setState({draw: true});
         }
     };
 

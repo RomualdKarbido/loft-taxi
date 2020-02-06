@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
-import {setRouteTaxi} from "../../store/actions";
+import {setAdressList, setRouteTaxi} from "../../store/actions";
 
 
 const Map = (props) => {
@@ -26,15 +26,22 @@ const Map = (props) => {
     const [stateTaxi, setstateTaxi] = useState(false); // статус вызванного такси
 
 
+
     useEffect(() => {
         let adrr = [];
         for (var key in aderssList) {
             adrr = [...adrr, aderssList[key]];
         }
-        setNewAdres(adrr);
+        if (adrr.length > 0) {
+            setNewAdres(adrr);
+        }
+    }, [aderssList]);
+
+    useEffect(() => {
         setOnelist(newAddres);
         setTwoList(newAddres);
-    }, [aderssList]);
+    }, [newAddres]);
+
 
     useEffect(() => {
         if (listpoint.length > 0) {
@@ -72,6 +79,8 @@ const Map = (props) => {
         setTwoList(newAddres);
         child.current.drawRoute([]);
     };
+
+
 
     let box = ''; // блок модального окна у него три вида
 
@@ -148,6 +157,7 @@ const Map = (props) => {
     </React.Fragment>
 
 }
+
 
 
 export default Map;
