@@ -11,7 +11,15 @@ import {setLogOut, setUserAcitve, setUserToken} from "./store/actions";
 import {BrowserRouter as Router} from "react-router-dom";
 
 import createSagaMiddleWare from 'redux-saga';
-import {authorizationSaga, registrationSaga, logOutSaga, addressListSaga, paymentSaga, getPayInfoSaga} from './store/sagas'
+import {
+    authorizationSaga,
+    registrationSaga,
+    logOutSaga,
+    addressListSaga,
+    paymentSaga,
+    getPayInfoSaga,
+    routeSaga
+} from './store/sagas'
 
 const sagaMiddleware = createSagaMiddleWare();
 
@@ -19,7 +27,7 @@ const sagaMiddleware = createSagaMiddleWare();
 const store = createStore(
     rootReducer,
     // compose(applyMiddleware(authMiddleware, registrMiddleware, logOutMiddleware),
-        compose(applyMiddleware(sagaMiddleware),
+    compose(applyMiddleware(sagaMiddleware),
         window.__REDUX_DEVTOOLS_EXTENSION__
             ? window.__REDUX_DEVTOOLS_EXTENSION__()
             : noop => noop
@@ -31,6 +39,7 @@ sagaMiddleware.run(logOutSaga);
 sagaMiddleware.run(addressListSaga);
 sagaMiddleware.run(paymentSaga);
 sagaMiddleware.run(getPayInfoSaga);
+sagaMiddleware.run(routeSaga);
 
 
 const stringInfo = JSON.parse(localStorage.getItem('userInfo'));

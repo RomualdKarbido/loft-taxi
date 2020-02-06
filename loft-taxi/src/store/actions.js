@@ -11,8 +11,14 @@ export const setMessageError = createAction('MESSAGE_ERROR');
 
 export const setAdressList = createAction('SETADRESSLIST');
 export const setAdressListRedux = createAction('SETADRESSLISTREDUX');
+export const setRouteTaxi = createAction('SETROUTETAXI');
+export const setRouteTaxiRedux = createAction('SETROUTETAXIREDUX');
+
 
 export const settPaymentInfo = createAction('SETPAYMENTINFO');
 export const settPaymentInfoFromOnlyRedux = createAction('SETPAYMENTINFOFROMONLIREDUX');
 export const settPaymentInfoRedux = createAction('SETPAYMENTINFOREDUX');
 export const setPayInfo = createAction('SETPAYINFO');
+
+
+

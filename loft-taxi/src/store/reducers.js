@@ -8,7 +8,8 @@ import {
     setMessageError,
     setAdressListRedux,
     settPaymentInfoRedux,
-    settPaymentInfoFromOnlyRedux
+    settPaymentInfoFromOnlyRedux,
+    setRouteTaxiRedux
 } from './actions';
 
 const defaultState = {
@@ -100,6 +101,19 @@ export const addPaynentInfoReducer = (state = {}, action) => {
     }
 };
 
+const pointss = {points: []};
+
+export const routerPointReducer = (state = pointss, action) => {
+    switch (action.type) {
+        case setRouteTaxiRedux.toString():
+            return {
+                ...state, ...action.payload
+            };
+        default:
+            return state;
+    }
+};
+
 
 export default combineReducers({
     lloginblock: loginBlockReducer,
@@ -107,5 +121,6 @@ export default combineReducers({
     pleloader: preloader,
     messageErrorReducer: messageErrorReducer,
     addressListReducer: addressListReducer,
-    addPaynentInfoReducer: addPaynentInfoReducer
+    addPaynentInfoReducer: addPaynentInfoReducer,
+    routerPointReducer: routerPointReducer
 });

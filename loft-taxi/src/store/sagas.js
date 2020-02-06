@@ -11,7 +11,9 @@ import {
     setAdressListRedux,
     settPaymentInfo,
     settPaymentInfoRedux,
-    setPayInfo, settPaymentInfoFromOnlyRedux
+    setPayInfo,
+    settPaymentInfoFromOnlyRedux,
+    setRouteTaxi, setRouteTaxiRedux
 } from './actions'
 import get from "redux-actions/lib/utils/get";
 import {addPaynentInfoReducer} from "./reducers";
@@ -41,6 +43,14 @@ const setPaymentInfo = (payInfo) => fetch(`${link}/card`, {
 const getPaymentInfo = (token) => fetch(`${link}/card?token=${token}`, {
     method: 'get', headers: {'content-type': 'application/json'}
 }).then(response => response.json()); // получение платежной информации
+
+
+const getRouteTaxi = (adress) => fetch(`${link}//route?address1=${adress.start}&address2=${adress.finish}`, {
+    method: 'get', headers: {'content-type': 'application/json'}
+}).then(response => response.json()); // получение платежной информации
+
+
+
 
 export function* authorizationSaga() {
     yield takeEvery(setUserInfo, function* (actions) {
@@ -89,7 +99,7 @@ export function* registrationSaga() {
     })
 }
 
-export function* logOutSaga() {
+export function* logOutSaga() { // выход из приложения
     yield takeEvery(setLogOut, function* () {
         yield put(setUserToken({token: ''}));
         yield put(settPaymentInfoFromOnlyRedux({
@@ -100,6 +110,7 @@ export function* logOutSaga() {
             cvc: ''
         }));
         localStorage.removeItem('userInfo');
+        yield put(setRouteTaxiRedux({points: []}));
         yield put(setpreloader({preloaderState: false}))
     });
 }
@@ -163,6 +174,22 @@ export function* getPayInfoSaga() {
             }
         }
 
+
+    })
+}
+
+export function* routeSaga() {
+    yield takeEvery(setRouteTaxi, function* (actions) {
+        yield put(setpreloader({preloaderState: true}));
+        const taxiInfo = actions.payload;
+        const result = yield call(getRouteTaxi, taxiInfo);
+        if (result) {
+            yield put(setRouteTaxiRedux({points: result}));
+            yield put(setpreloader({preloaderState: false}));
+        } else {
+            yield put(setRouteTaxiRedux({points: []}));
+            yield put(setpreloader({preloaderState: false}));
+        }
 
     })
 }
