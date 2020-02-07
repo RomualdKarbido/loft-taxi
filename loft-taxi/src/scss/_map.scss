@@ -1,15 +1,10 @@
 .map {
-  //background: gray;
-  //height: calc(100vh - 75px);
-  ////background: url("../assets/map.jpg") no-repeat;
-  //background-size: cover;
   position: absolute;
   left: calc(50% - 600px);
   top: 175px;
   z-index: 10;
   &__content {
     max-width: 1200px;
-    //padding: 100px;
     color: white;
     margin: 0 auto;
   }
@@ -48,5 +43,12 @@
     bottom: 0;
     width: 100%;
     z-index: 1;
+  }
+}
+
+@media (max-width: 1240px) {
+  .map {
+    position: absolute;
+    left: $sp;
   }
 }
