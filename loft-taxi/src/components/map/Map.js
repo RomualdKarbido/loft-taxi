@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
-import {setAdressList, setRouteTaxi} from "../../store/actions";
+import {setAdressList, setRouteTaxi, setRouteTaxiRedux} from "../../store/actions";
 
 
 const Map = (props) => {
@@ -13,7 +13,7 @@ const Map = (props) => {
     const dispatch = useDispatch();
 
     let aderssList = useSelector(state => state.addressListReducer);
-    let stateCart = useSelector(state => state.addPaynentInfoReducer.id);
+    let stateCart = useSelector(state => state.addPaynentInfoReducer.cardNumber);
     let listpoint = useSelector(state => state.routerPointReducer.points);
 
     const [newAddres, setNewAdres] = useState([]); // весь список адресов
@@ -24,7 +24,6 @@ const Map = (props) => {
     const [finish, setFinish] = useState('');
 
     const [stateTaxi, setstateTaxi] = useState(false); // статус вызванного такси
-
 
 
     useEffect(() => {
@@ -81,7 +80,6 @@ const Map = (props) => {
     };
 
 
-
     let box = ''; // блок модального окна у него три вида
 
     if (stateCart && !stateTaxi) {
@@ -122,8 +120,8 @@ const Map = (props) => {
     } else if (!stateCart && !stateTaxi) {
         box = <div className='map__box-error'>
             <div className='map__line'>
-                <div className='map__line-title'>Еще немного!</div>
-                <span>Убедительная просьба перейти в профиль и ввести данные карты.</span>
+                <div className='map__line-title'>Введите платежную информацию!</div>
+                <span>Убедительная просьба перейти в профиль и ввести данные банковской карты.</span>
             </div>
             <div className='map__line'>
                 <Link to={'/profile'} className='btn'><span>Заполнить платежную информацию</span></Link>
@@ -157,7 +155,6 @@ const Map = (props) => {
     </React.Fragment>
 
 }
-
 
 
 export default Map;

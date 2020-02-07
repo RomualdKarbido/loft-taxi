@@ -103,7 +103,7 @@ export const addPaynentInfoReducer = (state = {}, action) => {
 
 const pointss = {points: []};
 
-export const routerPointReducer = (state = pointss, action) => {
+export const routerPointReducer = (state = pointss, action) => { // точки построенного маршрута
     switch (action.type) {
         case setRouteTaxiRedux.toString():
             return {

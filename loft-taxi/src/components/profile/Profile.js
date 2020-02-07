@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Cart from "../cart/Cart";
 import Toolltip from "./tooltip/Tooltip";
 import {useDispatch, useSelector} from "react-redux";
-import {settPaymentInfo} from '../../store/actions'
+import {settPaymentInfo, setRouteTaxiRedux} from '../../store/actions'
 
 const Profile = (props) => {
 
@@ -13,8 +13,12 @@ const Profile = (props) => {
 
     // const payInfo = useSelector(state => state.addPaynentInfoReducer);
 
+    useEffect(() => {
+        dispatch(setRouteTaxiRedux({points: []}));
+    }, []);
+
+
     const setPaymentInfo = () => {
-        // console.log(payInfo);
         dispatch(settPaymentInfo());
     };
 
@@ -31,12 +35,12 @@ const Profile = (props) => {
                                 <div className={'profile__cartblock'}>
                                     <div className={'profile__cart'}>
                                         <div className={'profile__cart-item'}>
-                                            <Cart side={'one'} />
+                                            <Cart side={'one'}/>
                                         </div>
                                     </div>
                                     <div className={'profile__cart'}>
                                         <div className={'profile__cart-item'}>
-                                            <Cart side={'two'} tooltipedit={tool} />
+                                            <Cart side={'two'} tooltipedit={tool}/>
                                         </div>
                                     </div>
 
@@ -58,5 +62,9 @@ const Profile = (props) => {
 }
 
 export default Profile;
+
+
+
+
 
 

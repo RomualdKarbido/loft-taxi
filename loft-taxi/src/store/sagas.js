@@ -50,8 +50,6 @@ const getRouteTaxi = (adress) => fetch(`${link}//route?address1=${adress.start}&
 }).then(response => response.json()); // получение платежной информации
 
 
-
-
 export function* authorizationSaga() {
     yield takeEvery(setUserInfo, function* (actions) {
         yield put(setpreloader({preloaderState: true})); // включаем прелоадер
@@ -156,7 +154,7 @@ export function* paymentSaga() {
 
 export function* getPayInfoSaga() {
     yield takeEvery(setPayInfo, function* (actions) {
-        console.log('Грузим данные пластиковой карты');
+        // console.log('Грузим данные пластиковой карты');
         const getToke = state => state.token.token;
         let toke = yield select(getToke); // получаем токен из redux
 
