@@ -55,7 +55,7 @@ class Vectormap extends React.Component {
                 },
                 paint: {
                     "line-color": "#ffc617",
-                    "line-width": 4
+                    "line-width": 8
                 }
             });
             this.setState({draw: false});
