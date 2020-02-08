@@ -1,6 +1,6 @@
 import {call, put, takeEvery, select} from "redux-saga/effects";
-import {setpreloader, settPaymentInfo} from "../../store/actions";
-import {requestsTaxi} from "../../api";
+import {setpreloader, settPaymentInfo} from "../../actions";
+import {requestsTaxi} from "../../../api";
 
 
 export function* paymentSaga() {

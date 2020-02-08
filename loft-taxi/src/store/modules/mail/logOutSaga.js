@@ -5,7 +5,7 @@ import {
     setRouteTaxiRedux,
     settPaymentInfoFromOnlyRedux,
     setUserToken
-} from "../../../store/actions";
+} from "../../actions";
 
 export function* logOutSaga() { // выход из приложения
     yield takeEvery(setLogOut, function* () {

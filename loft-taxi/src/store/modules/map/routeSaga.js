@@ -2,9 +2,9 @@ import {takeEvery, call, put} from 'redux-saga/effects';
 import {
     setpreloader,
     setRouteTaxi, setRouteTaxiRedux
-} from '../../store/actions'
+} from '../../actions'
 
-import {requestsTaxi} from "../../api";
+import {requestsTaxi} from "../../../api";
 
 // получение точек маршрута
 

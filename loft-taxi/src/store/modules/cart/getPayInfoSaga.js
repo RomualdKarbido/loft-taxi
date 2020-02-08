@@ -1,6 +1,6 @@
 import {call, put, takeEvery, select} from "redux-saga/effects";
-import {setPayInfo, setpreloader, settPaymentInfoRedux} from "../../store/actions";
-import {requestsTaxi} from "../../api";
+import {setPayInfo, setpreloader, settPaymentInfoRedux} from "../../actions";
+import {requestsTaxi} from "../../../api";
 
 
 // грузим данные пластиковой карты

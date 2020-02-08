@@ -2,11 +2,11 @@ import {fork} from 'redux-saga/effects'
 
 import {authorizationSaga} from './modules/auth/authorizationSaga'
 import {registrationSaga} from './modules/auth/registrationSaga'
-import {logOutSaga} from "../components/main/head/logOutSaga";
+import {logOutSaga} from "./modules/mail/logOutSaga";
 import {addressListSaga} from "../components/map/addressListSaga";
-import {getPayInfoSaga} from "../components/cart/getPayInfoSaga";
-import {paymentSaga} from "../components/cart/paymentSaga";
-import {routeSaga} from "../components/map/routeSaga";
+import {getPayInfoSaga} from "./modules/cart/getPayInfoSaga";
+import {paymentSaga} from "./modules/cart/paymentSaga";
+import {routeSaga} from "./modules/map/routeSaga";
 
 export default function* () {
     yield fork(authorizationSaga);

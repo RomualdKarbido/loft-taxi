@@ -13,8 +13,8 @@ const Map = (props) => {
     const dispatch = useDispatch();
 
     let aderssList = useSelector(state => state.addressListReducer);
-    let cartRegistration = useSelector(state => state.addPaynentInfoReducer);
     let listpoint = useSelector(state => state.routerPointReducer.points);
+    let cartRegistration = useSelector(state => state.addPaynentInfoReducer);
 
 
     const [newAddres, setNewAdres] = useState([]); // весь список адресов
@@ -31,7 +31,6 @@ const Map = (props) => {
 
 
     useEffect(() => { // проверка на заполенность платежной информации
-        console.log(cartRegistration);
         if (cartRegistration.cardNumber && cartRegistration.cardNumber.length > 2
             && cartRegistration.cardName && cartRegistration.cardName.length > 2
             && cartRegistration.expiryDate
