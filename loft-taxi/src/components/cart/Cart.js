@@ -43,17 +43,16 @@ const Cart = (props) => {
 
     const handleChange = (event) => {
 
-            if (event.target.name === 'cardNumber') {
-                setcardNumber(event.target.value);
-                dispatch(settPaymentInfoFromOnlyRedux({cardNumber: event.target.value}));
-            } else if (event.target.name === 'cardName') {
-                setcardName(event.target.value);
-                dispatch(settPaymentInfoFromOnlyRedux({cardName: event.target.value}));
-            } else if (event.target.name === 'cvc') {
-                setCvc(event.target.value);
-                dispatch(settPaymentInfoFromOnlyRedux({cvc: event.target.value}));
-            }
-
+        if (event.target.name === 'cardNumber') {
+            setcardNumber(event.target.value);
+            dispatch(settPaymentInfoFromOnlyRedux({cardNumber: event.target.value}));
+        } else if (event.target.name === 'cardName') {
+            setcardName(event.target.value);
+            dispatch(settPaymentInfoFromOnlyRedux({cardName: event.target.value}));
+        } else if (event.target.name === 'cvc') {
+            setCvc(event.target.value);
+            dispatch(settPaymentInfoFromOnlyRedux({cvc: event.target.value}));
+        }
 
 
     };

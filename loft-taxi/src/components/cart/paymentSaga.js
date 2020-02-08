@@ -1,11 +1,6 @@
 import {call, put, takeEvery, select} from "redux-saga/effects";
 import {setpreloader, settPaymentInfo} from "../../store/actions";
-
-const link = 'https://loft-taxi.glitch.me/';
-
-const setPaymentInfo = (payInfo) => fetch(`${link}/card`, {
-    method: 'post', body: JSON.stringify(payInfo), headers: {'content-type': 'application/json'}
-}).then(response => response.json()); // отправка платежной информации
+import {requestsTaxi} from "../../api";
 
 
 export function* paymentSaga() {
@@ -18,14 +13,19 @@ export function* paymentSaga() {
         const getToke = state => state.token.token;
         let toke = yield select(getToke); // получаем токен из redux
 
-        payIinfo.token = toke; // добавить токен
+        payIinfo.token = toke; // добаляем токен в обьъект c данными карты
 
-        const result = yield call(setPaymentInfo, payIinfo); // сохраняем в базу
-        if (result.success) {
-            yield put(setpreloader({preloaderState: false}));
-        } else {
-            console.log(result.error);
-            yield put(setpreloader({preloaderState: false}));
+        try {
+            const result = yield call(requestsTaxi('POST', 'card', payIinfo)); // сохраняем в базу
+            if (result.success) {
+                yield put(setpreloader({preloaderState: false}));
+            } else {
+                console.log(result.error);
+                yield put(setpreloader({preloaderState: false}));
+            }
+        } catch (e) {
+            console.log(e)
         }
+
     })
 }

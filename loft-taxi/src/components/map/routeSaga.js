@@ -3,27 +3,26 @@ import {
     setpreloader,
     setRouteTaxi, setRouteTaxiRedux
 } from '../../store/actions'
-import get from "redux-actions/lib/utils/get";
-const link = 'https://loft-taxi.glitch.me/';
 
+import {requestsTaxi} from "../../api";
 
-
-
-const getRouteTaxi = (adress) => fetch(`${link}//route?address1=${adress.start}&address2=${adress.finish}`, {
-    method: 'get', headers: {'content-type': 'application/json'}
-}).then(response => response.json()); // получение платежной информации
+// получение точек маршрута
 
 export function* routeSaga() {
     yield takeEvery(setRouteTaxi, function* (actions) {
         yield put(setpreloader({preloaderState: true}));
         const taxiInfo = actions.payload;
-        const result = yield call(getRouteTaxi, taxiInfo);
-        if (result) {
-            yield put(setRouteTaxiRedux({points: result}));
-            yield put(setpreloader({preloaderState: false}));
-        } else {
-            yield put(setRouteTaxiRedux({points: []}));
-            yield put(setpreloader({preloaderState: false}));
+        try {
+            const result = yield call(requestsTaxi('GET', `route?address1=${taxiInfo.start}&address2=${taxiInfo.finish}`));
+            if (result) {
+                yield put(setRouteTaxiRedux({points: result}));
+                yield put(setpreloader({preloaderState: false}));
+            } else {
+                yield put(setRouteTaxiRedux({points: []}));
+                yield put(setpreloader({preloaderState: false}));
+            }
+        } catch (e) {
+            console.log(e);
         }
     })
 }
