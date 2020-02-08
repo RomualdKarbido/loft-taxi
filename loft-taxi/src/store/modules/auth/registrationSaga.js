@@ -5,7 +5,7 @@ import {
     setMessageError,
     setpreloader,
     setRegistration,
-    setUserAcitve, setUserInfo,
+    setUserInfo,
     setUserToken
 } from "../../actions";
 
@@ -16,25 +16,21 @@ export function* registrationSaga() {
         yield put(setpreloader({preloaderState: true})); // включаем прелоадер
         try {
             const result = yield call(requestsTaxi('POST', 'register', actions.payload));
-            console.log(result);
             if (result.success) {
-                yield put(setUserToken({token: result.token}));
-                yield put(setUserAcitve({state: true}));
-                let userInfo = {
-                    email: actions.payload.name,
-                    token: result.token
-                };
-                localStorage.setItem('userInfo', JSON.stringify(userInfo));
+                let userinfo = {
+                    name: actions.payload.email,
+                    pass: actions.payload.password
+                }
+                yield put(setUserInfo(userinfo));
             } else {
                 yield put(setLogOut());
                 yield put(setMessageError({err: result.error}));
                 yield put(setUserToken({token: ''}));
                 localStorage.removeItem('userInfo');
+                yield put(setpreloader({preloaderState: false}));
             }
         } catch (e) {
             console.log(e);
-        } finally {
-            yield put(setpreloader({preloaderState: false}));
         }
     })
 }

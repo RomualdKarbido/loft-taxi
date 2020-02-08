@@ -9,7 +9,8 @@ import {
     setAdressListRedux,
     settPaymentInfoRedux,
     settPaymentInfoFromOnlyRedux,
-    setRouteTaxiRedux
+    setRouteTaxiRedux,
+    setRegistration
 } from './actions';
 
 const defaultState = {
@@ -26,6 +27,7 @@ export const loginBlockReducer = (state = defaultState, action) => {
             return {
                 ...state, name
             };
+
         case setUserAcitve.toString():
             return {
                 ...state, ...action.payload
