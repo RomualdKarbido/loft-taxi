@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
-import {setAdressList, setRouteTaxi, setRouteTaxiRedux} from "../../store/actions";
+import {setRouteTaxi} from "../../store/actions";
 
 
 const Map = (props) => {
@@ -13,8 +13,9 @@ const Map = (props) => {
     const dispatch = useDispatch();
 
     let aderssList = useSelector(state => state.addressListReducer);
-    let stateCart = useSelector(state => state.addPaynentInfoReducer.cardNumber);
+    let cartRegistration = useSelector(state => state.addPaynentInfoReducer);
     let listpoint = useSelector(state => state.routerPointReducer.points);
+
 
     const [newAddres, setNewAdres] = useState([]); // весь список адресов
     const [oneList, setOnelist] = useState([]);
@@ -23,8 +24,24 @@ const Map = (props) => {
     const [start, setStart] = useState('');
     const [finish, setFinish] = useState('');
 
+    const [stateCart, setstateCart] = useState(false); // статус платежной информации
     const [stateTaxi, setstateTaxi] = useState(false); // статус вызванного такси
 
+
+
+
+    useEffect(() => { // проверка на заполенность платежной информации
+        console.log(cartRegistration);
+        if (cartRegistration.cardNumber && cartRegistration.cardNumber.length > 2
+            && cartRegistration.cardName && cartRegistration.cardName.length > 2
+            && cartRegistration.expiryDate
+            && cartRegistration.cvc && cartRegistration.cvc.length > 2) {
+            setstateCart(true);
+
+        } else {
+            setstateCart(false);
+        }
+    }, [cartRegistration]);
 
     useEffect(() => {
         let adrr = [];

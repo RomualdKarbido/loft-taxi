@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Cart from "../cart/Cart";
 import Toolltip from "./tooltip/Tooltip";
 import {useDispatch, useSelector} from "react-redux";
-import {settPaymentInfo, setRouteTaxiRedux, settPaymentInfoFromOnlyRedux} from '../../store/actions'
+import {settPaymentInfo, setRouteTaxiRedux} from '../../store/actions'
 
 const Profile = (props) => {
 

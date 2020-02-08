@@ -6,7 +6,7 @@ import Head from "./head/head";
 import {useDispatch, useSelector} from "react-redux";
 import {setAdressList, setPayInfo} from "../../store/actions";
 
-const Main = (props) => {
+const Main = () => {
     const isLodined = useSelector(state => state.lloginblock.state);
     const dispatch = useDispatch();
 

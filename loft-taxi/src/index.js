@@ -32,6 +32,13 @@ if (stringInfo) {
     store.dispatch(setLogOut());
 }
 
+
+
+
+
+
+
+
 ReactDOM.render(
     <Provider store={store}>
         <Router>

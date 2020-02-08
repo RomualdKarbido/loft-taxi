@@ -1,12 +1,14 @@
 import {call, put, takeEvery, select} from "redux-saga/effects";
-import {setPayInfo, settPaymentInfoRedux} from "../../store/actions";
+import {setPayInfo, setpreloader, settPaymentInfoRedux} from "../../store/actions";
 import {requestsTaxi} from "../../api";
 
 
+// грузим данные пластиковой карты
 
 export function* getPayInfoSaga() {
     yield takeEvery(setPayInfo, function* (actions) {
-        // console.log('Грузим данные пластиковой карты');
+
+        yield put(setpreloader({preloaderState: true})); // включаем прелоадер
         const getToke = state => state.token.token;
         let toke = yield select(getToke); // получаем токен из redux
         try {
@@ -23,6 +25,8 @@ export function* getPayInfoSaga() {
             }
         } catch (e) {
             console.log(e);
+        } finally {
+            yield put(setpreloader({preloaderState: false}));
         }
     })
 }
