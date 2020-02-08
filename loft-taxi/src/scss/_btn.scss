@@ -17,6 +17,15 @@
   position: relative;
   z-index: 10;
   overflow: hidden;
+  &__disabled {
+    background: #a0a0a0;
+    color: white;
+    &:hover {
+      &:before {
+        display: none;
+      }
+    }
+  }
   span {
     position: relative;
     display: inline-block;

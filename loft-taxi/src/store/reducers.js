@@ -88,11 +88,11 @@ export const addressListReducer = (state = addresses, action) => {
 };
 export const addPaynentInfoReducer = (state = {}, action) => {
     switch (action.type) {
-        case settPaymentInfoRedux.toString():
+        case settPaymentInfoRedux.toString():  //сохраняет в базу
             return {
                 ...state, ...action.payload
             };
-        case settPaymentInfoFromOnlyRedux.toString():
+        case settPaymentInfoFromOnlyRedux.toString(): // сохраняет только в storage
             return {
                 ...state, ...action.payload
             };

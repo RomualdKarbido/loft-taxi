@@ -8,21 +8,25 @@ import {settPaymentInfoFromOnlyRedux} from "../../store/actions";
 
 const Cart = (props) => {
 
-    const storageInfo = useSelector(state => state.addPaynentInfoReducer);
+    const dispatch = useDispatch();
+
+    const storageInfo = useSelector(state => state.addPaynentInfoReducer); // тянем даанные из store
 
     const [tooltip, setTooltip] = useState(false);
     const [cvcVisible, setcvcVisible] = useState(false);
 
     const [cardNumber, setcardNumber] = useState('');
-    const [expiryDate, setexpiryDate] = useState(new Date());
+    const [expiryDate, setexpiryDate] = useState(null);
     const [cardName, setcardName] = useState('');
     const [cvc, setCvc] = useState('');
 
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        setcardNumber(storageInfo.cardNumber);
-        setcardName(storageInfo.cardName);
+    useEffect(() => { // при изменении полей сразу пишем в storage
+        if (storageInfo.cardNumber) {
+            setcardNumber(storageInfo.cardNumber);
+        }
+        if (storageInfo.cardName) {
+            setcardName(storageInfo.cardName);
+        }
         if (storageInfo.expiryDate) {
             setexpiryDate(new Date(storageInfo.expiryDate));
         }
@@ -38,16 +42,20 @@ const Cart = (props) => {
     };
 
     const handleChange = (event) => {
-        if (event.target.name === 'cardNumber') {
-            setcardNumber(event.target.value);
-            dispatch(settPaymentInfoFromOnlyRedux({cardNumber: event.target.value}));
-        } else if (event.target.name === 'cardName') {
-            setcardName(event.target.value);
-            dispatch(settPaymentInfoFromOnlyRedux({cardName: event.target.value}));
-        } else if (event.target.name === 'cvc') {
-            setCvc(event.target.value);
-            dispatch(settPaymentInfoFromOnlyRedux({cvc: event.target.value}));
-        }
+
+            if (event.target.name === 'cardNumber') {
+                setcardNumber(event.target.value);
+                dispatch(settPaymentInfoFromOnlyRedux({cardNumber: event.target.value}));
+            } else if (event.target.name === 'cardName') {
+                setcardName(event.target.value);
+                dispatch(settPaymentInfoFromOnlyRedux({cardName: event.target.value}));
+            } else if (event.target.name === 'cvc') {
+                setCvc(event.target.value);
+                dispatch(settPaymentInfoFromOnlyRedux({cvc: event.target.value}));
+            }
+
+
+
     };
 
     const visibleCVC = () => {

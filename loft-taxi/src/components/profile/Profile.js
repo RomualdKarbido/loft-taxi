@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Cart from "../cart/Cart";
 import Toolltip from "./tooltip/Tooltip";
 import {useDispatch, useSelector} from "react-redux";
-import {settPaymentInfo, setRouteTaxiRedux} from '../../store/actions'
+import {settPaymentInfo, setRouteTaxiRedux, settPaymentInfoFromOnlyRedux} from '../../store/actions'
 
 const Profile = (props) => {
 
@@ -11,11 +11,21 @@ const Profile = (props) => {
     const tool = (st) => setTooll(st);
     const dispatch = useDispatch();
 
-    // const payInfo = useSelector(state => state.addPaynentInfoReducer);
+    const payInfo = useSelector(state => state.addPaynentInfoReducer);
+    const [saveBtn, setsaveBtn] = useState(false);
 
     useEffect(() => {
         dispatch(setRouteTaxiRedux({points: []}));
     }, []);
+
+    useEffect(() => {
+        if (payInfo.cardNumber && payInfo.cardNumber.length > 2
+            && payInfo.cardName && payInfo.cardName.length > 2
+            && payInfo.expiryDate
+            && payInfo.cvc && payInfo.cvc.length > 2) {
+            setsaveBtn(true);
+        } else {setsaveBtn(false)}
+    }, [payInfo]);
 
 
     const setPaymentInfo = () => {
@@ -49,7 +59,12 @@ const Profile = (props) => {
                                 {tooll ? <Toolltip/> : null}
 
                                 <div className={'profile__modal-btns'}>
-                                    <div className='btn' onClick={setPaymentInfo}><span>Coхранить</span></div>
+                                    {
+                                        saveBtn
+                                            ? <div className='btn' onClick={setPaymentInfo}><span>Coхранить</span></div>
+                                            : <div className='btn btn__disabled'>
+                                                <span>Необходимо заполнить все поля</span></div>
+                                    }
                                 </div>
                             </div>
                         </form>
