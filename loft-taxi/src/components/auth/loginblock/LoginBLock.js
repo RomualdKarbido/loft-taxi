@@ -13,9 +13,6 @@ const SignupSchema = yup.object().shape({
 
 const LoginBlock = () => {
 
-
-
-
     const dispatch = useDispatch();
     const {register, handleSubmit, errors} = useForm({
         validationSchema: SignupSchema
@@ -29,9 +26,6 @@ const LoginBlock = () => {
         errors.name ? seterrName( true) : seterrName( false);
         errors.pass ? seterrPass( true) : seterrPass( false);
     }, [errors]);
-
-
-
 
 
 
@@ -57,7 +51,6 @@ const LoginBlock = () => {
                                name={'pass'}
                                type={'password'}
                                inputRef={register}
-
                     />
                 </div>
             </div>
@@ -71,8 +64,6 @@ const LoginBlock = () => {
             </button>
         </div>
     </form>
-
 };
-
 
 export default LoginBlock;
