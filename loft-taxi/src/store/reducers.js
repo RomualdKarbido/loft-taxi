@@ -9,8 +9,7 @@ import {
     setAdressListRedux,
     settPaymentInfoRedux,
     settPaymentInfoFromOnlyRedux,
-    setRouteTaxiRedux,
-    setRegistration
+    setRouteTaxiRedux
 } from './actions';
 
 const defaultState = {
