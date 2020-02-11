@@ -1,18 +1,22 @@
-import React, {useState} from "react";
-import {Redirect, Route, Switch} from "react-router-dom";
+import React, {useEffect} from "react";
+import {Route, Switch, Redirect} from "react-router-dom";
 import Map from "../map/Map";
 import Profile from "../profile/Profile";
 import Head from "./head/head";
-import {connect} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {setAdressList, setPayInfo} from "../../store/actions";
+
+const Main = () => {
+    const isLodined = useSelector(state => state.lloginblock.state);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(setAdressList()); // если redux пустой то получаем адреса
+        dispatch(setPayInfo()); // данные пластиковй карты
+    }, []);
 
 
-const Main = (props) => {
-
-    console.log('залиогиненность', props.isLoggedIn);
-
-    if (!props.isLoggedIn) {
-        return <Redirect path="/"/>
-    } else {
+    if (isLodined) {
         return (
             <React.Fragment>
                 <Head/>
@@ -22,17 +26,11 @@ const Main = (props) => {
                 </Switch>
             </React.Fragment>
         )
+    } else {
+        return <Redirect to={'/'}/>
     }
 };
 
-const mapStateToProps = state => {
-    console.log(state.lloginblock);
-    return  ({isLoggedIn: state.lloginblock.state});
-}
-
-
-
-export default connect(mapStateToProps, '')(Main);
-// export default Main;
+export default Main;
 
 

@@ -1,85 +1,64 @@
-import React, {useState} from "react";
+import React from "react";
 import TextField from "@material-ui/core/TextField";
-import {useHistory} from "react-router-dom";
-
-import {connect} from "react-redux";
-import {setUserInfo} from '../../../store/loginblock/actions'
-
-
+import {useDispatch} from "react-redux";
+import {setUserInfo} from '../../../store/actions'
+import {useForm} from "react-hook-form";
+import * as yup from 'yup'; // for everything
 
 
+const SignupSchema = yup.object().shape({
+    name: yup.string().required().min(3).max(20).email('Invalid email'),
+    pass: yup.string().required().min(3).max(20)
+});
 
+const LoginBlock = () => {
 
-const LoginBlock = (props) => {
+    const dispatch = useDispatch();
+    const {register, handleSubmit, errors} = useForm({
+        validationSchema: SignupSchema
+    });
+    const onSubmit = (data) => {
+        dispatch(setUserInfo(data));
+    };
 
+    const hasError = (inputName) => !!(errors[inputName]); // обработчик ошибок
 
-    const [name, setNamne] = useState('');
-    const [pass, setPass] = useState('');
-    const [errnaname, setErrnaname] = useState(false);
-    const [errpass, setErrpass] = useState(false);
-
-    const history = useHistory();
-
-
-    const onsubmitBtn = () => {
-
-        if (name.length > 2 && pass.length > 2) {
-            // logIn(name, pass);
-            setErrnaname(false);
-            setErrpass(false);
-
-            let logInfo = {
-                name: name,
-                pass: pass,
-                state: true
-            };
-            props.setUserInfo(logInfo); // отправляем данные в redux
-            history.push("/map"); // переходим на карту
-
-        } else {
-            if (name.length <= 2) setErrnaname(true);
-            else setErrnaname(false);
-            if (pass.length <= 2) setErrpass(true);
-            else setErrpass(false);
-        }
-    }
-
-    return <div>
+    return <form autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
         <div className={'auth__form'}>
-            <form autoComplete="off">
+            <div>
                 <div className={'auth__line'}>
                     <TextField id="standard-basicc1"
-                               error={errnaname}
-                               label="Имя"
-                               inputProps={{'data-testid': 'input1'}}
-
+                               error={hasError('name')}
+                               label="E-mail"
+                        // inputProps={{'data-testid': 'input1'}}
+                               defaultValue={'test5@test.com'}
                                name={'name'}
-                               onChange={event => setNamne(event.target.value)}
+                               inputRef={register}
                     />
+
                 </div>
                 <div className={'auth__line'}>
                     <TextField id="password-basicc2"
-                               error={errpass}
-                               inputProps={{'data-testid': 'input2'}}
+
+                               error={hasError('pass')}
+                        // inputProps={{'data-testid': 'input2'}}
                                label="Пароль"
                                name={'pass'}
                                type={'password'}
-                               onChange={event => setPass(event.target.value)}
+                               inputRef={register}
                     />
                 </div>
-            </form>
+            </div>
         </div>
         <div className={'auth__submit-wrap'}>
-            <div className={'btn'} data-testid={'btnsend'} onClick={onsubmitBtn}>Войти</div>
+            <button
+                className={'btn'}
+                data-testid={'btnsend'}
+                onClick={handleSubmit(onSubmit)}
+            ><span>Войти</span>
+            </button>
         </div>
-    </div>
+    </form>
+};
 
-}
-
-
-const mapDispatchToProps = {
-    setUserInfo
-}
-
-
-export default connect('', mapDispatchToProps )(LoginBlock);
+export default LoginBlock;

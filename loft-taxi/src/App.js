@@ -1,38 +1,30 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './App.scss';
 import Auth from "./components/auth/Auth";
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Main from "./components/main/main";
-
-import {createStore} from "redux";
-import {Provider} from 'react-redux'
-import rootReducer from './store/reducers'
-
+import Preloader from "./components/preloader/preloader";
+import {Switch, Route} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 
 
 const App = () => {
-const store = createStore(rootReducer);
 
-store.subscribe(x => {
-
-    console.log( 'подписка из app' ,store.getState());
-});
-
-
+    const preloader = useSelector(state => state.pleloader.preloaderState);
     return (
-        <Provider store={store}>
-            <Router>
+        <React.Fragment>
+            {preloader ? <Preloader/> : null}
                 <Switch>
-                    <Route path="/map" component={Main}/>
-                    <Route path="/profile" component={Main}/>
+                    <Route exact path="/profile" component={Main}/>
+                    <Route exact path="/map" component={Main}/>
                     <Route path="/" component={Auth}/>
                 </Switch>
-            </Router>
-        </Provider>
+
+        </React.Fragment>
     )
-}
+};
 
 export default App;
 
 
+// return <Redirect  to={'/'}/>

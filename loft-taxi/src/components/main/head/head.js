@@ -1,31 +1,30 @@
+import React from "react";
 import {Link, NavLink} from "react-router-dom";
-import React, {useContext} from "react";
-import { useHistory } from "react-router-dom";
-import {connect} from "react-redux";
-import {setUserInfo} from "../../../store/loginblock/actions";
+import {useDispatch, useSelector} from "react-redux";
+import {setLogOut} from "../../../store/actions";
 
 
 const Head = (props) => {
-    const history = useHistory();
+
+    const dispatch = useDispatch();
+    let username = useSelector(state => state.lloginblock.name);
 
     const logOut = () => {
-        console.log('выход');
-
-        let logInfo = {
-            name: '',
-            pass: '',
-            state: false
-        };
-        props.setUserInfo(logInfo); // отправляем данные в redux
+        dispatch(setLogOut()); // обнуляем данные в redux
     };
+
+
     return (
-        <div className={'header'}>
+        <div className='header'>
             <div className={'header__wrap'}>
                 <Link to={'/profile'} className={'header__logo'}></Link>
+                <div className='header__user'>{username}</div>
                 <div className={'header__right'}>
-                    <NavLink activeClassName="active" className={'header__right-item'} to={'/map'}>Карта</NavLink>
-                    <NavLink activeClassName="active" className={'header__right-item'} to={'/profile'}>Профиль</NavLink>
-                    <div className='header__right-item' onClick={logOut} >Выйти</div>
+                    <NavLink activeClassName="active" className={'header__right-item'}
+                             to={'/map'}><span>Карта</span></NavLink>
+                    <NavLink activeClassName="active" className={'header__right-item'}
+                             to={'/profile'}><span>Профиль</span></NavLink>
+                    <div className='header__right-item' onClick={logOut}><span>Выйти</span></div>
                 </div>
             </div>
         </div>
@@ -33,8 +32,4 @@ const Head = (props) => {
 }
 
 
-const mapDispatchToProps = {
-    setUserInfo
-};
-
-export default connect('', mapDispatchToProps)(Head);
+export default Head;
