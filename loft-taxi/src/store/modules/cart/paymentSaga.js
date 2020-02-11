@@ -18,13 +18,15 @@ export function* paymentSaga() {
         try {
             const result = yield call(requestsTaxi('POST', 'card', payIinfo)); // сохраняем в базу
             if (result.success) {
-                yield put(setpreloader({preloaderState: false}));
+
             } else {
                 console.log(result.error);
-                yield put(setpreloader({preloaderState: false}));
+
             }
         } catch (e) {
             console.log(e)
+        } finally {
+            yield put(setpreloader({preloaderState: false}));
         }
 
     })

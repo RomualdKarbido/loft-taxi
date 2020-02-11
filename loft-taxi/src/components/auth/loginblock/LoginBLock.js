@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import TextField from "@material-ui/core/TextField";
 import {useDispatch} from "react-redux";
 import {setUserInfo} from '../../../store/actions'
@@ -20,21 +20,15 @@ const LoginBlock = () => {
     const onSubmit = (data) => {
         dispatch(setUserInfo(data));
     };
-    const [errName, seterrName] = useState(false);
-    const [errPass, seterrPass] = useState(false);
-    useEffect(()=> {
-        errors.name ? seterrName( true) : seterrName( false);
-        errors.pass ? seterrPass( true) : seterrPass( false);
-    }, [errors]);
 
-
+    const hasError = (inputName) => !!(errors[inputName]); // обработчик ошибок
 
     return <form autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
         <div className={'auth__form'}>
             <div>
                 <div className={'auth__line'}>
                     <TextField id="standard-basicc1"
-                               error={errName}
+                               error={hasError('name')}
                                label="E-mail"
                         // inputProps={{'data-testid': 'input1'}}
                                defaultValue={'test5@test.com'}
@@ -45,7 +39,8 @@ const LoginBlock = () => {
                 </div>
                 <div className={'auth__line'}>
                     <TextField id="password-basicc2"
-                               error={errPass}
+
+                               error={hasError('pass')}
                         // inputProps={{'data-testid': 'input2'}}
                                label="Пароль"
                                name={'pass'}

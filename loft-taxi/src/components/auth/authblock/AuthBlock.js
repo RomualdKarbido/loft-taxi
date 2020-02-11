@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import TextField from "@material-ui/core/TextField";
 import {setRegistration} from "../../../store/actions";
 import {useDispatch} from "react-redux";
@@ -23,18 +23,7 @@ const AuthBlock = (props) => {
         dispatch(setRegistration(data));
     };
 
-    const [erremail, seterremail] = useState(false);
-    const [errname, seterrname] = useState(false);
-    const [errsurname, sererrsurname] = useState(false);
-    const [errpassword, seterrpassword] = useState(false);
-
-    useEffect(() => {
-        errors.email ? seterremail(true) : seterremail(false);
-        errors.name ? seterrname(true) : seterrname(false);
-        errors.surname ? sererrsurname(true) : sererrsurname(false);
-        errors.password ? seterrpassword(true) : seterrpassword(false);
-    }, [errors]);
-
+    const hasError = (inputName) => !!(errors[inputName]); // обработчик ошибок
 
     return <form noValidate autoComplete="off">
 
@@ -43,7 +32,7 @@ const AuthBlock = (props) => {
                 <div className={'auth__line'}>
                     <TextField id="standard-basic3"
                                label="Адрес электронной почты"
-                               error={erremail}
+                               error={hasError('email')}
                                name={'email'}
                                type={'email'}
                                inputRef={register({required: true, minLength: 2})}
@@ -53,7 +42,7 @@ const AuthBlock = (props) => {
                 <div className={'auth__line'}>
                     <div className={'auth__halfline'}>
                         <TextField
-                            error={errname}
+                            error={hasError('name')}
                             id="standard-basic4"
                             label="Имя"
                             name="name"
@@ -62,7 +51,7 @@ const AuthBlock = (props) => {
                     </div>
                     <div className={'auth__halfline'}>
                         <TextField id="standard-basic5"
-                                   error={errsurname}
+                                   error={hasError('surname')}
                                    label="Фамилия"
                                    name={'surname'}
                                    inputRef={register({required: true, minLength: 2})}
@@ -71,7 +60,7 @@ const AuthBlock = (props) => {
                 </div>
                 <div className={'auth__line'}>
                     <TextField id="standard"
-                               error={errpassword}
+                               error={hasError('password')}
                                label="Пароль"
                                type="password"
                                name={'password'}
@@ -86,6 +75,6 @@ const AuthBlock = (props) => {
         </div>
     </form>
 
-}
+};
 
 export default AuthBlock;
