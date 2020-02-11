@@ -28,7 +28,6 @@ const Profile = (props) => {
         validationSchema: SignupSchema
     });
 
-
     const [tooll, setTooll] = useState(false);
     const [expiryDate, setexpiryDate] = useState(null);
     const [cvcVisible, setcvcVisible] = useState(false);
@@ -66,24 +65,22 @@ const Profile = (props) => {
         tooll ? setTooll(false) : setTooll(true);
     };
 
-    const handleDateChangeCVC = date => { // изменение cvc
+    const handleDateChangeCVC = date => { // изменение видимости cvc
         date.target.value.length > 0 ? seteye(true) : seteye(false);
     };
 
-    const handleDateChange = date => { // изменение календаря
+    const handleDateChange = date => { // изменение поля календаря
         setexpiryDate(date);
     };
 
 
     const setPaymentInfo = (value) => { // сохранение текущего
-        console.log(value);
         value.expiryDate = expiryDate; // допиливаем дату
         dispatch(settPaymentInfoFromOnlyRedux(value)); //обновляе данные в редукс
         dispatch(settPaymentInfo()); // сохраняем на сервере
     };
 
-    console.log(errors);
-
+    // console.log(errors);
     return (
         <React.Fragment>
             <div className={'profile__bg'}>
@@ -96,8 +93,6 @@ const Profile = (props) => {
                                 <div className={'profile__cartblock'}>
                                     <div className={'profile__cart'}>
                                         <div className={'profile__cart-item'}>
-
-
                                             <div className={'cart__wrap'}>
                                                 <div className={'cart__logo'}></div>
                                                 <div className={'cart__form'}>
