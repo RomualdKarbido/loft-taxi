@@ -7,11 +7,12 @@ import {setLogOut} from "../../../store/actions";
 const Head = (props) => {
 
     const dispatch = useDispatch();
-    const username = useSelector(state => state.lloginblock.name);
+    let username = useSelector(state => state.lloginblock.name);
 
     const logOut = () => {
         dispatch(setLogOut()); // обнуляем данные в redux
     };
+
 
     return (
         <div className='header'>

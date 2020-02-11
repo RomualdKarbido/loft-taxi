@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './App.scss';
 import Auth from "./components/auth/Auth";
 import Main from "./components/main/main";
@@ -7,11 +7,10 @@ import {Switch, Route} from "react-router-dom";
 import {useSelector} from "react-redux";
 
 
+
 const App = () => {
 
     const preloader = useSelector(state => state.pleloader.preloaderState);
-
-
     return (
         <React.Fragment>
             {preloader ? <Preloader/> : null}

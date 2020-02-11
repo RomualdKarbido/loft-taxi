@@ -1,5 +1,16 @@
 import {combineReducers} from 'redux';
-import {setUserInfo, setUserToken, setUserAcitve, setLogOut, setpreloader, setMessageError} from './actions';
+import {
+    setUserInfo,
+    setUserToken,
+    setUserAcitve,
+    setLogOut,
+    setpreloader,
+    setMessageError,
+    setAdressListRedux,
+    settPaymentInfoRedux,
+    settPaymentInfoFromOnlyRedux,
+    setRouteTaxiRedux
+} from './actions';
 
 const defaultState = {
     name: '',
@@ -15,6 +26,7 @@ export const loginBlockReducer = (state = defaultState, action) => {
             return {
                 ...state, name
             };
+
         case setUserAcitve.toString():
             return {
                 ...state, ...action.payload
@@ -52,7 +64,6 @@ export const preloader = (state = {preloaderState: false}, action) => {
 };
 
 
-
 export const messageErrorReducer = (state = {err: ''}, action) => {
     switch (action.type) {
         case setMessageError.toString():
@@ -64,6 +75,45 @@ export const messageErrorReducer = (state = {err: ''}, action) => {
     }
 };
 
+const addresses = [];
+
+export const addressListReducer = (state = addresses, action) => {
+    switch (action.type) {
+        case setAdressListRedux.toString():
+            return {
+                ...state, ...action.payload
+            };
+        default:
+            return state;
+    }
+};
+export const addPaynentInfoReducer = (state = {}, action) => {
+    switch (action.type) {
+        case settPaymentInfoRedux.toString():  //сохраняет в базу
+            return {
+                ...state, ...action.payload
+            };
+        case settPaymentInfoFromOnlyRedux.toString(): // сохраняет только в storage
+            return {
+                ...state, ...action.payload
+            };
+        default:
+            return state;
+    }
+};
+
+const pointss = {points: []};
+
+export const routerPointReducer = (state = pointss, action) => { // точки построенного маршрута
+    switch (action.type) {
+        case setRouteTaxiRedux.toString():
+            return {
+                ...state, ...action.payload
+            };
+        default:
+            return state;
+    }
+};
 
 
 export default combineReducers({
@@ -71,4 +121,7 @@ export default combineReducers({
     token: setToken,
     pleloader: preloader,
     messageErrorReducer: messageErrorReducer,
+    addressListReducer: addressListReducer,
+    addPaynentInfoReducer: addPaynentInfoReducer,
+    routerPointReducer: routerPointReducer
 });

@@ -121,3 +121,27 @@
     }
   }
 }
+
+@media (max-width: 1090px) {
+  .profile {
+    &__content {
+      max-width: calc(100% - 32px);
+      padding: 100px;
+      color: white;
+      margin: 0 auto;
+    }
+    &__modal {
+      width: 100%;
+      padding: 65px 45px;
+    }
+    &__cartblock {
+
+    }
+
+    &__cart {
+      &-item {
+        width: calc(100% - 16px);
+      }
+    }
+  }
+}
