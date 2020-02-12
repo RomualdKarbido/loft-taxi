@@ -31,16 +31,6 @@ const Auth = (props) => {
     }
 
 
-
-    if (err === 'Пользователь успешно зарегистрирован') {
-        setTimeout(()=> {
-            setLoginwin(true);
-            setTitle('Вход');
-            setLogined('Зарегистрируйтесь');
-            setLoginedtext('Новый пользователь? ');
-        }, 3000);
-    }
-
     if (isLodined) {
         return <Redirect to={'/map'}/>
     } else {

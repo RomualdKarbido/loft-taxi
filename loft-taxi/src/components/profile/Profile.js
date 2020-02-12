@@ -94,7 +94,7 @@ const Profile = (props) => {
                                     <div className={'profile__cart'}>
                                         <div className={'profile__cart-item'}>
                                             <div className={'cart__wrap'}>
-                                                <div className={'cart__logo'}></div> 
+                                                <div className={'cart__logo'}></div>
                                                 <div className={'cart__form'}>
                                                     <div className={'cart__line'}>
                                                         <TextField

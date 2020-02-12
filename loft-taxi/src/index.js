@@ -33,12 +33,6 @@ if (stringInfo) {
 }
 
 
-
-
-
-
-
-
 ReactDOM.render(
     <Provider store={store}>
         <Router>
