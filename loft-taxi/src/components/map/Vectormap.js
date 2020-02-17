@@ -1,5 +1,6 @@
 import React from "react";
 import mapboxgl from 'mapbox-gl';
+import {connect} from 'react-redux'
 
 
 class Vectormap extends React.Component {
@@ -9,10 +10,11 @@ class Vectormap extends React.Component {
             lng: 30.355483,
             lat: 59.93168,
             zoom: 10,
-            draw: true
-
+            draw: true,
+            statemap: false
         };
     }
+
 
     componentDidMount() {
         this.mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
@@ -23,62 +25,97 @@ class Vectormap extends React.Component {
             style: 'mapbox://styles/mapbox/streets-v11',
             center: [this.state.lng, this.state.lat],
             zoom: this.state.zoom,
-            local: 'RU',
+            local: 'RU'
         });
+        this.loadMap();
     }
+
+
+    loadMap() {
+        this.map.on('load', () => {
+            this.setState({statemap: true});
+            if (this.props.routepoints.length > 0) {
+                this.drawRoute(this.props.routepoints);
+            }
+        });
+    };
 
     drawRoute = (coordinates) => {
 
-        if (this.state.draw) {
-            this.map.flyTo({
-                center: coordinates[3],
-                zoom: 13
-            });
+        if (this.state.statemap) {
 
-            this.map.addLayer({
-                id: "route",
-                type: "line",
-                source: {
-                    type: "geojson",
-                    data: {
-                        type: "Feature",
-                        properties: {},
-                        geometry: {
-                            type: "LineString",
-                            coordinates
+            if (this.state.draw) {
+                this.map.flyTo({
+                    center: coordinates[3],
+                    zoom: 13
+                });
+
+                this.map.addLayer({
+                    id: "route",
+                    type: "line",
+                    source: {
+                        type: "geojson",
+                        data: {
+                            type: "Feature",
+                            properties: {},
+                            geometry: {
+                                type: "LineString",
+                                coordinates
+                            }
                         }
+                    },
+                    layout: {
+                        "line-join": "round",
+                        "line-cap": "round"
+                    },
+                    paint: {
+                        "line-color": "#ffc617",
+                        "line-width": 8
                     }
-                },
-                layout: {
-                    "line-join": "round",
-                    "line-cap": "round"
-                },
-                paint: {
-                    "line-color": "#ffc617",
-                    "line-width": 8
-                }
-            });
-            this.setState({draw: false});
-        } else {
-            this.map.removeLayer("route");
-            this.map.removeSource("route");
+                });
+                this.setState({draw: false});
+            } else {
+                this.map.removeLayer("route");
+                this.map.removeSource("route");
 
-            this.map.flyTo({
-                center: [this.state.lng, this.state.lat],
-                zoom: this.state.zoom
-            });
-            this.setState({draw: true});
+                this.map.flyTo({
+                    center: [this.state.lng, this.state.lat],
+                    zoom: this.state.zoom
+                });
+                this.setState({draw: true});
+            }
         }
     };
 
+
+    componentDidUpdate(prevProps) {
+
+        if (this.props.routepoints !== prevProps.routepoints) {
+            if (this.props.routepoints.length > 0) {
+                this.drawRoute(this.props.routepoints);
+            } else {
+                if (this.map.getLayer('route')) {
+                    this.drawRoute(this.props.routepoints);
+                }
+            }
+        }
+    };
+
+
     componentWillUnmount() {
         this.map.remove();
-    }
+    };
 
     render() {
         return <div className='map__render' ref={el => this.mapContainer = el}/>;
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        routepoints: state.routerPointReducer.points
+    }
+};
 
-export default Vectormap
+
+export default connect(mapStateToProps)(Vectormap);

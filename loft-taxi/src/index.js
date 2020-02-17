@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import {applyMiddleware, compose, createStore} from "redux";
 import {Provider} from "react-redux";
 import rootReducer from "./store/reducers";
-import {setLogOut, setMessageError, setUserAcitve, setUserToken} from "./store/actions";
+import {setLogOut, setUserAcitve, setUserToken} from "./store/actions";
 import {BrowserRouter as Router} from "react-router-dom";
 import createSagaMiddleWare from 'redux-saga';
 import rootSaga from "./store/rootSaga";
@@ -45,7 +45,3 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
-
-console.log('Marker is here!1');
-console.log('Marker is here!2');
-console.log('Marker is here!3');

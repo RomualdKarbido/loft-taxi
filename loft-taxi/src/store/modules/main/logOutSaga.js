@@ -1,6 +1,6 @@
 import {put, takeEvery} from "redux-saga/effects";
 import {
-    setLogOut, setMessageError,
+    setLogOut,
     setpreloader,
     setRouteTaxiRedux,
     settPaymentInfoFromOnlyRedux,
