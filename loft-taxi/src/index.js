@@ -46,4 +46,6 @@ ReactDOM.render(
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
 
+console.log('Marker is here!1');
+console.log('Marker is here!2');
 console.log('Marker is here!3');
