@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import {applyMiddleware, compose, createStore} from "redux";
 import {Provider} from "react-redux";
 import rootReducer from "./store/reducers";
-import {setLogOut, setMessageError, setUserAcitve, setUserToken} from "./store/actions";
+import {setLogOut, setUserAcitve, setUserToken} from "./store/actions";
 import {BrowserRouter as Router} from "react-router-dom";
 import createSagaMiddleWare from 'redux-saga';
 import rootSaga from "./store/rootSaga";
@@ -31,12 +31,6 @@ if (stringInfo) {
 } else {
     store.dispatch(setLogOut());
 }
-
-
-
-
-
-
 
 
 ReactDOM.render(

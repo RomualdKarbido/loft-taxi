@@ -9,7 +9,7 @@ import {setRouteTaxi} from "../../store/actions";
 
 const Map = (props) => {
 
-    const child = React.createRef();
+
     const dispatch = useDispatch();
 
     let aderssList = useSelector(state => state.addressListReducer);
@@ -60,7 +60,6 @@ const Map = (props) => {
 
     useEffect(() => {
         if (listpoint.length > 0) {
-            child.current.drawRoute(listpoint); // запускаем функцию у дочернего компонента
             setstateTaxi(true);
         }
     }, [listpoint]);
@@ -92,7 +91,6 @@ const Map = (props) => {
         setstateTaxi(false);
         setOnelist(newAddres);
         setTwoList(newAddres);
-        child.current.drawRoute([]);
     };
 
 
@@ -167,7 +165,7 @@ const Map = (props) => {
                 </div>
             </div>
         </div>
-        <Vectormap ref={child}/>
+        <Vectormap />
     </React.Fragment>
 
 }

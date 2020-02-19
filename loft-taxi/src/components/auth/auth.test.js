@@ -1,19 +1,36 @@
 import React from "react";
 import Auth from "./Auth";
-import {render, fireEvent, screen} from "@testing-library/react";
-import {Context} from "../../context";
+import {render, fireEvent} from "@testing-library/react";
+
+import {Provider, useSelector} from "react-redux";
+import {applyMiddleware, compose, createStore} from "redux";
+import rootReducer from "../../store/reducers";
+import createSagaMiddleWare from "redux-saga";
+import rootSaga from "../../store/rootSaga";
+
+
+const sagaMiddleware = createSagaMiddleWare();
+
+const store = createStore(
+    rootReducer,
+    compose(applyMiddleware(sagaMiddleware),
+        window.__REDUX_DEVTOOLS_EXTENSION__
+            ? window.__REDUX_DEVTOOLS_EXTENSION__()
+            : noop => noop
+    ));
+
+sagaMiddleware.run(rootSaga);
 
 
 describe('Проверка переключения модалок входа', () => {
     it('Переключение модального окна логин/аторицазия', () => {
-        const MokkAuth = () => <Auth/>;
 
         const {getByTestId} = render(
-            <Context.Provider value={'provider'}>
-                <MokkAuth/>
-            </Context.Provider>
-       );
-
+            <Provider store={store}>
+                <Auth/>
+            </Provider>
+        );
+      
         const swithBtn = getByTestId('сhangeModal');
         const title = getByTestId('tile');
         const text = getByTestId('text');
@@ -29,3 +46,4 @@ describe('Проверка переключения модалок входа', 
 
     });
 });
+
