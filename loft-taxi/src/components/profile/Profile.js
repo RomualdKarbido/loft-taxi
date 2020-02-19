@@ -3,7 +3,6 @@ import Toolltip from "./tooltip/Tooltip";
 import {useDispatch, useSelector} from "react-redux";
 import {
     settPaymentInfo,
-    setRouteTaxiRedux,
     settPaymentInfoFromOnlyRedux,
 } from '../../store/actions'
 import TextField from "@material-ui/core/TextField";
@@ -35,11 +34,6 @@ const Profile = (props) => {
 
 
     const hasError = (inputName) => !!(errors[inputName]); // обработчик ошибок
-
-    useEffect(() => {
-        dispatch(setRouteTaxiRedux({points: []}));
-    }, []);
-
 
     useEffect(() => { // подтягиваем дынные из redux при езмениее storageInfo
         if (storageInfo.cardNumber) {

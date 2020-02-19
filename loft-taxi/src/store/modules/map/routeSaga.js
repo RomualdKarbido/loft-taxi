@@ -7,7 +7,6 @@ import {
 import {requestsTaxi} from "../../../api";
 
 // получение точек маршрута
-
 export function* routeSaga() {
     yield takeEvery(setRouteTaxi, function* (actions) {
         yield put(setpreloader({preloaderState: true}));
